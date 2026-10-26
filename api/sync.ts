@@ -74,7 +74,7 @@ export async function handleSync(
     if (Number(request.headers.get("Content-Length")) > maxWireBytes)
       return response(413);
     const etag = request.headers.get("If-Match");
-    const create = request.headers.get("If-None-Match") === "*";
+    const create = request.headers.get("X-Create-If-Absent") === "1";
     if (
       (!etag && !create) ||
       (etag && create) ||
