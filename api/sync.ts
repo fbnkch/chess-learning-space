@@ -6,7 +6,7 @@ import {
   BlobPreconditionFailedError,
   BlobNotFoundError,
 } from "@vercel/blob";
-import { maxWireBytes, readLimited } from "../src/sync/protocol";
+import { maxWireBytes, readLimited } from "../src/sync/protocol.js";
 export class PreconditionFailed extends Error {}
 export interface BlobStore {
   read(
