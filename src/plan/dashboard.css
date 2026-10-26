@@ -1,0 +1,119 @@
+.dashboard {
+  max-width: 1200px;
+  margin: auto;
+}
+.dashboard-card {
+  background: var(--surface-raised);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  margin-bottom: var(--space-6);
+}
+.dashboard-card h2 {
+  margin-top: 0;
+  font-size: 1.5rem;
+}
+.dashboard-card p {
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+.dashboard a {
+  color: var(--link);
+  text-underline-offset: 3px;
+}
+.dashboard .welcome {
+  border-left: 4px solid var(--border);
+}
+.dashboard-columns {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: var(--space-6);
+}
+.dashboard-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-4);
+}
+.session-list {
+  padding-left: var(--space-6);
+}
+.session-list li {
+  padding: var(--space-4) 0;
+  border-bottom: 1px solid var(--border);
+}
+.session-list span {
+  display: block;
+  color: var(--text-muted);
+  margin-top: var(--space-1);
+  font-size: 0.875rem;
+}
+.weekly-grid,
+.metric-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-5);
+  margin-bottom: var(--space-6);
+}
+.weekly-grid article,
+.metric-grid article {
+  padding: var(--space-4);
+  background: var(--surface);
+  border-radius: var(--radius-md);
+}
+.dashboard h3 {
+  margin: 0 0 var(--space-2);
+  font-size: 1.0625rem;
+}
+.metric-grid strong {
+  font-size: 1.5625rem;
+}
+.dashboard progress {
+  width: 100%;
+  accent-color: var(--info);
+}
+.dashboard select {
+  max-width: 100%;
+  padding: var(--space-2);
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+}
+.trend-table {
+  overflow-x: auto;
+}
+.dashboard table {
+  border-collapse: collapse;
+  width: 100%;
+  text-align: left;
+}
+.dashboard td,
+.dashboard th {
+  border-bottom: 1px solid var(--border);
+  padding: var(--space-3);
+}
+.dashboard caption {
+  text-align: left;
+  color: var(--text-muted);
+  padding: var(--space-3);
+}
+@media (max-width: 900px) {
+  .dashboard-columns {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .weekly-grid,
+  .metric-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 550px) {
+  .weekly-grid,
+  .metric-grid {
+    grid-template-columns: 1fr;
+  }
+  .dashboard-card {
+    padding: var(--space-4);
+  }
+}

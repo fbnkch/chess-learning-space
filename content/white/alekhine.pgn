@@ -1,0 +1,22 @@
+[Event "Alekhine: space then development"]
+[LineId "alekhine-main"]
+[OpeningGroup "sidelines"]
+[Summary "Structure: ...d6 challenges e5/d4; exd6 leaves space with c4/d4. Plan: develop quickly to protect the advanced pawns, then meet pressure on d4."]
+[Result "*"]
+
+{[%line alekhine-main]}
+1. e4 {Occupy the center and free the light-squared bishop. [%rules pawn-moves-two-to-six]}
+Nf6 {[%weight 3]}
+2. e5 {Gain central space with tempo against the knight. [%rules pawn-moves-two-to-six]}
+Nd5 {[%weight 90]}
+3. d4 {Support e5 and open the c1 bishop's diagonal. [%rules pawn-moves-two-to-six]}
+d6 {[%weight 75]}
+4. Nf3 {Develop a knight to support the advanced center. [%rules one-move-per-piece]}
+Bg4 {[%weight 40]}
+5. Be2 {Break the bishop's pin before completing kingside development. [%rules one-move-per-piece]}
+e6 {[%weight 45]}
+6. O-O {Castle while the center is still supported. [%rules castle-early]}
+Be7 {[%weight 60]}
+7. c4 {Gain space with tempo against the d5 knight. [%rules pawn-moves-two-to-six]}
+Nb6 {[%weight 80]}
+8. exd6 {Release central tension rather than leaving the e5 pawn attacked. [%rules pawn-moves-two-to-six]} *

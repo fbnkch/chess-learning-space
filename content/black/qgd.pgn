@@ -1,0 +1,264 @@
+[Event "QGD: Nc3 and Bg5"]
+[LineId "qgd-nc3"]
+[Main "true"]
+[OpeningGroup "qgd"]
+[Summary "Develop and castle, then contest the center with ...c5; attack a Pillsbury Ne5’s d4 support. In the Carlsbad (White e3/d4, Black c6/d5), watch b4-b5 and weak c6; seek active pieces and a central break."]
+[Result "*"]
+
+{[%line qgd-nc3]}
+1. d4 {[%weight 30]}
+d5 {Claim central space and open a diagonal for the c8 bishop. [%rules pawn-moves-two-to-six]}
+2. c4 {[%weight 54]}
+e6 {Support d5 and open a diagonal for the f8 bishop. [%rules pawn-moves-two-to-six]}
+3. Nc3 {[%weight 44]}
+Nf6 {Develop the kingside knight to prepare castling. [%rules develop-castling-side-first]}
+4. Bg5 {[%weight 10]}
+Be7 {Develop the bishop to prepare kingside castling; with Bd6 and White castled, ...Nxd5?? can lose the queen to Bxd8 without ...Bb4+. [%rules develop-castling-side-first]}
+5. e3 {[%weight 10]}
+O-O {Castle to protect the king and activate the rook. [%rules castle-early]}
+6. Nf3 {[%weight 15]}
+Nbd7 {Support f6 with Nd7; the Elephant trap runs cxd5 exd5 Nxd5? Nxd5 Bxd8 Bb4+ Qd2 Bxd2+ Kxd2 Kxd8, recovering the queen with check. [%rules one-move-per-piece]}
+7. Rc1 {[%weight 10]}
+c6 {Reinforce the central pawn on d5 before completing development. [%rules pawn-moves-two-to-six]}
+8. Bd3 {[%weight 10]}
+dxc4 {Release the central tension and make White spend time recapturing. [%rules capture-when-sharp]} *
+
+[Event "QGD: Nf3 move order"]
+[LineId "qgd-nf3"]
+[OpeningGroup "qgd"]
+[Summary "Develop and castle, then contest the center with ...c5; attack a Pillsbury Ne5’s d4 support. In the Carlsbad (White e3/d4, Black c6/d5), watch b4-b5 and weak c6; seek active pieces and a central break."]
+[Result "*"]
+
+{[%line qgd-nf3]}
+1. d4 {[%weight 30]}
+d5 {Claim central space and open a diagonal for the c8 bishop. [%rules pawn-moves-two-to-six]}
+2. c4 {[%weight 54]}
+e6 {Support d5 and open a diagonal for the f8 bishop. [%rules pawn-moves-two-to-six]}
+3. Nf3 {[%weight 34]}
+Nf6 {Develop the kingside knight to prepare castling. [%rules develop-castling-side-first]}
+4. Nc3 {[%weight 42]}
+Be7 {Develop the bishop to prepare kingside castling; with Bd6 and White castled, ...Nxd5?? can lose the queen to Bxd8 without ...Bb4+. [%rules develop-castling-side-first]}
+5. Bg5 {[%weight 10]}
+O-O {Castle to protect the king and activate the rook. [%rules castle-early]}
+6. e3 {[%weight 10]}
+Nbd7 {Support f6 with Nd7; the Elephant trap runs cxd5 exd5 Nxd5? Nxd5 Bxd8 Bb4+ Qd2 Bxd2+ Kxd2 Kxd8, recovering the queen with check. [%rules one-move-per-piece]}
+7. Rc1 {[%weight 10]}
+c6 {Reinforce the central pawn on d5 before completing development. [%rules pawn-moves-two-to-six]}
+8. Bd3 {[%weight 10]}
+dxc4 {Release the central tension and make White spend time recapturing. [%rules capture-when-sharp]} *
+
+[Event "Exchange: Carlsbad structure"]
+[LineId "qgd-exchange"]
+[OpeningGroup "qgd"]
+[Summary "Develop and castle, then contest the center with ...c5; attack a Pillsbury Ne5’s d4 support. In the Carlsbad (White e3/d4, Black c6/d5), watch b4-b5 and weak c6; seek active pieces and a central break."]
+[Result "*"]
+
+{[%line qgd-exchange]}
+1. d4 {[%weight 30]}
+d5 {Claim central space and open a diagonal for the c8 bishop. [%rules pawn-moves-two-to-six]}
+2. c4 {[%weight 54]}
+e6 {Support d5 and open a diagonal for the f8 bishop. [%rules pawn-moves-two-to-six]}
+3. cxd5 {[%weight 8]}
+exd5 {Recapture toward the center and keep a pawn on d5. [%rules capture-when-sharp]}
+4. Nc3 {[%weight 42]}
+Nf6 {Develop the kingside knight to prepare castling. [%rules develop-castling-side-first]}
+5. Bg5 {[%weight 10]}
+Be7 {Develop the bishop to prepare kingside castling; with Bd6 and White castled, ...Nxd5?? can lose the queen to Bxd8 without ...Bb4+. [%rules develop-castling-side-first]}
+6. e3 {[%weight 10]}
+O-O {Castle to protect the king and activate the rook. [%rules castle-early]}
+7. Bd3 {[%weight 10]}
+Nbd7 {Support f6 with Nd7; the Elephant trap runs cxd5 exd5 Nxd5? Nxd5 Bxd8 Bb4+ Qd2 Bxd2+ Kxd2 Kxd8, recovering the queen with check. [%rules one-move-per-piece]}
+8. Nf3 {[%weight 15]}
+c6 {Reinforce the central pawn on d5 before completing development. [%rules pawn-moves-two-to-six]} *
+
+[Event "QGD: meet Bf4 with Bd6"]
+[LineId "qgd-bf4"]
+[OpeningGroup "qgd"]
+[Summary "Develop and castle, then contest the center with ...c5; attack a Pillsbury Ne5’s d4 support. In the Carlsbad (White e3/d4, Black c6/d5), watch b4-b5 and weak c6; seek active pieces and a central break."]
+[Result "*"]
+
+{[%line qgd-bf4]}
+1. d4 {[%weight 30]}
+d5 {Claim central space and open a diagonal for the c8 bishop. [%rules pawn-moves-two-to-six]}
+2. c4 {[%weight 54]}
+e6 {Support d5 and open a diagonal for the f8 bishop. [%rules pawn-moves-two-to-six]}
+3. Nf3 {[%weight 34]}
+Nf6 {Develop the kingside knight to prepare castling. [%rules develop-castling-side-first]}
+4. Bf4 {[%weight 18]}
+Bd6 {Develop the dark-squared bishop toward the center. [%rules one-move-per-piece]}
+5. Bxd6 {[%weight 10]}
+Qxd6 {Recapture the bishop and centralize the queen. [%rules capture-when-sharp]}
+6. e3 {[%weight 10]}
+O-O {Castle to protect the king and activate the rook. [%rules castle-early]}
+7. Nc3 {[%weight 42]}
+Nbd7 {Support f6 with Nd7; the Elephant trap runs cxd5 exd5 Nxd5? Nxd5 Bxd8 Bb4+ Qd2 Bxd2+ Kxd2 Kxd8, recovering the queen with check. [%rules one-move-per-piece]}
+8. Bd3 {[%weight 10]}
+c5 {Challenge the d4 square with a central pawn break. [%rules flank-attack-centre-counter] [%cal Gc7c5]} *
+
+[Event "London: trade the active bishop"]
+[LineId "qgd-london"]
+[OpeningGroup "qgd"]
+[Summary "Develop and castle, then contest the center with ...c5; attack a Pillsbury Ne5’s d4 support. In the Carlsbad (White e3/d4, Black c6/d5), watch b4-b5 and weak c6; seek active pieces and a central break."]
+[Result "*"]
+
+{[%line qgd-london]}
+1. d4 {[%weight 30]}
+d5 {Claim central space and open a diagonal for the c8 bishop. [%rules pawn-moves-two-to-six]}
+2. Bf4 {[%weight 18]}
+e6 {Support d5 and open a diagonal for the f8 bishop. [%rules pawn-moves-two-to-six]}
+3. e3 {[%weight 10]}
+Bd6 {Develop the dark-squared bishop toward the center. [%rules one-move-per-piece]}
+4. Bxd6 {[%weight 10]}
+Qxd6 {Recapture the bishop and centralize the queen. [%rules capture-when-sharp]}
+5. Nf3 {[%weight 15]}
+Nbd7 {Support f6 with Nd7; the Elephant trap runs cxd5 exd5 Nxd5? Nxd5 Bxd8 Bb4+ Qd2 Bxd2+ Kxd2 Kxd8, recovering the queen with check. [%rules one-move-per-piece]}
+6. Bd3 {[%weight 10]}
+Ngf6 {Develop the kingside knight with the d7 knight already supporting f6. [%rules one-move-per-piece]}
+7. O-O {[%weight 10]}
+O-O {Castle to protect the king and activate the rook. [%rules castle-early]}
+8. c3 {[%weight 10]}
+c5 {Challenge the d4 square with a central pawn break. [%rules flank-attack-centre-counter] [%cal Gc7c5]} *
+
+[Event "Colle: challenge d4"]
+[LineId "qgd-colle"]
+[OpeningGroup "qgd"]
+[Summary "Develop and castle, then contest the center with ...c5; attack a Pillsbury Ne5’s d4 support. In the Carlsbad (White e3/d4, Black c6/d5), watch b4-b5 and weak c6; seek active pieces and a central break."]
+[Result "*"]
+
+{[%line qgd-colle]}
+1. d4 {[%weight 30]}
+d5 {Claim central space and open a diagonal for the c8 bishop. [%rules pawn-moves-two-to-six]}
+2. Nf3 {[%weight 14]}
+Nf6 {Develop the kingside knight to prepare castling. [%rules develop-castling-side-first]}
+3. e3 {[%weight 10]}
+e6 {Support d5 and open a diagonal for the f8 bishop. [%rules pawn-moves-two-to-six]}
+4. Bd3 {[%weight 10]}
+c5 {Challenge the d4 square with a central pawn break. [%rules flank-attack-centre-counter] [%cal Gc7c5]}
+5. c3 {[%weight 10]}
+Nc6 {Develop the knight with pressure on d4. [%rules one-move-per-piece] [%cal Gb8c6]}
+6. Nbd2 {[%weight 10]}
+Bd6 {Develop the dark-squared bishop toward the center. [%rules one-move-per-piece]}
+7. O-O {[%weight 10]}
+O-O {Castle to protect the king and activate the rook. [%rules castle-early]}
+8. Re1 {[%weight 10]}
+e5 {Claim space in the center and prepare active piece play. [%rules pawn-moves-two-to-six]} *
+
+[Event "English: transpose to the QGD"]
+[LineId "qgd-english"]
+[OpeningGroup "qgd"]
+[Summary "Develop and castle, then contest the center with ...c5; attack a Pillsbury Ne5’s d4 support. In the Carlsbad (White e3/d4, Black c6/d5), watch b4-b5 and weak c6; seek active pieces and a central break."]
+[Result "*"]
+
+{[%line qgd-english]}
+1. c4 {[%weight 10]}
+e6 {Support d5 and open a diagonal for the f8 bishop. [%rules pawn-moves-two-to-six]}
+2. d4 {[%weight 30]}
+d5 {Claim central space and open a diagonal for the c8 bishop. [%rules pawn-moves-two-to-six]}
+3. Nf3 {[%weight 34]}
+Nf6 {Develop the kingside knight to prepare castling. [%rules develop-castling-side-first]}
+4. Nc3 {[%weight 42]}
+Be7 {Develop the bishop to prepare kingside castling; with Bd6 and White castled, ...Nxd5?? can lose the queen to Bxd8 without ...Bb4+. [%rules develop-castling-side-first]}
+5. Bg5 {[%weight 10]}
+O-O {Castle to protect the king and activate the rook. [%rules castle-early]}
+6. e3 {[%weight 10]}
+Nbd7 {Support f6 with Nd7; the Elephant trap runs cxd5 exd5 Nxd5? Nxd5 Bxd8 Bb4+ Qd2 Bxd2+ Kxd2 Kxd8, recovering the queen with check. [%rules one-move-per-piece]}
+7. Rc1 {[%weight 10]}
+c6 {Reinforce the central pawn on d5 before completing development. [%rules pawn-moves-two-to-six]}
+8. Bd3 {[%weight 10]}
+dxc4 {Release the central tension and make White spend time recapturing. [%rules capture-when-sharp]} *
+
+[Event "Reti: transpose to the QGD"]
+[LineId "qgd-reti"]
+[OpeningGroup "qgd"]
+[Summary "Develop and castle, then contest the center with ...c5; attack a Pillsbury Ne5’s d4 support. In the Carlsbad (White e3/d4, Black c6/d5), watch b4-b5 and weak c6; seek active pieces and a central break."]
+[Result "*"]
+
+{[%line qgd-reti]}
+1. Nf3 {[%weight 15]}
+d5 {Claim central space and open a diagonal for the c8 bishop. [%rules pawn-moves-two-to-six]}
+2. d4 {[%weight 30]}
+e6 {Support d5 and open a diagonal for the f8 bishop. [%rules pawn-moves-two-to-six]}
+3. c4 {[%weight 10]}
+Nf6 {Develop the kingside knight to prepare castling. [%rules develop-castling-side-first]}
+4. Nc3 {[%weight 42]}
+Be7 {Develop the bishop to prepare kingside castling; with Bd6 and White castled, ...Nxd5?? can lose the queen to Bxd8 without ...Bb4+. [%rules develop-castling-side-first]}
+5. Bg5 {[%weight 10]}
+O-O {Castle to protect the king and activate the rook. [%rules castle-early]}
+6. e3 {[%weight 10]}
+Nbd7 {Support f6 with Nd7; the Elephant trap runs cxd5 exd5 Nxd5? Nxd5 Bxd8 Bb4+ Qd2 Bxd2+ Kxd2 Kxd8, recovering the queen with check. [%rules one-move-per-piece]}
+7. Rc1 {[%weight 10]}
+c6 {Reinforce the central pawn on d5 before completing development. [%rules pawn-moves-two-to-six]}
+8. Bd3 {[%weight 10]}
+dxc4 {Release the central tension and make White spend time recapturing. [%rules capture-when-sharp]} *
+
+[Event "English: if White keeps d4 in reserve"]
+[LineId "qgd-english-fianchetto"]
+[OpeningGroup "qgd"]
+[Summary "Develop and castle, then contest the center with ...c5; attack a Pillsbury Ne5’s d4 support. In the Carlsbad (White e3/d4, Black c6/d5), watch b4-b5 and weak c6; seek active pieces and a central break."]
+[Result "*"]
+
+{[%line qgd-english-fianchetto]}
+1. c4 {[%weight 10]}
+e6 {Support d5 and open a diagonal for the f8 bishop. [%rules pawn-moves-two-to-six]}
+2. Nc3 {[%weight 42]}
+d5 {Claim central space and open a diagonal for the c8 bishop. [%rules pawn-moves-two-to-six]}
+3. Nf3 {[%weight 15]}
+Nf6 {Develop the kingside knight to prepare castling. [%rules develop-castling-side-first]}
+4. g3 {[%weight 10]}
+Be7 {Develop the bishop to prepare kingside castling; with Bd6 and White castled, ...Nxd5?? can lose the queen to Bxd8 without ...Bb4+. [%rules develop-castling-side-first]}
+5. Bg2 {[%weight 10]}
+O-O {Castle to protect the king and activate the rook. [%rules castle-early]}
+6. O-O {[%weight 10]}
+c5 {Challenge the d4 square with a central pawn break. [%rules flank-attack-centre-counter] [%cal Gc7c5]}
+7. d3 {[%weight 6]}
+Nc6 {Develop the knight with pressure on d4. [%rules one-move-per-piece] [%cal Gb8c6]}
+8. cxd5 {[%weight 10]}
+exd5 {Recapture toward the center and keep a pawn on d5. [%rules capture-when-sharp]} *
+
+[Event "Reti: if White keeps d4 in reserve"]
+[LineId "qgd-reti-fianchetto"]
+[OpeningGroup "qgd"]
+[Summary "Develop and castle, then contest the center with ...c5; attack a Pillsbury Ne5’s d4 support. In the Carlsbad (White e3/d4, Black c6/d5), watch b4-b5 and weak c6; seek active pieces and a central break."]
+[Result "*"]
+
+{[%line qgd-reti-fianchetto]}
+1. Nf3 {[%weight 15]}
+d5 {Claim central space and open a diagonal for the c8 bishop. [%rules pawn-moves-two-to-six]}
+2. g3 {[%weight 10]}
+Nf6 {Develop the kingside knight to prepare castling. [%rules develop-castling-side-first]}
+3. Bg2 {[%weight 10]}
+e6 {Support d5 and open a diagonal for the f8 bishop. [%rules pawn-moves-two-to-six]}
+4. O-O {[%weight 10]}
+Be7 {Develop the bishop to prepare kingside castling; with Bd6 and White castled, ...Nxd5?? can lose the queen to Bxd8 without ...Bb4+. [%rules develop-castling-side-first]}
+5. d3 {[%weight 6]}
+O-O {Castle to protect the king and activate the rook. [%rules castle-early]}
+6. Nbd2 {[%weight 10]}
+c5 {Challenge the d4 square with a central pawn break. [%rules flank-attack-centre-counter] [%cal Gc7c5]}
+7. e4 {[%weight 58]}
+Nc6 {Develop the knight with pressure on d4. [%rules one-move-per-piece] [%cal Gb8c6]}
+8. Re1 {[%weight 10]}
+b6 {Prepare to develop the c8 bishop on b7. [%rules one-move-per-piece]} *
+
+[Event "QGD Exchange: bishop outside the chain"]
+[LineId "qgd-bf5"]
+[OpeningGroup "qgd"]
+[Summary "Develop and castle, then contest the center with ...c5; attack a Pillsbury Ne5’s d4 support. In the Carlsbad (White e3/d4, Black c6/d5), watch b4-b5 and weak c6; seek active pieces and a central break."]
+[Result "*"]
+
+{[%line qgd-bf5]}
+1. d4 {[%weight 30]}
+d5 {Claim central space and open a diagonal for the c8 bishop. [%rules pawn-moves-two-to-six]}
+2. c4 {[%weight 54]}
+e6 {Support d5 and open a diagonal for the f8 bishop. [%rules pawn-moves-two-to-six]}
+3. Nc3 {[%weight 44]}
+Nf6 {Develop the kingside knight to prepare castling. [%rules develop-castling-side-first]}
+4. cxd5 {[%weight 10]}
+exd5 {Recapture toward the center and keep a pawn on d5. [%rules capture-when-sharp]}
+5. Bf4 {[%weight 18]}
+Bf5 {Develop the light-squared bishop outside the central pawn chain. [%rules one-move-per-piece] [%cal Gc8f5]}
+6. e3 {[%weight 10]}
+Nbd7 {Support f6 with Nd7; the Elephant trap runs cxd5 exd5 Nxd5? Nxd5 Bxd8 Bb4+ Qd2 Bxd2+ Kxd2 Kxd8, recovering the queen with check. [%rules one-move-per-piece]}
+7. Bd3 {[%weight 10]}
+Bxd3 {Exchange the active d3 bishop to remove its diagonal pressure. [%rules capture-when-sharp]}
+8. Qxd3 {[%weight 10]}
+c6 {Reinforce the central pawn on d5 before completing development. [%rules pawn-moves-two-to-six]} *

@@ -1,0 +1,22 @@
+[Event "Caro-Kann: Exchange with Bd3"]
+[LineId "caro-exchange"]
+[OpeningGroup "sidelines"]
+[Summary "Structure: d4/c3 faces d5, with White’s semi-open e-file and Black’s semi-open c-file. Plan: develop Nf3, castle and consider queenside pressure; Bd3 targets h7 but alone cannot justify Bxh7+."]
+[Result "*"]
+
+{[%line caro-exchange]}
+1. e4 {Occupy the center and free the light-squared bishop. [%rules pawn-moves-two-to-six]}
+c6 {[%weight 9]}
+2. d4 {Build a two-pawn center before Black challenges it. [%rules pawn-moves-two-to-six]}
+d5 {[%weight 90]}
+3. exd5 {Exchange to reach the Caro-Kann Exchange structure. [%rules pawn-moves-two-to-six]}
+cxd5 {[%weight 95]}
+4. Bd3 {Develop the bishop toward h7 and influence e4. [%rules one-move-per-piece]}
+Nc6 {[%weight 65]}
+5. c3 {Support d4 while giving the queen a route to b3. [%rules pawn-moves-two-to-six]}
+Nf6 {[%weight 55]}
+6. Bf4 {Develop the dark-squared bishop to an active diagonal. [%rules one-move-per-piece]}
+Bg4 {[%weight 35]}
+7. Qb3 {Add pressure on b7 and d5 while developing the queen away from d1. [%rules ask-opponent-intent]}
+Qd7 {[%weight 40]}
+8. Nd2 {Develop the queenside knight to support central squares. [%rules one-move-per-piece]} *

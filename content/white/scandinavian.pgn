@@ -1,0 +1,45 @@
+[Event "Scandinavian: queen to a5"]
+[LineId "scandinavian-qa5"]
+[OpeningGroup "sidelines"]
+[Summary "Structure: d4 faces c6/e6 with a semi-open e-file. Plan: develop with tempo against the queen, castle and choose useful central squares instead of chasing the queen indefinitely."]
+[Result "*"]
+
+{[%line scandinavian-qa5]}
+1. e4 {Occupy the center and free the light-squared bishop. [%rules pawn-moves-two-to-six]}
+d5 {[%weight 4]}
+2. exd5 {Accept the central exchange before Black can advance. [%rules pawn-moves-two-to-six]}
+Qxd5 {[%weight 85]}
+3. Nc3 {Develop the knight with tempo against the exposed queen. [%rules one-move-per-piece]}
+Qa5 {[%weight 50]}
+4. d4 {Occupy the center while opening the c1 bishop. [%rules pawn-moves-two-to-six]}
+Nf6 {[%weight 60]}
+5. Nf3 {Develop the kingside knight and reinforce d4. [%rules one-move-per-piece]}
+c6 {[%weight 40]}
+6. Bc4 {Develop the bishop toward f7 and prepare castling. [%rules one-move-per-piece]}
+Bf5 {[%weight 45]}
+7. O-O {Castle before pursuing the queen further. [%rules castle-early]}
+e6 {[%weight 70]}
+8. Re1 {Place the rook on the semi-open e-file. [%rules opening-goal-rooks]} *
+
+[Event "Scandinavian: queen to d6"]
+[LineId "scandinavian-qd6"]
+[OpeningGroup "sidelines"]
+[Summary "Structure: d4 faces c6/e6 with a semi-open e-file; ...Qd6 keeps the queen central. Plan: develop and castle; check tactics before advancing pawns."]
+[Result "*"]
+
+{[%line scandinavian-qd6]}
+1. e4 {Occupy the center and free the light-squared bishop. [%rules pawn-moves-two-to-six]}
+d5 {[%weight 4]}
+2. exd5 {Accept the central exchange before Black can advance. [%rules pawn-moves-two-to-six]}
+Qxd5 {[%weight 85]}
+3. Nc3 {Develop the knight with tempo against the exposed queen. [%rules one-move-per-piece]}
+Qd6 {[%weight 25]}
+4. d4 {Occupy the center and open the c1 bishop diagonal. [%rules pawn-moves-two-to-six]}
+Nf6 {[%weight 65]}
+5. Nf3 {Develop the knight toward the center and prepare kingside castling. [%rules one-move-per-piece]}
+c6 {[%weight 40]}
+6. Bc4 {Develop the bishop toward f7 and prepare castling. [%rules one-move-per-piece]}
+Bf5 {[%weight 40]}
+7. O-O {Castle behind the pawns. [%rules castle-early]}
+e6 {[%weight 70]}
+8. Re1 {Use the semi-open e-file to support the center. [%rules opening-goal-rooks]} *

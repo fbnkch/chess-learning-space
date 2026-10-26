@@ -1,0 +1,26 @@
+[Event "Fixture rapid"]
+[Site "Chess.com"]
+[Date "2026.10.03"]
+[White "FBNKCH"]
+[Black "FixtureOpponent"]
+[Result "1-0"]
+[TimeControl "600"]
+[ECO "C50"]
+[Opening "Italian Game"]
+
+1. e4 e5 2. Nf3 Nc6 3. Bc4 Bc5 1-0
+
+[Event "Broken"]
+1. e4 e9
+
+[Event "Fixture rapid"]
+[Site "Chess.com"]
+[Date "2026.10.02"]
+[White "FixtureOpponent"]
+[Black "fbnkch"]
+[Result "0-1"]
+[TimeControl "1/259200"]
+[ECO "C50"]
+[Opening "Italian Game"]
+
+1. e4 e5 2. Nf3 Nc6 3. Bc4 Bc5 0-1

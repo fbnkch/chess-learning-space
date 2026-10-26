@@ -1,0 +1,1 @@
+PubAPI response fixtures for issue #12. Player names, URLs and games are synthetic; the response shape follows the archived-game PubAPI contract documented in docs/research/03-engine-coach.md. No real learner game data is committed. Fixtures cover archives, mixed standard/variant/daily/ongoing games, duplicate URLs, empty months, HTTP 404/429, and a broken pasted game.

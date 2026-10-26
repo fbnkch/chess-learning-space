@@ -1,0 +1,45 @@
+[Event "Petrov: retreat after d6"]
+[LineId "petrov-main"]
+[OpeningGroup "sidelines"]
+[Summary "Structure: both e-pawns disappear, leaving balanced d4/d5 pawns; ...d6 gains a tempo before ...Nxe4. Plan: develop, castle and challenge Ne4 without chasing material; distinguish this from the immediate mirror capture."]
+[Result "*"]
+
+{[%line petrov-main]}
+1. e4 {Occupy the center and free the light-squared bishop. [%rules pawn-moves-two-to-six]}
+e5 {[%weight 40]}
+2. Nf3 {Develop toward the center, attacking e5 and preparing castling. [%rules one-move-per-piece]}
+Nf6 {[%weight 10]}
+3. Nxe5 {Take the undefended central pawn while respecting the coming ...d6 attack. [%rules cct-scan]}
+d6 {[%weight 75]}
+4. Nf3 {Retreat the attacked knight rather than trying to keep the extra pawn. [%rules one-move-per-piece]}
+Nxe4 {[%weight 85]}
+5. d4 {Claim central space and open the c1 bishop's diagonal. [%rules pawn-moves-two-to-six]}
+d5 {[%weight 65]}
+6. Bd3 {Develop the bishop and aim at h7 while preparing castling. [%rules one-move-per-piece]}
+Bd6 {[%weight 50]}
+7. O-O {Castle behind the pawns. [%rules castle-early]}
+O-O {[%weight 80]}
+8. Re1 {Place the rook opposite the e4 knight to increase central pressure. [%rules opening-goal-rooks]} *
+
+[Event "Petrov: the premature mirror capture"]
+[LineId "petrov-trick"]
+[OpeningGroup "sidelines"]
+[Summary "Pattern: 3...Nxe4 4.Qe2 attacks Ne4 and prepares discovered check on e8; 4...Nf6 allows 5.Nc6+ and Nxd8. Plan: consolidate safely after winning material; Black can try 4...Qe7, so queen loss is not forced against every defense."]
+[Result "*"]
+
+{[%line petrov-trick]}
+1. e4 {Occupy the center and free the light-squared bishop. [%rules pawn-moves-two-to-six]}
+e5 {[%weight 40]}
+2. Nf3 {Develop toward the center, attacking e5 and preparing castling. [%rules one-move-per-piece]}
+Nf6 {[%weight 10]}
+3. Nxe5 {Take the undefended central pawn while respecting the coming ...d6 attack. [%rules cct-scan]}
+Nxe4 {[%weight 15]}
+4. Qe2 {Attack the e4 knight and prepare a discovered check if it retreats. [%rules cct-scan]}
+Nf6 {[%weight 25]}
+5. Nc6+ {Move the knight with discovered check while attacking the queen on d8. [%rules cct-scan]}
+Be7 {[%weight 75]}
+6. Nxd8 {Take the queen while the discovered check has forced Black to respond. [%rules cct-scan]}
+Kxd8 {[%weight 95]}
+7. d4 {Use the extra material by occupying the center and freeing the bishop. [%rules pawn-moves-two-to-six]}
+d5 {[%weight 45]}
+8. Nc3 {Develop a knight to defend the center and bring another piece into play. [%rules one-move-per-piece]} *

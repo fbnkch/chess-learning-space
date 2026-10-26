@@ -1,0 +1,184 @@
+[Event "London: classical d5"]
+[LineId "london-d5"]
+[Main "true"]
+[OpeningGroup "london"]
+[Summary "Structure: d4/e3/c3 supports Bf4 outside the pawn chain; ...Bxg3 hxg3 opens a semi-open h-file, changing king safety. Plan: develop Bd3/Nf3/Nd2, castle, then consider Ne5 and a prepared e4."]
+[Result "*"]
+
+{[%line london-d5]}
+1. d4 {Occupy d4 and open the c1 bishop's diagonal. [%rules pawn-moves-two-to-six]}
+d5 {[%weight 33]}
+2. Bf4 {Develop the bishop before e3 closes its diagonal. [%rules one-move-per-piece]}
+Nf6 {[%weight 35]}
+3. e3 {Support d4 and open the light-squared bishop. [%rules pawn-moves-two-to-six]}
+e6 {[%weight 40]}
+4. Nf3 {Develop a knight toward e5 and prepare castling. [%rules one-move-per-piece]}
+Bd6 {[%weight 35]}
+5. Bg3 {Preserve the bishop against the offered exchange on d6. [%rules better-move-safe-first]}
+O-O {[%weight 60]}
+6. Bd3 {Develop toward h7 and prepare castling; Bxh7+ requires calculating ...Kxh7, Ng5+/Qh5, king escapes and defenders such as ...Nf6. [%rules one-move-per-piece]}
+c5 {[%weight 50]}
+7. c3 {Support d4 against Black's c-pawn pressure. [%rules pawn-moves-two-to-six]}
+Nc6 {[%weight 65]}
+8. Nbd2 {Support e4 with Nd2; Bd3 pointing at h7 alone does not make Bxh7+ a winning sacrifice. [%rules one-move-per-piece]} *
+
+[Event "London: Nf6 move order"]
+[LineId "london-nf6"]
+[OpeningGroup "london"]
+[Summary "Structure: d4/e3/c3 supports Bf4 outside the pawn chain. Plan: develop Bd3/Nf3/Nd2, castle, then consider Ne5 and a prepared e4."]
+[Result "*"]
+
+{[%line london-nf6]}
+1. d4 {Occupy d4 and open the c1 bishop's diagonal. [%rules pawn-moves-two-to-six]}
+Nf6 {[%weight 39]}
+2. Bf4 {Develop the bishop outside the e-pawn chain. [%rules one-move-per-piece]}
+d5 {[%weight 35]}
+3. e3 {Support d4 and open the light-squared bishop. [%rules pawn-moves-two-to-six]}
+e6 {[%weight 40]}
+4. Nf3 {Develop a knight toward e5 and prepare castling. [%rules one-move-per-piece]}
+Bd6 {[%weight 35]}
+5. Bg3 {Preserve the bishop against the offered exchange on d6. [%rules better-move-safe-first]}
+O-O {[%weight 60]}
+6. Bd3 {Develop toward h7 and prepare castling; Bxh7+ requires calculating ...Kxh7, Ng5+/Qh5, king escapes and defenders such as ...Nf6. [%rules one-move-per-piece]}
+c5 {[%weight 50]}
+7. c3 {Support d4 against Black's c-pawn pressure. [%rules pawn-moves-two-to-six]}
+Nc6 {[%weight 65]}
+8. Nbd2 {Support e4 with Nd2; Bd3 pointing at h7 alone does not make Bxh7+ a winning sacrifice. [%rules one-move-per-piece]} *
+
+[Event "London: early c5"]
+[LineId "london-early-c5"]
+[OpeningGroup "london"]
+[Summary "Structure: d4/e3/c3 supports Bf4 outside the pawn chain; early ...Qb6 threatens b2. Plan: develop Bd3/Nf3/Nd2, castle, then consider Ne5 and a prepared e4; check threats before copying the setup."]
+[Result "*"]
+
+{[%line london-early-c5]}
+1. d4 {Occupy d4 and open the c1 bishop's diagonal. [%rules pawn-moves-two-to-six]}
+d5 {[%weight 33]}
+2. Bf4 {Develop the bishop before e3 closes its diagonal. [%rules one-move-per-piece]}
+c5 {[%weight 18]}
+3. e3 {Support d4 and free the light-squared bishop. [%rules pawn-moves-two-to-six]}
+Nc6 {[%weight 40]}
+4. Nf3 {Develop the knight to support d4 before building the rest of the triangle. [%rules one-move-per-piece]}
+Nf6 {[%weight 60]}
+5. c3 {Reinforce d4 against ...cxd4. [%rules pawn-moves-two-to-six]}
+e6 {[%weight 45]}
+6. Nbd2 {Develop behind the pawn triangle; Bd3 pointing at h7 alone does not make Bxh7+ a winning sacrifice. [%rules one-move-per-piece]}
+Bd6 {[%weight 40]}
+7. Bg3 {Keep the bishop by retreating along its diagonal. [%rules better-move-safe-first]}
+O-O {[%weight 65]}
+8. Bd3 {Develop toward h7 and prepare castling; Bxh7+ requires calculating ...Kxh7, Ng5+/Qh5, king escapes and defenders such as ...Nf6. [%rules one-move-per-piece]} *
+
+[Event "London: answer early Qb6"]
+[LineId "london-qb6"]
+[OpeningGroup "london"]
+[Summary "Structure: d4/e3/c3 supports the center; Qc1 directly defends b2 after ...Qb6 attacks it when Bf4 leaves c1. Plan: finish development and castle; activate the queen once b2 is safe."]
+[Result "*"]
+
+{[%line london-qb6]}
+1. d4 {Occupy d4 and open the c1 bishop's diagonal. [%rules pawn-moves-two-to-six]}
+d5 {[%weight 33]}
+2. Bf4 {Develop the bishop before e3 closes its diagonal. [%rules one-move-per-piece]}
+c5 {[%weight 18]}
+3. e3 {Support d4 and free the light-squared bishop. [%rules pawn-moves-two-to-six]}
+Qb6 {[%weight 15]}
+4. Qc1 {Defend b2 with Qc1 rather than sacrificing without calculation; Nc3 cannot defend b2, and c2 still blocks Qb3. [%rules ask-opponent-intent]}
+Nc6 {[%weight 55]}
+5. Nf3 {Develop a knight to reinforce d4 and prepare castling. [%rules one-move-per-piece]}
+Nf6 {[%weight 65]}
+6. c3 {Support d4 against the c5 pawn. [%rules pawn-moves-two-to-six]}
+Bf5 {[%weight 25]}
+7. Nbd2 {Develop the queenside knight to support e4. [%rules one-move-per-piece]}
+e6 {[%weight 55]}
+8. Be2 {Clear the kingside for castling with a safe bishop move. [%rules one-move-per-piece]} *
+
+[Event "London: Qb6 after c3"]
+[LineId "london-qb6-exchange"]
+[OpeningGroup "london"]
+[Summary "Structure: Qb3 Qxb3 axb3 leaves doubled b-pawns, a semi-open a-file and no queens. Plan: develop Bd3/Nd2 and castle; Qb3 defends b2 directly, unlike Nc3."]
+[Result "*"]
+
+{[%line london-qb6-exchange]}
+1. d4 {Occupy d4 and open the c1 bishop's diagonal. [%rules pawn-moves-two-to-six]}
+d5 {[%weight 33]}
+2. Bf4 {Develop the bishop before e3 closes its diagonal. [%rules one-move-per-piece]}
+c5 {[%weight 18]}
+3. e3 {Support d4 and free the light-squared bishop. [%rules pawn-moves-two-to-six]}
+Nc6 {[%weight 40]}
+4. c3 {Reinforce d4 and open the diagonal from d1 to b3. [%rules pawn-moves-two-to-six]}
+Qb6 {[%weight 15]}
+5. Qb3 {Defend b2 directly and offer a queen exchange now that c2 has been vacated. [%rules ask-opponent-intent]}
+Qxb3 {[%weight 50]}
+6. axb3 {Recapture the queen; this clears the a-file for the rook. [%rules pawn-moves-two-to-six]}
+cxd4 {[%weight 60]}
+7. exd4 {Recapture toward the center to restore a pawn on d4. [%rules pawn-moves-two-to-six]}
+Nf6 {[%weight 65]}
+8. Nf3 {Develop the knight to reinforce d4 and prepare castling. [%rules one-move-per-piece]} *
+
+[Event "London: Kings Indian-like g6"]
+[LineId "london-kid"]
+[OpeningGroup "london"]
+[Summary "Structure: d4/e3 faces d6/g6 and ...e5. Plan: develop with c4/c3 and Nc3/Nd2 as the center demands; castle kingside rather than copying the source’s sharper Qd2/O-O-O/h4."]
+[Result "*"]
+
+{[%line london-kid]}
+1. d4 {Occupy d4 and open the c1 bishop's diagonal. [%rules pawn-moves-two-to-six]}
+Nf6 {[%weight 39]}
+2. Bf4 {Develop the bishop outside the e-pawn chain. [%rules one-move-per-piece]}
+g6 {[%weight 25]}
+3. e3 {Support d4 and open the light-squared bishop diagonal. [%rules pawn-moves-two-to-six]}
+Bg7 {[%weight 90]}
+4. Nf3 {Develop the knight toward the center and prepare kingside castling. [%rules one-move-per-piece]}
+O-O {[%weight 55]}
+5. Be2 {Develop the bishop safely and prepare kingside castling. [%rules one-move-per-piece]}
+d6 {[%weight 65]}
+6. O-O {Castle before Black opens the center. [%rules castle-early]}
+Nbd7 {[%weight 35]}
+7. h3 {Give the f4 bishop a retreat on h2 before a central pawn advance attacks it. [%rules pawn-moves-two-to-six]}
+e5 {[%weight 55]}
+8. Bh2 {Preserve the attacked bishop while maintaining the d4 pawn. [%rules better-move-safe-first]} *
+
+[Event "London: g6 with d5"]
+[LineId "london-gruenfeld"]
+[OpeningGroup "london"]
+[Summary "Structure: d4/e3/c3 faces d5/g6, a Grunfeld-style center without an early c4 exchange; Bg7 pressures the long diagonal. Plan: finish development, consider Ne5 and recapture centrally after ...cxd4."]
+[Result "*"]
+
+{[%line london-gruenfeld]}
+1. d4 {Occupy d4 and open the c1 bishop's diagonal. [%rules pawn-moves-two-to-six]}
+Nf6 {[%weight 39]}
+2. Bf4 {Develop the bishop outside the e-pawn chain. [%rules one-move-per-piece]}
+g6 {[%weight 25]}
+3. e3 {Support d4 and open the light-squared bishop diagonal. [%rules pawn-moves-two-to-six]}
+Bg7 {[%weight 90]}
+4. Nf3 {Develop the knight toward the center and prepare kingside castling. [%rules one-move-per-piece]}
+d5 {[%weight 25]}
+5. Be2 {Develop the bishop to clear the kingside without neglecting the center. [%rules one-move-per-piece]}
+O-O {[%weight 75]}
+6. O-O {Castle while Black challenges d4 with ...c5. [%rules castle-early]}
+c5 {[%weight 55]}
+7. c3 {Support d4 with a pawn against the flank pressure. [%rules pawn-moves-two-to-six]}
+Nc6 {[%weight 60]}
+8. Nbd2 {Develop the queenside knight to reinforce the center. [%rules one-move-per-piece]} *
+
+[Event "London: Dutch f5"]
+[LineId "london-dutch"]
+[OpeningGroup "london"]
+[Summary "Structure: d4/e3/c3 supports Bf4 outside the pawn chain; ...f5 removes f7’s protection of e6. Plan: develop Bd3/Nf3/Nd2 and castle; contest e5 and consider a prepared e4 and Ne5 instead of a kingside pawn storm."]
+[Result "*"]
+
+{[%line london-dutch]}
+1. d4 {Occupy d4 and open the c1 bishop's diagonal. [%rules pawn-moves-two-to-six]}
+f5 {[%weight 3]}
+2. Nf3 {Develop the kingside knight to reinforce d4 and prepare castling. [%rules one-move-per-piece]}
+Nf6 {[%weight 65]}
+3. Bf4 {Develop the bishop outside the e-pawn chain. [%rules one-move-per-piece]}
+e6 {[%weight 60]}
+4. e3 {Support d4 and open the light-squared bishop. [%rules pawn-moves-two-to-six]}
+Be7 {[%weight 45]}
+5. Bd3 {Develop toward h7 and prepare castling; Bxh7+ requires calculating ...Kxh7, Ng5+/Qh5, king escapes and defenders such as ...Nf6. [%rules one-move-per-piece]}
+O-O {[%weight 70]}
+6. O-O {Castle before Black starts kingside play. [%rules castle-early]}
+d6 {[%weight 55]}
+7. c3 {Support d4 and prepare a stable square for the b1 knight. [%rules pawn-moves-two-to-six]}
+Nc6 {[%weight 45]}
+8. Nbd2 {Complete knight development before e4; Bd3 pointing at h7 alone does not make Bxh7+ a winning sacrifice. [%rules one-move-per-piece]} *

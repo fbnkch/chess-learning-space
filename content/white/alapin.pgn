@@ -1,0 +1,46 @@
+[Event "Alapin: meet d5"]
+[LineId "alapin-d5"]
+[Main "true"]
+[OpeningGroup "sidelines"]
+[Summary "Structure: c3 supports d4 but blocks Nc3; c-pawn exchanges often leave an isolated d-pawn. Plan: develop actively on open files rather than guarding every pawn; attack an early queen without Nc3."]
+[Result "*"]
+
+{[%line alapin-d5]}
+1. e4 {Occupy the center and free the light-squared bishop. [%rules pawn-moves-two-to-six]}
+c5 {[%weight 21]}
+2. c3 {Prepare d4 with a supporting c-pawn instead of entering the Open Sicilian. [%rules pawn-moves-two-to-six]}
+d5 {[%weight 35]}
+3. exd5 {Exchange the attacked central pawn before building a new center. [%rules pawn-moves-two-to-six]}
+Qxd5 {[%weight 90]}
+4. Nf3 {Develop the kingside knight and prepare the central d4 advance. [%rules one-move-per-piece]}
+Nc6 {[%weight 45]}
+5. d4 {Build the intended pawn center and open the c1 bishop. [%rules pawn-moves-two-to-six]}
+Nf6 {[%weight 55]}
+6. Be2 {Develop the bishop and prepare castling without putting a knight on the occupied c3 square. [%rules one-move-per-piece]}
+Bg4 {[%weight 25]}
+7. O-O {Castle before opening the center further. [%rules castle-early]}
+e6 {[%weight 55]}
+8. Be3 {Develop the bishop to support d4. [%rules one-move-per-piece]} *
+
+[Event "Alapin: meet Nf6"]
+[LineId "alapin-nf6"]
+[OpeningGroup "sidelines"]
+[Summary "Structure: d4/e5 gives space but needs support against ...d6. Plan: castle and finish development; watch pressure on e5 instead of pushing more pawns with undeveloped pieces."]
+[Result "*"]
+
+{[%line alapin-nf6]}
+1. e4 {Occupy the center and free the light-squared bishop. [%rules pawn-moves-two-to-six]}
+c5 {[%weight 21]}
+2. c3 {Prepare d4 with a supporting c-pawn instead of entering the Open Sicilian. [%rules pawn-moves-two-to-six]}
+Nf6 {[%weight 30]}
+3. e5 {Gain space with tempo against the knight attacking e4. [%rules pawn-moves-two-to-six]}
+Nd5 {[%weight 85]}
+4. d4 {Build the center immediately before completing development. [%rules pawn-moves-two-to-six]}
+cxd4 {[%weight 65]}
+5. Nf3 {Develop a knight and prepare to recapture on d4 with the c-pawn. [%rules one-move-per-piece]}
+Nc6 {[%weight 50]}
+6. cxd4 {Recapture toward the center to restore the d4/e5 pawn duo. [%rules pawn-moves-two-to-six]}
+d6 {[%weight 55]}
+7. Bc4 {Develop the bishop toward f7 and prepare castling. [%rules one-move-per-piece]}
+Nb6 {[%weight 65]}
+8. Bb3 {Save the attacked bishop while preserving its diagonal. [%rules better-move-safe-first]} *

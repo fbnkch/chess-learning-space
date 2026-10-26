@@ -1,0 +1,144 @@
+{
+  "snapshotDate": "2026-10-05",
+  "sha256": "76335bfa7d7c4a7f93c1366d81549e53951ebb79dd43d34904cab8f22d962f8d",
+  "droppedMotifs": [
+    "overloading"
+  ],
+  "total": 50006,
+  "counts": {
+    "fork": 2273,
+    "pin": 2273,
+    "skewer": 2273,
+    "discoveredAttack": 2273,
+    "deflection": 2273,
+    "hangingPiece": 2273,
+    "defensiveMove": 2273,
+    "quietMove": 2273,
+    "mateIn1": 2273,
+    "mateIn2": 2273,
+    "mateIn3": 2273,
+    "backRankMate": 2273,
+    "smotheredMate": 2273,
+    "attraction": 2273,
+    "clearance": 2273,
+    "interference": 2273,
+    "intermezzo": 2273,
+    "trappedPiece": 2273,
+    "xRayAttack": 2273,
+    "doubleCheck": 2273,
+    "capturingDefender": 2273,
+    "exposedKing": 2273
+  },
+  "chunks": [
+    {
+      "motif": "fork",
+      "file": "fork.json",
+      "count": 2273
+    },
+    {
+      "motif": "pin",
+      "file": "pin.json",
+      "count": 2273
+    },
+    {
+      "motif": "skewer",
+      "file": "skewer.json",
+      "count": 2273
+    },
+    {
+      "motif": "discoveredAttack",
+      "file": "discoveredAttack.json",
+      "count": 2273
+    },
+    {
+      "motif": "deflection",
+      "file": "deflection.json",
+      "count": 2273
+    },
+    {
+      "motif": "hangingPiece",
+      "file": "hangingPiece.json",
+      "count": 2273
+    },
+    {
+      "motif": "defensiveMove",
+      "file": "defensiveMove.json",
+      "count": 2273
+    },
+    {
+      "motif": "quietMove",
+      "file": "quietMove.json",
+      "count": 2273
+    },
+    {
+      "motif": "mateIn1",
+      "file": "mateIn1.json",
+      "count": 2273
+    },
+    {
+      "motif": "mateIn2",
+      "file": "mateIn2.json",
+      "count": 2273
+    },
+    {
+      "motif": "mateIn3",
+      "file": "mateIn3.json",
+      "count": 2273
+    },
+    {
+      "motif": "backRankMate",
+      "file": "backRankMate.json",
+      "count": 2273
+    },
+    {
+      "motif": "smotheredMate",
+      "file": "smotheredMate.json",
+      "count": 2273
+    },
+    {
+      "motif": "attraction",
+      "file": "attraction.json",
+      "count": 2273
+    },
+    {
+      "motif": "clearance",
+      "file": "clearance.json",
+      "count": 2273
+    },
+    {
+      "motif": "interference",
+      "file": "interference.json",
+      "count": 2273
+    },
+    {
+      "motif": "intermezzo",
+      "file": "intermezzo.json",
+      "count": 2273
+    },
+    {
+      "motif": "trappedPiece",
+      "file": "trappedPiece.json",
+      "count": 2273
+    },
+    {
+      "motif": "xRayAttack",
+      "file": "xRayAttack.json",
+      "count": 2273
+    },
+    {
+      "motif": "doubleCheck",
+      "file": "doubleCheck.json",
+      "count": 2273
+    },
+    {
+      "motif": "capturingDefender",
+      "file": "capturingDefender.json",
+      "count": 2273
+    },
+    {
+      "motif": "exposedKing",
+      "file": "exposedKing.json",
+      "count": 2273
+    }
+  ]
+}

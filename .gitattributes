@@ -1,0 +1,6 @@
+# Preserve upstream bytes so SHA-256 remains identical on Windows and Unix.
+public/stockfish/stockfish-19-lite-single.js -text
+public/stockfish/stockfish-19-lite-single.wasm -text
+
+# Keep the derived opening catalogue byte-reproducible across platforms.
+public/puzzles/opening-puzzles.json -text

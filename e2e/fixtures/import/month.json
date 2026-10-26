@@ -1,0 +1,38 @@
+{
+  "games": [
+    {
+      "url": "https://www.chess.com/game/daily/fixture-2",
+      "pgn": "[Event \"Fixture rapid\"]\n[Site \"Chess.com\"]\n[Date \"2026.10.02\"]\n[White \"FixtureOpponent\"]\n[Black \"fbnkch\"]\n[Result \"0-1\"]\n[TimeControl \"1/259200\"]\n[ECO \"C50\"]\n[Opening \"Italian Game\"]\n\n1. e4 e5 2. Nf3 Nc6 3. Bc4 Bc5 0-1",
+      "rules": "chess",
+      "time_control": "1/259200",
+      "end_time": 1790899200
+    },
+    {
+      "url": "https://www.chess.com/game/live/fixture-variant",
+      "pgn": "[Event \"Fixture rapid\"]\n[Site \"Chess.com\"]\n[Date \"2026.10.03\"]\n[White \"FBNKCH\"]\n[Black \"FixtureOpponent\"]\n[Result \"1-0\"]\n[TimeControl \"600\"]\n[ECO \"C50\"]\n[Opening \"Italian Game\"]\n\n1. e4 e5 2. Nf3 Nc6 3. Bc4 Bc5 1-0",
+      "rules": "chess960",
+      "time_control": "600",
+      "end_time": 1790985600
+    },
+    {
+      "url": "https://www.chess.com/game/daily/fixture-ongoing",
+      "pgn": "[Event \"Fixture rapid\"]\n[Site \"Chess.com\"]\n[Date \"2026.10.03\"]\n[White \"FBNKCH\"]\n[Black \"FixtureOpponent\"]\n[Result \"*\"]\n[TimeControl \"600\"]\n[ECO \"C50\"]\n[Opening \"Italian Game\"]\n\n1. e4 e5 2. Nf3 Nc6 3. Bc4 Bc5 *",
+      "rules": "chess",
+      "time_control": "600"
+    },
+    {
+      "url": "https://www.chess.com/game/live/fixture-1",
+      "pgn": "[Event \"Fixture rapid\"]\n[Site \"Chess.com\"]\n[Date \"2026.10.03\"]\n[White \"FBNKCH\"]\n[Black \"FixtureOpponent\"]\n[Result \"1-0\"]\n[TimeControl \"600\"]\n[ECO \"C50\"]\n[Opening \"Italian Game\"]\n\n1. e4 e5 2. Nf3 Nc6 3. Bc4 Bc5 1-0",
+      "rules": "chess",
+      "time_control": "600",
+      "end_time": 1790985600
+    },
+    {
+      "url": "https://www.chess.com/game/live/fixture-1",
+      "pgn": "[Event \"Fixture rapid\"]\n[Site \"Chess.com\"]\n[Date \"2026.10.03\"]\n[White \"FBNKCH\"]\n[Black \"FixtureOpponent\"]\n[Result \"1-0\"]\n[TimeControl \"600\"]\n[ECO \"C50\"]\n[Opening \"Italian Game\"]\n\n1. e4 e5 2. Nf3 Nc6 3. Bc4 Bc5 1-0",
+      "rules": "chess",
+      "time_control": "600",
+      "end_time": 1790985600
+    }
+  ]
+}

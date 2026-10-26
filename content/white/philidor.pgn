@@ -1,0 +1,22 @@
+[Event "Philidor: open the centre"]
+[LineId "philidor-main"]
+[OpeningGroup "sidelines"]
+[Summary "Structure: the central exchange leaves e4 facing d6. Plan: develop both bishops, castle and use central space; calculate Legal’s relative-pin sacrifice rather than copying it."]
+[Result "*"]
+
+{[%line philidor-main]}
+1. e4 {Occupy the center and free the light-squared bishop. [%rules pawn-moves-two-to-six]}
+e5 {[%weight 40]}
+2. Nf3 {Develop toward the center, attacking e5 and preparing castling. [%rules one-move-per-piece]}
+d6 {[%weight 8]}
+3. d4 {Challenge e5 with another central pawn; Legal’s illustrative relative pin starts 1.e4 e5 2.Nf3 d6 3.Bc4 Bg4 4.Nc3 g6. [%rules pawn-moves-two-to-six]}
+exd4 {[%weight 55]}
+4. Nxd4 {Recapture centrally with the knight; Legal’s pattern continues 5.Nxe5 Bxd1 6.Bxf7+ Ke7 7.Nd5#, but 5...dxe5 is a different defense. [%rules one-move-per-piece]}
+Nf6 {[%weight 65]}
+5. Nc3 {Develop the queenside knight and defend e4. [%rules one-move-per-piece]}
+Be7 {[%weight 50]}
+6. Bc4 {Develop the bishop toward f7 and prepare castling. [%rules one-move-per-piece]}
+O-O {[%weight 75]}
+7. O-O {Castle before using the semi-open central files. [%rules castle-early]}
+Re8 {[%weight 35]}
+8. Re1 {Place the rook behind e4 to support the central pawn. [%rules opening-goal-rooks]} *

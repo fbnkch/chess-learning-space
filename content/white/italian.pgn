@@ -1,0 +1,138 @@
+[Event "Italian: Giuoco Pianissimo main"]
+[LineId "italian-pianissimo-main"]
+[Main "true"]
+[OpeningGroup "italian"]
+[Summary "Structure: e4/d3 and c3 prepare d4. Plan: castle and finish development before opening the center; after Re1/Bb3, play Nbd2-f1-g3 when safe, then prepare d4."]
+[Result "*"]
+
+{[%line italian-pianissimo-main]}
+1. e4 {Occupy the center and free the light-squared bishop. [%rules pawn-moves-two-to-six]}
+e5 {[%weight 40]}
+2. Nf3 {Develop toward the center, attacking e5 and preparing castling. [%rules one-move-per-piece]}
+Nc6 {[%weight 60]}
+3. Bc4 {Develop the bishop toward f7. [%rules one-move-per-piece] [%cal Gc4f7]}
+Bc5 {[%weight 43]}
+4. c3 {Prepare d4 while keeping the center flexible. [%rules pawn-moves-two-to-six] [%cal Gc3d4,Gd2d4]}
+Nf6 {[%weight 53]}
+5. d3 {Defend e4 with a pawn and free your dark-squared bishop. [%rules pawn-moves-two-to-six]}
+d6 {[%weight 50]}
+6. O-O {Castle to protect the king and develop the rook. [%rules castle-early]}
+O-O {[%weight 70]}
+7. Re1 {Support e4 with the rook before regrouping your queenside pieces. [%rules opening-goal-rooks]}
+a6 {Black prepares ...b5 and an a7 retreat for Bc5; automatic h3 gives ...h6/...g5 a pawn-attack hook. [%weight 15]}
+8. Bb3 {Retreat before ...b5 or ...Na5, keeping pressure on the a2-g8 diagonal. [%rules avoid-lesser-piece-hits]} *
+
+[Event "Italian: meet the early central break"]
+[LineId "italian-central-break"]
+[OpeningGroup "italian"]
+[Summary "Structure: exd5 Nxd5 leaves c3/d3 facing e5 and Nd5, replacing slow e4/d3 maneuvering. Plan: pressure e5 with Re1, develop the queenside and prepare a supported d4."]
+[Result "*"]
+
+{[%line italian-central-break]}
+1. e4 {Occupy the center and free the light-squared bishop. [%rules pawn-moves-two-to-six]}
+e5 {[%weight 40]}
+2. Nf3 {Develop toward the center, attacking e5 and preparing castling. [%rules one-move-per-piece]}
+Nc6 {[%weight 60]}
+3. Bc4 {Develop the bishop toward f7. [%rules one-move-per-piece] [%cal Gc4f7]}
+Bc5 {[%weight 43]}
+4. c3 {Prepare d4 while keeping the center flexible. [%rules pawn-moves-two-to-six] [%cal Gc3d4,Gd2d4]}
+Nf6 {[%weight 53]}
+5. d3 {Defend e4 with a pawn and free your dark-squared bishop. [%rules pawn-moves-two-to-six]}
+O-O {[%weight 30]}
+6. O-O {Castle behind the pawns. [%rules castle-early]}
+d5 {[%weight 45]}
+7. exd5 {Exchange the e-pawn to meet Black's central break without leaving e4 under attack. [%rules pawn-moves-two-to-six]}
+Nxd5 {[%weight 85]}
+8. Re1 {Place the rook on the e-file to pressure e5 and complete kingside development. [%rules opening-goal-rooks]} *
+
+[Event "Italian: Two Knights with d3"]
+[LineId "italian-two-knights"]
+[OpeningGroup "italian"]
+[Summary "Structure: e4/d3 and c3 prepare d4, avoiding the forcing Fried Liver branch with 4.d3. Plan: castle and finish development, then Re1/Bb3 and Nbd2-f1-g3 when safe before d4."]
+[Result "*"]
+
+{[%line italian-two-knights]}
+1. e4 {Occupy the center and free the light-squared bishop. [%rules pawn-moves-two-to-six]}
+e5 {[%weight 40]}
+2. Nf3 {Develop toward the center, attacking e5 and preparing castling. [%rules one-move-per-piece]}
+Nc6 {[%weight 60]}
+3. Bc4 {Develop the bishop toward f7. [%rules one-move-per-piece] [%cal Gc4f7]}
+Nf6 {[%weight 33]}
+4. d3 {Support e4 with quiet d3; the Fried Liver’s Ng5/Bc4 attacks f7 twice, but Black can answer ...d5. [%rules pawn-moves-two-to-six]}
+Bc5 {[%weight 40]}
+5. c3 {Prepare the d4 break without committing the center too early. [%rules pawn-moves-two-to-six]}
+d6 {[%weight 50]}
+6. O-O {Castle to protect the king and develop the rook. [%rules castle-early]}
+O-O {[%weight 70]}
+7. Re1 {Support e4 with the rook before regrouping your queenside pieces. [%rules opening-goal-rooks]}
+a6 {Black prepares ...b5 and an a7 retreat for Bc5; automatic h3 gives ...h6/...g5 a pawn-attack hook. [%weight 15]}
+8. Bb3 {Retreat before ...b5 or ...Na5, keeping pressure on the a2-g8 diagonal. [%rules avoid-lesser-piece-hits]} *
+
+[Event "Italian: Hungarian setup"]
+[LineId "italian-be7"]
+[OpeningGroup "italian"]
+[Summary "Structure: e4/d3 and c3 prepare d4 against e5/d6, including early ...d6 setups. Plan: castle, support e4 with Re1, then develop Nbd2 before d4."]
+[Result "*"]
+
+{[%line italian-be7]}
+1. e4 {Occupy the center and free the light-squared bishop. [%rules pawn-moves-two-to-six]}
+e5 {[%weight 40]}
+2. Nf3 {Develop toward the center, attacking e5 and preparing castling. [%rules one-move-per-piece]}
+Nc6 {[%weight 60]}
+3. Bc4 {Develop the bishop toward f7. [%rules one-move-per-piece] [%cal Gc4f7]}
+Be7 {[%weight 7]}
+4. d3 {Support e4 and free the c1 bishop while keeping the center flexible. [%rules pawn-moves-two-to-six]}
+Nf6 {[%weight 65]}
+5. c3 {Prepare the d4 break and leave d2 available for the queenside knight. [%rules pawn-moves-two-to-six]}
+d6 {[%weight 55]}
+6. O-O {Castle behind the pawns. [%rules castle-early]}
+O-O {[%weight 70]}
+7. Re1 {Use the e-file rook to support the center. [%rules opening-goal-rooks]}
+a6 {[%weight 10]}
+8. Bb3 {Keep the bishop on the a2-g8 diagonal while avoiding an attack by ...Na5. [%rules better-move-safe-first]} *
+
+[Event "Italian: early d6"]
+[LineId "italian-d6"]
+[OpeningGroup "italian"]
+[Summary "Structure: e4/d3 and c3 prepare d4. Plan: castle and finish development before opening the center; after Re1/Bb3, play Nbd2-f1-g3 when safe, then prepare d4."]
+[Result "*"]
+
+{[%line italian-d6]}
+1. e4 {Occupy the center and free the light-squared bishop. [%rules pawn-moves-two-to-six]}
+e5 {[%weight 40]}
+2. Nf3 {Develop toward the center, attacking e5 and preparing castling. [%rules one-move-per-piece]}
+Nc6 {[%weight 60]}
+3. Bc4 {Develop the bishop toward f7. [%rules one-move-per-piece] [%cal Gc4f7]}
+d6 {[%weight 5]}
+4. c3 {Support d4 and leave d2 available for the queenside knight. [%rules pawn-moves-two-to-six]}
+Nf6 {[%weight 60]}
+5. d3 {Support e4 and open the c1 bishop diagonal. [%rules pawn-moves-two-to-six]}
+Be7 {[%weight 45]}
+6. O-O {Castle behind the pawns. [%rules castle-early]}
+O-O {[%weight 70]}
+7. Re1 {Use the e-file rook to support the center. [%rules opening-goal-rooks]}
+a6 {[%weight 10]}
+8. Bb3 {Keep the bishop on the a2-g8 diagonal while avoiding an attack by ...Na5. [%rules better-move-safe-first]} *
+
+[Event "Italian: recognise queen and bishop pressure"]
+[LineId "italian-scholar-defence"]
+[OpeningGroup "italian"]
+[Summary "Structure: e4/d3 and c3 prepare d4; Nf3 blocks Qf6’s attack on f2. Plan: castle and finish development, then Re1/Bb3 and Nbd2-f1-g3 when safe before d4; recheck the battery before moving Nf3."]
+[Result "*"]
+
+{[%line italian-scholar-defence]}
+1. e4 {Occupy the center and free the light-squared bishop. [%rules pawn-moves-two-to-six]}
+e5 {[%weight 40]}
+2. Nf3 {Develop toward the center, attacking e5 and preparing castling. [%rules one-move-per-piece]}
+Nc6 {[%weight 60]}
+3. Bc4 {Develop the bishop toward f7. [%rules one-move-per-piece] [%cal Gc4f7]}
+Bc5 {[%weight 43]}
+4. c3 {Prepare d4 while keeping the center flexible. [%rules pawn-moves-two-to-six] [%cal Gc3d4,Gd2d4]}
+Qf6 {[%weight 2]}
+5. O-O {Castle while Nf3 blocks Qf6-f2; queen-bishop batteries target f2/f7, and castling adds Rf1’s defense of f2. [%rules castle-early]}
+d6 {[%weight 45]}
+6. d3 {Support e4 with a pawn and free the c1 bishop. [%rules pawn-moves-two-to-six]}
+Nge7 {[%weight 50]}
+7. Re1 {Support e4 with the rook while the king itself still protects f2. [%rules opening-goal-rooks]}
+O-O {[%weight 65]}
+8. Bb3 {Keep the bishop on its active diagonal away from a future ...Na5. [%rules better-move-safe-first]} *

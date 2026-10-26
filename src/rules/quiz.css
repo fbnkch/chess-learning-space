@@ -1,0 +1,31 @@
+.rule-quiz {
+  display: grid;
+  grid-template-columns: minmax(240px, 480px) minmax(240px, 1fr);
+  gap: var(--space-6);
+  margin-top: var(--space-6);
+}
+.quiz-choices {
+  display: grid;
+  gap: var(--space-3);
+}
+.quiz-choices button {
+  text-align: left;
+  padding: var(--space-4);
+  white-space: normal;
+}
+.quiz-feedback {
+  margin-top: var(--space-6);
+  border-top: 1px solid var(--border);
+  padding-top: var(--space-4);
+}
+.rule-quiz .rule-board {
+  width: 100%;
+}
+@media (max-width: 760px) {
+  .rule-quiz {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+.quiz-filter select {
+  max-width: 100%;
+}

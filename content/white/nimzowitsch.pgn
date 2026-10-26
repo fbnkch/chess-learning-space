@@ -1,0 +1,45 @@
+[Event "Nimzowitsch: transpose to Italian"]
+[LineId "nimzowitsch-e5"]
+[OpeningGroup "sidelines"]
+[Summary "Structure: 1...Nc6 2.Nf3 e5 reaches Italian e4/d3 positions with c3 preparing d4. Plan: castle and finish development, then Re1/Bb3 and Nbd2-f1-g3 when safe before d4."]
+[Result "*"]
+
+{[%line nimzowitsch-e5]}
+1. e4 {Occupy the center and free the light-squared bishop. [%rules pawn-moves-two-to-six]}
+Nc6 {[%weight 2]}
+2. Nf3 {Develop a central knight and invite an ...e5 transposition. [%rules one-move-per-piece]}
+e5 {[%weight 55]}
+3. Bc4 {Develop the bishop toward f7. [%rules one-move-per-piece] [%cal Gc4f7]}
+Bc5 {[%weight 43]}
+4. c3 {Prepare d4 while keeping the center flexible. [%rules pawn-moves-two-to-six] [%cal Gc3d4,Gd2d4]}
+Nf6 {[%weight 53]}
+5. d3 {Defend e4 with a pawn and free your dark-squared bishop. [%rules pawn-moves-two-to-six]}
+d6 {[%weight 50]}
+6. O-O {Castle to protect the king and develop the rook. [%rules castle-early]}
+O-O {[%weight 70]}
+7. Re1 {Support e4 with the rook before regrouping your queenside pieces. [%rules opening-goal-rooks]}
+a6 {Black prepares ...b5 and an a7 retreat for Bc5; automatic h3 gives ...h6/...g5 a pawn-attack hook. [%weight 15]}
+8. Bb3 {Retreat before ...b5 or ...Na5, keeping pressure on the a2-g8 diagonal. [%rules avoid-lesser-piece-hits]} *
+
+[Event "Nimzowitsch: meet d5"]
+[LineId "nimzowitsch-d5"]
+[OpeningGroup "sidelines"]
+[Summary "Structure: d4 faces e6, a Scandinavian-style position with ...Nc6 developed. Plan: gain development tempi against the queen, castle and contest the center."]
+[Result "*"]
+
+{[%line nimzowitsch-d5]}
+1. e4 {Occupy the center and free the light-squared bishop. [%rules pawn-moves-two-to-six]}
+Nc6 {[%weight 2]}
+2. Nf3 {Develop a central knight and invite an ...e5 transposition. [%rules one-move-per-piece]}
+d5 {[%weight 35]}
+3. exd5 {Exchange the challenged e-pawn to open the center. [%rules pawn-moves-two-to-six]}
+Qxd5 {[%weight 85]}
+4. Nc3 {Develop with tempo against the queen on d5. [%rules one-move-per-piece]}
+Qa5 {[%weight 45]}
+5. d4 {Claim central space and open the c1 bishop. [%rules pawn-moves-two-to-six]}
+Nf6 {[%weight 65]}
+6. Bc4 {Develop the bishop and prepare kingside castling. [%rules one-move-per-piece]}
+Bf5 {[%weight 40]}
+7. O-O {Castle to protect the king and activate the rook. [%rules castle-early]}
+e6 {[%weight 70]}
+8. Re1 {Use the semi-open e-file for active rook play. [%rules opening-goal-rooks]} *

@@ -1,0 +1,111 @@
+.board-frame {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  box-shadow: none;
+}
+.cg-wrap {
+  width: 100%;
+  height: 100%;
+}
+cg-board {
+  background-color: var(--square-light);
+  background-image: conic-gradient(
+    var(--square-dark) 25%,
+    var(--square-light) 0 50%,
+    var(--square-dark) 0 75%,
+    var(--square-light) 0
+  );
+  background-size: 25% 25%;
+  touch-action: none;
+}
+cg-board square.last-move {
+  background: var(--last-move);
+}
+cg-board square.selected {
+  background: var(--board-selection);
+}
+cg-board square.move-dest {
+  background: radial-gradient(
+    circle,
+    var(--board-destination) 0 22%,
+    transparent 23%
+  );
+}
+/* Opaque #182d44: contrast 11.01:1 on light and 3.29:1 on dark. */
+cg-board square.oc.move-dest {
+  background: radial-gradient(
+    circle,
+    transparent 0 58%,
+    var(--board-ink) 59% 70%,
+    transparent 71%
+  );
+}
+cg-board square.check {
+  background: radial-gradient(
+    ellipse,
+    var(--board-check-core) 0%,
+    var(--board-check-edge) 35%,
+    transparent 75%
+  );
+}
+.cg-wrap coords {
+  font-size: clamp(0.75rem, 1vw, 0.8125rem);
+  font-weight: 700;
+  opacity: 1;
+}
+.cg-wrap coords.ranks {
+  top: 0;
+  left: 3px;
+  height: 100%;
+  width: 12px;
+}
+.cg-wrap coords.ranks coord {
+  transform: none;
+  padding-top: 2px;
+}
+.cg-wrap coords.files {
+  left: 0;
+  bottom: 1px;
+  height: 15px;
+  text-align: right;
+  text-transform: lowercase;
+}
+.cg-wrap coords.files coord {
+  padding-right: 4px;
+}
+/* DOM order stays 1..8 / a..h; flipping only reverses the flex direction,
+   so the square under each label (a1 dark vs h1 light) depends on orientation. */
+.orientation-white .ranks :nth-child(odd),
+.orientation-white .files :nth-child(odd),
+.orientation-black .ranks :nth-child(even),
+.orientation-black .files :nth-child(even) {
+  color: var(--square-light);
+}
+.orientation-white .ranks :nth-child(even),
+.orientation-white .files :nth-child(even),
+.orientation-black .ranks :nth-child(odd),
+.orientation-black .files :nth-child(odd) {
+  color: var(--board-ink);
+}
+
+/* The original light ink on a dark square is only 3.34:1. A small opaque
+   backing behind that label gives 13.57:1 without changing either square
+   colours or orientation-dependent coordinate colours. */
+.orientation-white .ranks :nth-child(odd),
+.orientation-white .files :nth-child(odd),
+.orientation-black .ranks :nth-child(even),
+.orientation-black .files :nth-child(even) {
+  background-image: linear-gradient(var(--surface), var(--surface));
+  background-size: 0.85em 1.2em;
+  background-repeat: no-repeat;
+  background-position: left top;
+}
+.orientation-white .files :nth-child(odd),
+.orientation-black .files :nth-child(even) {
+  background-position: right 2px top;
+}
+.cg-wrap .cg-shapes {
+  opacity: 1;
+}

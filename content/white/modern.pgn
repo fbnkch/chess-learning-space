@@ -1,0 +1,22 @@
+[Event "Modern: classical development"]
+[LineId "modern-classical"]
+[OpeningGroup "sidelines"]
+[Summary "Structure: d4/e4 faces d6/g6, transposing to the classical Pirc after ...Nf6. Plan: castle and develop before meeting ...e5 or ...c5; support the extra central space with pieces."]
+[Result "*"]
+
+{[%line modern-classical]}
+1. e4 {Occupy the center and free the light-squared bishop. [%rules pawn-moves-two-to-six]}
+g6 {[%weight 3]}
+2. d4 {Occupy d4 while Black develops on the flank. [%rules pawn-moves-two-to-six]}
+Bg7 {[%weight 90]}
+3. Nc3 {Develop the knight and support e4. [%rules one-move-per-piece]}
+d6 {[%weight 65]}
+4. Nf3 {Develop the kingside knight without overextending the center. [%rules one-move-per-piece]}
+Nf6 {[%weight 55]}
+5. Be2 {Develop the bishop to clear the kingside safely. [%rules one-move-per-piece]}
+O-O {[%weight 75]}
+6. O-O {Castle before responding to Black's pawn breaks. [%rules castle-early]}
+c6 {[%weight 20]}
+7. Be3 {Develop the bishop to support d4. [%rules one-move-per-piece]}
+Nbd7 {[%weight 45]}
+8. Qd2 {Connect the rooks and support the central bishop. [%rules queen-out-late]} *

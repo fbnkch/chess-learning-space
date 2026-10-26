@@ -1,0 +1,84 @@
+.puzzle-filters label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+.puzzle-filters input {
+  width: 88px;
+  padding: var(--space-2);
+  background: var(--panel);
+  color: inherit;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+}
+.puzzle-filters select {
+  max-width: 100%;
+}
+.puzzle-content {
+  display: grid;
+  gap: var(--space-6);
+  padding: var(--space-6);
+  line-height: 1.7;
+}
+.puzzle-content .puzzle-tip,
+.puzzle-content small {
+  color: var(--muted);
+}
+.puzzle-content [role="status"] {
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+.puzzle-layout .player {
+  gap: var(--space-4);
+}
+.puzzle-rating {
+  display: grid;
+  text-align: right;
+  gap: var(--space-1);
+  color: var(--muted);
+}
+.puzzle-rating strong {
+  font-size: 2.25rem;
+  color: var(--text);
+}
+.puzzle-modes {
+  gap: var(--space-2);
+}
+.puzzle-modes button[aria-pressed="true"] {
+  background: var(--info-surface);
+  color: var(--text);
+  border-color: var(--border-strong);
+}
+.puzzle-mode-note {
+  color: var(--muted);
+  margin: 0 0 var(--space-6);
+  line-height: 1.6;
+}
+.woodpecker-summary {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: var(--space-4) var(--space-6);
+  margin-bottom: var(--space-6);
+  line-height: 1.6;
+}
+.woodpecker-summary select {
+  max-width: 100%;
+}
+.puzzle-hint {
+  padding: var(--space-3) var(--space-4);
+  border-left: 3px solid var(--info);
+  background: var(--info-surface);
+  border-radius: var(--radius-sm);
+}
+@media (max-width: 600px) {
+  .puzzle-filters label:first-child {
+    width: 100%;
+  }
+  .puzzle-filters select {
+    min-width: 0;
+    flex: 1;
+  }
+}

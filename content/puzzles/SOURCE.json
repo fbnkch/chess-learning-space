@@ -1,0 +1,140 @@
+{
+  "url": "https://database.lichess.org/lichess_db_puzzle.csv.zst",
+  "snapshotDate": "2026-10-05",
+  "downloadedDate": "2026-10-25",
+  "sha256": "76335bfa7d7c4a7f93c1366d81549e53951ebb79dd43d34904cab8f22d962f8d",
+  "license": "CC0-1.0",
+  "documentation": "https://database.lichess.org/#puzzles",
+  "droppedMotifs": [
+    "overloading"
+  ],
+  "requestedMotifs": [
+    "fork",
+    "pin",
+    "skewer",
+    "discoveredAttack",
+    "deflection",
+    "overloading",
+    "hangingPiece",
+    "defensiveMove",
+    "quietMove",
+    "mateIn1",
+    "mateIn2",
+    "mateIn3",
+    "backRankMate",
+    "smotheredMate",
+    "attraction",
+    "clearance",
+    "interference",
+    "intermezzo",
+    "trappedPiece",
+    "xRayAttack",
+    "doubleCheck",
+    "capturingDefender",
+    "exposedKing"
+  ],
+  "notes": "All 23 requested motifs checked against the complete original Themes column. Only overloading is absent; no themes are invented or aliased. The upstream URL is mutable: later downloads MUST match this checksum or the build fails. Retain this archive locally to rebuild. Each unique puzzle is assigned to one original motif bucket, least-filled first, capped at 2273 per bucket (50006 total). Other original themes and OpeningTags are preserved. Rows are [PuzzleId,FEN,Moves,Rating,RatingDeviation,Popularity,NbPlays,Themes,GameUrl,OpeningTags]. Counts mean assigned training bucket membership, not all tag occurrences.",
+  "openingSelection": {
+    "method": "Repertoire-reviewed exact OpeningTags variations over existing curated motif buckets; both solver colours; no position or game-path inference",
+    "families": {
+      "italian": [
+        "Italian_Game"
+      ],
+      "london": [
+        "London_System",
+        "Indian_Defense_London_System",
+        "Indian_Defense_Accelerated_London_System",
+        "Queens_Pawn_Game_London_System",
+        "Queens_Pawn_Game_Accelerated_London_System"
+      ],
+      "caro": [
+        "Caro-Kann_Defense"
+      ],
+      "qgd": [
+        "Queens_Gambit_Declined"
+      ]
+    },
+    "matching": "Ignore family-only tokens when accompanied by variations; require at least one reviewed exact tag and reject any unreviewed tag in the same family. No automatic descendant matching.",
+    "inputChecksums": {
+      "fork.json": "687dc87f76b6ee703f44ef42b9d74d97bd8560e900b0bd3e2fc24d0e215f075d",
+      "pin.json": "1fbe024defcecee2dbd133a3c51ff77f3b7d74e779d1d7cbdd4fe3d50bd33c49",
+      "skewer.json": "c45a18403860156f0219351749b7ee8107126947c81e758651bc11e3b442cd28",
+      "discoveredAttack.json": "6a2a0b5d447bf9549386a42c94eba0ec4b545c2c8d318497de832aec2856b171",
+      "deflection.json": "89d717f6c3518283c82c4ec3dc24f326dffb4dd5318a9946a2c1d7d56b9f4ab8",
+      "hangingPiece.json": "15c90c6b51b2be9de9da643744f15ef624486df9439f00d42f48bf28c8b66250",
+      "defensiveMove.json": "28c2e3e497caa8b40b4769166357afb4e5752a60bb67d7b52ba9d507ccea4ad9",
+      "quietMove.json": "d46a20b8d13905d17d227f39e8cd80d4b2255993130a08c363ab47708fc1919b",
+      "mateIn1.json": "0c257d7fddbc8937c5af88e743bb12b12996d59bfc7836e9c30b2a67bc6eda6f",
+      "mateIn2.json": "9a56023d0eb76fc87a403b09d958bc1729b74ddb6d926eb332f8c123693d3b72",
+      "mateIn3.json": "1ab905516b00def1d5ae834baadfa559a2b6ca97a2a2eec32629d6890edc8e49",
+      "backRankMate.json": "5f4583dcc4862cc0a5a6540191cc117304afdf3d650f37be6a4b44c7b908cf6a",
+      "smotheredMate.json": "f0ebf82becf85be76c535605a2e6af06e51c62e292e88b16d45a7bdeba8b9a39",
+      "attraction.json": "4b79125eaaea3452c56c2ba481bc9c2ae54513894e3fcaf6d2b0ec16754f5078",
+      "clearance.json": "a07678def33bc9889938b768ea46c028c992009ac1b96a89b75496a1cb1d1913",
+      "interference.json": "ad83c868d29fca6d4c2bf754e8e2d4d51a12aa3bc274392b46c5f5132f500dc7",
+      "intermezzo.json": "7e7398c8e10d516759a56ca50c5a7c1f6c582aa786ed5e88b6149fc0ab8c8bff",
+      "trappedPiece.json": "e74cf57a17296fc51c40e11db173a328fddf4aadd57531412cc11839819ffb1b",
+      "xRayAttack.json": "8d615417ab2b719d35df63ea4eda98cbd017a7324a376a9eba0ce6eab365cdfe",
+      "doubleCheck.json": "316d370b65dbbc48e612e39e4a2ec6704509156dbc8c50cb81e077caee11d964",
+      "capturingDefender.json": "3c766e43eadaba709143c7b2f34ed5be6ae2b46a588118c0077648acd7aee83b",
+      "exposedKing.json": "f0c2cd4db19905ef0387290e68cd5b9d01e2dbe89a3bfe117ca3908d7448f7fb"
+    },
+    "checksumEncoding": "UTF-8 with canonical LF newlines (Git blob bytes; CRLF checkout conversion is normalised)",
+    "allowedVariations": {
+      "italian": [
+        "Italian_Game_Giuoco_Pianissimo",
+        "Italian_Game_Giuoco_Piano",
+        "Italian_Game_Classical_Variation",
+        "Italian_Game_Two_Knights_Defense",
+        "Italian_Game_Hungarian_Defense",
+        "Italian_Game_Paris_Defense"
+      ],
+      "london": [
+        "London_System",
+        "London_System_Other_variations",
+        "Indian_Defense_London_System",
+        "Indian_Defense_Accelerated_London_System",
+        "Queens_Pawn_Game_London_System",
+        "Queens_Pawn_Game_Accelerated_London_System"
+      ],
+      "caro": [
+        "Caro-Kann_Defense_Advance_Variation",
+        "Caro-Kann_Defense_Exchange_Variation",
+        "Caro-Kann_Defense_Panov_Attack",
+        "Caro-Kann_Defense_Accelerated_Panov_Attack",
+        "Caro-Kann_Defense_Two_Knights_Attack",
+        "Caro-Kann_Defense_Classical_Variation",
+        "Caro-Kann_Defense_Main_Line",
+        "Caro-Kann_Defense_Modern_Variation",
+        "Caro-Kann_Defense_Maroczy_Variation",
+        "Caro-Kann_Defense_Breyer_Variation"
+      ],
+      "qgd": [
+        "Queens_Gambit_Declined_Queens_Knight_Variation",
+        "Queens_Gambit_Declined_Normal_Defense",
+        "Queens_Gambit_Declined_Three_Knights_Variation",
+        "Queens_Gambit_Declined_Traditional_Variation",
+        "Queens_Gambit_Declined_Modern_Variation",
+        "Queens_Gambit_Declined_Exchange_Variation",
+        "Queens_Gambit_Declined_Harrwitz_Attack",
+        "Queens_Gambit_Declined_Orthodox_Defense",
+        "Queens_Gambit_Declined_Neo-Orthodox_Variation",
+        "Queens_Gambit_Declined_Charousek_Variation",
+        "Queens_Gambit_Declined_Barmen_Variation",
+        "Queens_Gambit_Declined_Miles_Variation"
+      ]
+    },
+    "output": {
+      "count": 1120,
+      "counts": {
+        "italian": 362,
+        "london": 237,
+        "caro": 383,
+        "qgd": 138
+      },
+      "sizeBytes": 284626,
+      "gzipBytes": 73922,
+      "sha256": "5eddf7c8fcfbed9145fc28ff3270c80e40d4a5e11d4118ffbed5ca95c181a82b"
+    }
+  }
+}

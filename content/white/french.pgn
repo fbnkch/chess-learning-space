@@ -1,0 +1,22 @@
+[Event "French: Exchange"]
+[LineId "french-exchange"]
+[OpeningGroup "sidelines"]
+[Summary "Structure: symmetrical d4/d5 pawns flank an open e-file. Plan: develop both bishops, castle and contest that file; watch tactical threats on h7 and h2 despite the symmetry."]
+[Result "*"]
+
+{[%line french-exchange]}
+1. e4 {Occupy the center and free the light-squared bishop. [%rules pawn-moves-two-to-six]}
+e6 {[%weight 10]}
+2. d4 {Occupy d4 before Black closes the center. [%rules pawn-moves-two-to-six]}
+d5 {[%weight 90]}
+3. exd5 {Exchange the e-pawn to obtain an open, balanced center. [%rules pawn-moves-two-to-six]}
+exd5 {[%weight 95]}
+4. Nf3 {Develop the knight and prepare kingside castling. [%rules one-move-per-piece]}
+Nf6 {[%weight 60]}
+5. Bd3 {Develop the bishop toward h7 and clear the way to castle. [%rules one-move-per-piece]}
+Bd6 {[%weight 45]}
+6. O-O {Castle before fighting over the open e-file. [%rules castle-early]}
+O-O {[%weight 75]}
+7. Re1 {Occupy the open e-file with a rook. [%rules opening-goal-rooks]}
+Nc6 {[%weight 45]}
+8. c3 {Support d4 and leave d2 available for the queenside knight. [%rules pawn-moves-two-to-six]} *
