@@ -53,7 +53,7 @@ export class SyncClient {
       "PUT",
       {
         "Content-Type": "application/octet-stream",
-        ...(etag ? { "If-Match": etag } : { "If-None-Match": "*" }),
+        ...(etag ? { "If-Match": etag } : { "X-Create-If-Absent": "1" }),
       },
       bytes,
     );

@@ -48,7 +48,7 @@ The server derives `sync/<full-hash>/snapshot.bin`; clients cannot choose paths.
 | Request | Success | Conflict/empty |
 | --- | --- | --- |
 | GET /api/sync | 200 opaque bytes + ETag | 404 empty |
-| PUT, If-None-Match: * | 200 + ETag; atomic create-if-absent | 412 exists |
+| PUT, X-Create-If-Absent: 1 | 200 + ETag; atomic create-if-absent | 412 exists |
 | PUT, If-Match: etag | 200 + ETag; atomic compare-and-swap | 412 stale/missing |
 | DELETE /api/sync | 204, idempotent | local data stays |
 
@@ -95,7 +95,7 @@ explicit choice; there is no silent auto-resume:
 
 - **Delete cloud copy and upload this device** requires confirmation. Turn off
   other devices and export JSON first. Reserve a capped PUT attempt, DELETE the
-  cloud copy, then PUT a newly built device snapshot with If-None-Match: * and no
+  cloud copy, then PUT a newly built device snapshot with X-Create-If-Absent: 1 and no
   intervening pull. Failure or conflict keeps sync paused; it never falls back to
   merging. Only a successful fresh upload clears the pause for the same epoch.
 - **Resume and merge cloud data** explicitly warns that removed/undone data may
@@ -164,3 +164,5 @@ Official sources checked 2026-10-26:
 - https://vercel.com/docs/vercel-blob/private-storage
 - https://vercel.com/docs/functions/limitations
 - https://vercel.com/docs/functions/runtimes/node-js
+
+Note: create-if-absent uses the custom `X-Create-If-Absent: 1` header. The standard `If-None-Match: *` is evaluated by Vercel's edge, which turns the successful 200 into a 304 and makes the client report a failure.

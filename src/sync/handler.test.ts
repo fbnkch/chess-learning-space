@@ -27,14 +27,14 @@ it("authenticates, isolates namespaces, enforces atomic preconditions, size and 
   );
   const bytes = new Uint8Array(40);
   const first = await handleSync(
-    request("PUT", { "If-None-Match": "*" }, bytes),
+    request("PUT", { "X-Create-If-Absent": "1" }, bytes),
     store,
     keys.hash,
   );
   expect(first.status).toBe(200);
   const etag = first.headers.get("ETag")!;
   expect(
-    (await handleSync(request("PUT", { "If-None-Match": "*" }, bytes), store))
+    (await handleSync(request("PUT", { "X-Create-If-Absent": "1" }, bytes), store))
       .status,
   ).toBe(412);
   expect(
