@@ -3,9 +3,9 @@ import { fileURLToPath } from "node:url";
 import { chromium } from "@playwright/test";
 
 // One source for browser, iOS and installed-app artwork. No runtime dependency.
-const source = new URL("../public/assets/icon.svg", import.meta.url);
+const source = new URL("../public/assets/icon-v2.svg", import.meta.url);
 const tokens = await readFile(
-  new URL("../src/styles.css", import.meta.url),
+  new URL("../src/appearance.css", import.meta.url),
   "utf8",
 );
 const accent = tokens.match(/--accent:\s*(#[a-f\d]{6})/i)?.[1];
@@ -27,7 +27,7 @@ try {
     );
     await page.screenshot({
       path: fileURLToPath(
-        new URL(`../public/assets/icon-${size}.png`, import.meta.url),
+        new URL(`../public/assets/icon-v2-${size}.png`, import.meta.url),
       ),
     });
   }

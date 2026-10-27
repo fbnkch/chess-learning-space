@@ -40,7 +40,7 @@ test("two browser contexts sync a quiz review through an encrypted, mocked endpo
       if (
         cloud
           ? request.headers()["if-match"] !== etag
-          : request.headers()["if-none-match"] !== "*"
+          : request.headers()["x-create-if-absent"] !== "1"
       )
         return route.fulfill({ status: 412 });
       cloud = body;

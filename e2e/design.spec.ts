@@ -330,7 +330,7 @@ for (const viewport of sizes.slice(0, 2)) {
           ...new Set(nodes.map((el) => getComputedStyle(el).color)),
         ]);
       expect(colors.sort()).toEqual(
-        ["rgb(222, 229, 233)", "rgb(24, 45, 68)"].sort(),
+        ["rgb(228, 228, 231)", "rgb(39, 39, 42)"].sort(),
       );
       await assertDesign(page, 44);
     }

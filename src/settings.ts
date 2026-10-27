@@ -1,4 +1,8 @@
+import { isColorMode, isColorTheme, type ColorMode, type ColorTheme } from "./appearance";
+
 export interface Settings {
+  colorMode?: ColorMode;
+  colorTheme?: ColorTheme;
   welcomeComplete?: boolean;
   startingOpening?: "italian" | "london" | "caro" | "qgd";
   planStartedAt?: number;
@@ -16,6 +20,8 @@ const key = "chess-learning-space:settings:v1";
 export function readSettings(): Settings {
   try {
     const defaults: Settings = {
+      colorMode: "system",
+      colorTheme: "graphite",
       chessComUsername: "fbnkch",
       activeLines: 6,
       sound: true,
@@ -33,6 +39,8 @@ export function readSettings(): Settings {
     if (!value || typeof value !== "object") return defaults;
     const saved = value as Partial<Settings>;
     return {
+      colorMode: isColorMode(saved.colorMode) ? saved.colorMode : "system",
+      colorTheme: isColorTheme(saved.colorTheme) ? saved.colorTheme : "graphite",
       welcomeComplete: saved.welcomeComplete === true,
       planReviewedGames:
         Array.isArray(saved.planReviewedGames) &&
@@ -86,6 +94,8 @@ export function readSettings(): Settings {
     };
   } catch {
     return {
+      colorMode: "system",
+      colorTheme: "graphite",
       chessComUsername: "fbnkch",
       activeLines: 6,
       sound: true,

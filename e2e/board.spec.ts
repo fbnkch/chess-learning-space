@@ -511,8 +511,8 @@ test("coordinate colours alternate correctly in both orientations", async ({
       expect(colours).toEqual(
         Array.from({ length: 8 }, (_, i) =>
           (i % 2 === 0) === lightFirst
-            ? "rgb(222, 229, 233)"
-            : "rgb(24, 45, 68)",
+            ? "rgb(228, 228, 231)"
+            : "rgb(39, 39, 42)",
         ),
       );
     }

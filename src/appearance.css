@@ -1,0 +1,278 @@
+/* Each palette supplies surfaces, ink and accent; semantic colors stay consistent. */
+:root {
+  color-scheme: dark;
+  --canvas: #141417;
+  --surface: #1b1b1f;
+  --surface-raised: #25252b;
+  --text: #f0eff4;
+  --text-muted: #c6c4cf;
+  --text-subtle: #aaa7b5;
+  --accent: #abc4ff;
+  --on-accent: #171820;
+  --border-strong: #777580;
+  --border: #ffffff1f;
+  --border-quiet: #ffffff0f;
+  --success: #a1d5b4;
+  --warning: #e7bd8c;
+  --danger: #f2a6b0;
+  --square-light: #e4e4e7;
+  --square-dark: #8b8d98;
+  --board-ink: #27272a;
+  --coordinate-backdrop: #27272a;
+  --shadow-dialog: #0008;
+  --scrim: #10101499;
+  --sidebar: var(--canvas);
+  --bg: var(--surface);
+  --panel: var(--surface-raised);
+  --muted: var(--text-subtle);
+  --link: var(--accent);
+  --info: var(--accent);
+  --control: color-mix(in srgb, var(--text) 9%, var(--surface));
+  --control-hover: color-mix(in srgb, var(--text) 15%, var(--surface));
+  --selected-surface: color-mix(in srgb, var(--accent) 12%, var(--surface));
+  --info-surface: color-mix(in srgb, var(--accent) 12%, var(--surface));
+  --board-destination: color-mix(in srgb, var(--board-ink) 48%, transparent);
+  --player-light: var(--square-light);
+  --player-ink: var(--board-ink);
+  --last-move: color-mix(in srgb, var(--accent) 48%, transparent);
+  --board-selection: color-mix(in srgb, var(--accent) 54%, transparent);
+  --board-check-core: #e24848ee;
+  --board-check-edge: #e2484888;
+  --eval-dark: #20252c;
+  --eval-light: #f2f1ed;
+  --annotation-move: #f7941d;
+  --annotation-danger: #ff4055;
+  --annotation-plan: #27efc0;
+  --annotation-ray: #fff129;
+  --shadow-board: #0004;
+  --accent-hover: color-mix(in srgb, var(--accent), white 12%);
+  --accent-shadow: color-mix(in srgb, var(--accent), black 32%);
+  --accent-soft: color-mix(in srgb, var(--accent) 9%, transparent);
+  --accent-border: color-mix(in srgb, var(--accent) 50%, transparent);
+  --info-soft: color-mix(in srgb, var(--info) 7%, transparent);
+  --info-fill: color-mix(in srgb, var(--info) 19%, transparent);
+  --warning-border: color-mix(in srgb, var(--warning) 40%, transparent);
+}
+:root[data-color-scheme="light"] {
+  color-scheme: light;
+  --canvas: #eeeef1;
+  --surface: #fafafa;
+  --surface-raised: #ffffff;
+  --text: #24232b;
+  --text-muted: #4d4b59;
+  --text-subtle: #64616f;
+  --accent: #3755aa;
+  --on-accent: #ffffff;
+  --border-strong: #87838f;
+  --border: #24232b29;
+  --border-quiet: #24232b1a;
+  --success: #2c7049;
+  --warning: #8b591d;
+  --danger: #b3324b;
+  --shadow-dialog: #25222b26;
+  --scrim: #25222b55;
+  --accent-hover: color-mix(in srgb, var(--accent), black 12%);
+}
+:root[data-color-theme="violet"][data-color-scheme="dark"] {
+  --canvas: #17151c;
+  --surface: #201d27;
+  --surface-raised: #2b2734;
+  --text: #f1edf7;
+  --text-muted: #cbc1d8;
+  --text-subtle: #b2a5c3;
+  --accent: #c6a9f4;
+  --on-accent: #21172e;
+}
+:root[data-color-theme="violet"][data-color-scheme="light"] {
+  --canvas: #eeebf3;
+  --surface: #faf8fd;
+  --surface-raised: #ffffff;
+  --text: #2e2339;
+  --text-muted: #594967;
+  --text-subtle: #6e5c7c;
+  --accent: #7040a6;
+}
+:root[data-color-theme="violet"] {
+  --square-light: #e9e2f0;
+  --square-dark: #9b8bac;
+}
+:root[data-color-theme="forest"][data-color-scheme="dark"] {
+  --canvas: #121713;
+  --surface: #191e1a;
+  --surface-raised: #252d26;
+  --text: #edf2e9;
+  --text-muted: #c0ccbd;
+  --text-subtle: #a3b39f;
+  --accent: #b3d3a5;
+  --on-accent: #182215;
+}
+:root[data-color-theme="forest"][data-color-scheme="light"] {
+  --canvas: #e9eee5;
+  --surface: #f6f8f3;
+  --surface-raised: #ffffff;
+  --text: #253024;
+  --text-muted: #485a44;
+  --text-subtle: #5c6e57;
+  --accent: #436a38;
+}
+:root[data-color-theme="forest"] {
+  --square-light: #e3e8d5;
+  --square-dark: #8c9e79;
+}
+:root[data-color-theme="sand"][data-color-scheme="dark"] {
+  --canvas: #1b1815;
+  --surface: #24201c;
+  --surface-raised: #302a24;
+  --text: #f4ede3;
+  --text-muted: #d2c4b3;
+  --text-subtle: #b9a995;
+  --accent: #e8bf94;
+  --on-accent: #2a1d11;
+}
+:root[data-color-theme="sand"][data-color-scheme="light"] {
+  --canvas: #eee7dc;
+  --surface: #fbf7ef;
+  --surface-raised: #fffdfa;
+  --text: #36291e;
+  --text-muted: #604d3b;
+  --text-subtle: #75624e;
+  --accent: #8c512b;
+}
+:root[data-color-theme="sand"] {
+  --square-light: #eee0c9;
+  --square-dark: #b29778;
+}
+
+/* The native radio spans its label: the entire tile is a keyboard/touch target. */
+.appearance-settings {
+  margin-top: 24px;
+  padding-bottom: 16px;
+}
+.appearance-settings fieldset {
+  min-width: 0;
+  padding: 0;
+  margin: 0 0 20px;
+  border: 0;
+}
+.appearance-settings legend {
+  padding: 0;
+  margin-bottom: 10px;
+  color: var(--text-muted);
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+.mode-options,
+.theme-options {
+  display: grid;
+  gap: 8px;
+}
+.mode-options {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.theme-options {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.settings-panel .appearance-option {
+  position: relative;
+  display: grid;
+  justify-content: stretch;
+  align-content: start;
+  gap: 6px;
+  min-height: 48px;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--canvas);
+  cursor: pointer;
+}
+.settings-panel .mode-option {
+  place-items: center;
+  align-content: center;
+}
+.settings-panel .appearance-option input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+.appearance-option:has(input:checked) {
+  border-color: var(--accent);
+  box-shadow: inset 0 0 0 1px var(--accent);
+  background: var(--selected-surface);
+}
+@media (forced-colors: active) {
+  .appearance-option:has(input:checked) {
+    outline: 3px solid Highlight;
+    outline-offset: -3px;
+  }
+}
+.appearance-option:has(input:focus-visible) {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+.theme-option-name {
+  color: var(--text);
+  font-weight: 600;
+}
+.settings-panel .appearance-option small {
+  margin: 0;
+  color: var(--text-subtle);
+  font-size: 0.75rem;
+  line-height: 1.4;
+}
+.theme-swatch {
+  display: flex;
+  height: 24px;
+  margin-bottom: 4px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.theme-swatch i {
+  flex: 1;
+}
+.theme-swatch i:nth-child(1) {
+  background: var(--sample-canvas);
+}
+.theme-swatch i:nth-child(2) {
+  background: var(--sample-surface);
+}
+.theme-swatch i:nth-child(3) {
+  background: var(--sample-accent);
+}
+.theme-swatch i:nth-child(4) {
+  background: var(--sample-board);
+}
+[data-palette="graphite"] {
+  --sample-canvas: #141417;
+  --sample-surface: #e4e4e7;
+  --sample-accent: #abc4ff;
+  --sample-board: #8b8d98;
+}
+[data-palette="violet"] {
+  --sample-canvas: #201d27;
+  --sample-surface: #e9e2f0;
+  --sample-accent: #c6a9f4;
+  --sample-board: #9b8bac;
+}
+[data-palette="forest"] {
+  --sample-canvas: #191e1a;
+  --sample-surface: #e3e8d5;
+  --sample-accent: #b3d3a5;
+  --sample-board: #8c9e79;
+}
+[data-palette="sand"] {
+  --sample-canvas: #24201c;
+  --sample-surface: #eee0c9;
+  --sample-accent: #e8bf94;
+  --sample-board: #b29778;
+}
+.appearance-note {
+  color: var(--text-subtle);
+  font-size: 0.75rem;
+  line-height: 1.5;
+}

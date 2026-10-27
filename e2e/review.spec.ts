@@ -482,7 +482,7 @@ test("optional wording sends facts only on click, validates output and keeps sec
     fullPage: true,
   });
   await page.setViewportSize({ width: 390, height: 844 });
-  const settingsDialog = page.getByRole("dialog", { name: "Board settings" });
+  const settingsDialog = page.getByRole("dialog", { name: "Settings", exact: true });
   expect(
     await settingsDialog.evaluate((el) => el.scrollWidth <= el.clientWidth),
   ).toBe(true);

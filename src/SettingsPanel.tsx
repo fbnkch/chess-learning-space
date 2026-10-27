@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import type { Settings } from "./settings";
 import type { ReactNode } from "react";
+import { colorModes, themeChoices } from "./appearance";
 export function SettingsPanel({
   settings,
   onChange,
@@ -29,7 +30,7 @@ export function SettingsPanel({
       }}
       id="board-settings"
       className="settings-panel"
-      aria-label="Board settings"
+      aria-label="Settings"
     >
       <button
         className="settings-close"
@@ -38,7 +39,54 @@ export function SettingsPanel({
       >
         Close
       </button>
-      <h2>Board settings</h2>
+      <h2>Settings</h2>
+      <section className="appearance-settings" aria-label="Appearance">
+        <fieldset className="appearance-modes">
+          <legend>Appearance mode</legend>
+          <div className="mode-options">
+            {colorModes.map((mode) => (
+              <label className="appearance-option mode-option" key={mode}>
+                <input
+                  type="radio"
+                  name="appearance-mode"
+                  value={mode}
+                  checked={(settings.colorMode ?? "system") === mode}
+                  onChange={() => onChange({ ...settings, colorMode: mode })}
+                />
+                <span>{mode === "system" ? "System" : mode === "light" ? "Light" : "Dark"}</span>
+              </label>
+            ))}
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Color theme</legend>
+          <div className="theme-options">
+            {themeChoices.map((theme) => (
+              <label className="appearance-option theme-option" key={theme.id}>
+                <input
+                  type="radio"
+                  name="color-theme"
+                  aria-label={theme.name}
+                  aria-describedby={`theme-description-${theme.id}`}
+                  value={theme.id}
+                  checked={(settings.colorTheme ?? "graphite") === theme.id}
+                  onChange={() => onChange({ ...settings, colorTheme: theme.id })}
+                />
+                <span className="theme-swatch" data-palette={theme.id} aria-hidden="true">
+                  <i /><i /><i /><i />
+                </span>
+                <span className="theme-option-name">{theme.name}</span>
+                <small id={`theme-description-${theme.id}`}>{theme.description}</small>
+              </label>
+            ))}
+          </div>
+        </fieldset>
+        <p className="appearance-note">
+          {saved
+            ? "Applies instantly. Saved on this device."
+            : "Applies for this session. Storage is unavailable."}
+        </p>
+      </section>
       <details className="settings-section">
         <summary>Board and practice</summary>
         <label>
