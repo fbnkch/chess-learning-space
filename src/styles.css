@@ -138,16 +138,6 @@
   background: var(--surface);
   font-synthesis: none;
   font-variant-numeric: tabular-nums;
-  --sidebar: #0c1523;
-  --border: #ffffff14;
-  --accent: #e0b25a;
-  --square-light: #dee5e9;
-  --square-dark: #5d7e9c;
-  --last-move: color-mix(in srgb, var(--accent) 48%, transparent);
-  color-scheme: dark;
-  --surface: #101b2c;
-  --canvas: #0c1523;
-  --surface-raised: #19273b;
   --radius-sm: 8px;
   --radius-md: 12px;
   --radius-lg: 16px;
@@ -168,47 +158,6 @@
   --space-45: 180px;
   --space-54: 216px;
   --font-mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
-  --text: #e8edf4;
-  --text-muted: #b6c6da;
-  --text-subtle: #a1afc1;
-  --link: #9bc9ff;
-  --success: #8ed5bf;
-  --warning: #e9a190;
-  --danger: #f5a5a5;
-  --info: #99c6e8;
-  --border-strong: #59718f;
-  --control: #25354c;
-  --control-hover: #344860;
-  --selected-surface: #23364a;
-  --on-accent: #151c26;
-  --player-light: #d8e1e8;
-  --player-ink: #263b51;
-  --eval-dark: #20252c;
-  --eval-light: #f2f1ed;
-  --info-surface: #18374b;
-  --annotation-move: #f7941d;
-  --annotation-danger: #ff4055;
-  --annotation-plan: #27efc0;
-  --annotation-ray: #fff129;
-  --board-ink: #182d44;
-  --board-selection: color-mix(in srgb, var(--accent) 54%, transparent);
-  --board-destination: #182d4470;
-  --board-check-core: #e24848ee;
-  --board-check-edge: #e2484888;
-  --shadow-board: #0004;
-  --shadow-dialog: #0008;
-  --scrim: #07101caa;
-  --border-quiet: #ffffff06;
-  --accent-hover: color-mix(in srgb, var(--accent), white 15%);
-  --accent-shadow: color-mix(in srgb, var(--accent), black 32%);
-  --accent-soft: color-mix(in srgb, var(--accent) 9%, transparent);
-  --accent-border: color-mix(in srgb, var(--accent) 33%, transparent);
-  --info-soft: color-mix(in srgb, var(--info) 7%, transparent);
-  --info-fill: color-mix(in srgb, var(--info) 19%, transparent);
-  --warning-border: color-mix(in srgb, var(--warning) 40%, transparent);
-  --bg: var(--surface);
-  --panel: var(--surface-raised);
-  --muted: var(--text-subtle);
   --text-xs: 0.75rem;
   --text-sm: 0.875rem;
   --text-base: 1rem;
@@ -1895,10 +1844,37 @@ button:not(.primary):hover {
   font-weight: 600;
   margin-block: var(--space-1);
   border-radius: var(--radius-sm);
+  border: 1px solid transparent;
 }
 .nav-active {
   box-shadow: none;
-  border-left: 2px solid var(--accent);
+}
+.sidebar nav a.nav-active {
+  border-color: var(--border);
+  background: var(--surface-raised);
+}
+.sidebar nav a:not(.nav-active):hover {
+  background: var(--surface);
+  color: var(--text);
+}
+.sidebar .brand {
+  padding-block: 4px 28px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+.sidebar .brand > .icon {
+  padding: 6px;
+  width: 40px;
+  height: 44px;
+  color: var(--accent);
+  border: 1px solid var(--accent-border);
+  border-radius: 10px;
+}
+.sidebar .brand div span {
+  font-size: 0.75rem;
+  color: var(--text-subtle);
+  letter-spacing: 0;
+  margin-top: 5px;
 }
 .profile {
   padding-top: var(--space-4);

@@ -1,84 +1,251 @@
+/* Study desk: the position is the focal point, the plan is the working list. */
 .dashboard {
-  max-width: 1200px;
+  max-width: 1120px;
   margin: auto;
 }
-.dashboard-card {
-  background: var(--surface-raised);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: var(--space-6);
-  margin-bottom: var(--space-6);
+.dashboard > .page-header {
+  padding-bottom: 24px;
+  margin-bottom: 28px;
+  border-bottom: 1px solid var(--border);
 }
-.dashboard-card h2 {
-  margin-top: 0;
-  font-size: 1.5rem;
+.dashboard h1 {
+  font-size: clamp(2rem, 3vw, 2.75rem);
+  line-height: 1.15;
+  letter-spacing: -0.045em;
+}
+.dashboard .dashboard-card {
+  padding: 24px 0;
+  margin-bottom: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+.dashboard .dashboard-card h2 {
+  font-size: 1.125rem;
+  line-height: 1.5;
 }
 .dashboard-card p {
-  line-height: 1.6;
   color: var(--text-muted);
+  line-height: 1.6;
 }
-.dashboard a {
-  color: var(--link);
-  text-underline-offset: 3px;
+.dashboard .dashboard-columns {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(260px, 0.85fr);
+  gap: clamp(32px, 4vw, 64px);
+  margin-bottom: 32px;
+}
+.dashboard .today-plan {
+  padding-top: 25px;
+}
+.dashboard .section-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+.dashboard a.session-start {
+  width: 100%;
+  min-height: 48px;
+  padding: 12px 16px;
+  margin: 0 0 12px;
+  border-radius: 8px;
+  font-size: 0.9375rem;
+  text-decoration: none;
+}
+.dashboard .session-start:not(.primary) {
+  background: var(--surface-raised);
+  border-color: var(--border-strong);
+}
+.dashboard .session-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 16px;
+  counter-reset: session;
+}
+.dashboard .session-list li {
+  padding: 0;
+  border-bottom: 1px solid var(--border);
+  counter-increment: session;
+}
+.dashboard .session-list li a {
+  display: flex;
+  gap: 16px;
+  padding: 18px 8px;
+  min-height: 88px;
+  color: var(--text);
+  text-decoration: none;
+  border-radius: 8px;
+}
+.dashboard .session-list li a::before {
+  content: counter(session, decimal-leading-zero);
+  font: 0.75rem/1.5 var(--font-mono);
+  color: var(--text-subtle);
+  flex: 0 0 20px;
+}
+.dashboard .session-list .mini-board {
+  width: 48px;
+  height: 48px;
+  border-radius: 4px;
+}
+.dashboard .session-list li a > span {
+  flex: 1;
+  margin: 0;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+}
+.dashboard .session-list small {
+  display: block;
+  margin-top: 4px;
+  color: var(--text-subtle);
+  font-size: 0.75rem;
+}
+.dashboard .session-list li a > .icon {
+  width: 16px;
+  color: var(--text-subtle);
+}
+.dashboard .study-position {
+  padding: 24px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--canvas);
+  align-self: start;
+}
+.study-stage {
+  color: var(--accent);
+  font-size: 0.75rem;
+  text-transform: capitalize;
+  padding: 3px 8px;
+  border: 1px solid var(--accent-border);
+  border-radius: 5px;
+}
+.dashboard a.continue-position {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  width: 100%;
+  padding: 0;
+  color: var(--text);
+  text-decoration: none;
+  border-radius: 8px;
+}
+.dashboard .continue-position::after {
+  content: none;
+}
+.study-board {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+}
+.dashboard .study-board .mini-board {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  border-radius: 3px;
+}
+.study-caption {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  padding-top: 18px;
+  font-weight: 600;
+  font-size: 1.125rem;
+  line-height: 1.4;
+}
+.study-caption .icon {
+  width: 18px;
+  color: var(--accent);
+}
+.dashboard .continue-details {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+.dashboard .dashboard-disclosure {
+  border-top: 1px solid var(--border);
+  padding-block: 20px;
+}
+.dashboard .dashboard-disclosure > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 32px;
+  list-style: none;
+  margin: 0;
+}
+.dashboard-disclosure > summary::-webkit-details-marker {
+  display: none;
+}
+.dashboard .dashboard-disclosure > summary h2 {
+  margin: 0;
+  font-size: 1rem;
+}
+.dashboard-disclosure > summary::after {
+  content: "+" / "";
+  font: 1.25rem/1 var(--font-mono);
+  color: var(--text-subtle);
+}
+.dashboard-disclosure[open] > summary::after {
+  content: "−" / "";
+}
+.dashboard .dashboard-disclosure[open] > summary {
+  margin-bottom: 24px;
 }
 .dashboard .welcome {
-  border-left: 4px solid var(--border);
-}
-.dashboard-columns {
   display: grid;
-  grid-template-columns: 1.3fr 1fr;
-  gap: var(--space-6);
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 12px 16px;
+  padding: 20px 24px;
+  margin-bottom: 28px;
+  background: var(--surface-raised);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+.dashboard .welcome > p, .dashboard .welcome .storage-info {
+  grid-column: 1 / -1;
+}
+.dashboard .welcome select {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid var(--border-strong);
+  border-radius: 8px;
+  background: var(--canvas);
+  color: var(--text);
 }
 .dashboard-actions {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
-  gap: var(--space-4);
+  gap: 12px;
 }
-.session-list {
-  padding-left: var(--space-6);
+.dashboard .welcome .primary {
+  min-height: 44px;
+  width: 100%;
 }
-.session-list li {
-  padding: var(--space-4) 0;
-  border-bottom: 1px solid var(--border);
-}
-.session-list span {
-  display: block;
-  color: var(--text-muted);
-  margin-top: var(--space-1);
-  font-size: 0.875rem;
-}
-.weekly-grid,
-.metric-grid {
+.weekly-grid, .metric-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: var(--space-5);
-  margin-bottom: var(--space-6);
+  gap: 20px;
+  margin-block: 20px;
 }
-.weekly-grid article,
-.metric-grid article {
-  padding: var(--space-4);
-  background: var(--surface);
-  border-radius: var(--radius-md);
+.weekly-grid article, .metric-grid article {
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border);
 }
 .dashboard h3 {
-  margin: 0 0 var(--space-2);
-  font-size: 1.0625rem;
+  margin: 0 0 8px;
+  font-size: 1rem;
 }
 .metric-grid strong {
-  font-size: 1.5625rem;
+  font-size: 1.5rem;
 }
 .dashboard progress {
   width: 100%;
   accent-color: var(--info);
-}
-.dashboard select {
-  max-width: 100%;
-  padding: var(--space-2);
-  color: var(--text);
-  background: var(--surface);
-  border: 1px solid var(--border-strong);
-  border-radius: var(--radius-sm);
 }
 .trend-table {
   overflow-x: auto;
@@ -88,32 +255,63 @@
   width: 100%;
   text-align: left;
 }
-.dashboard td,
-.dashboard th {
+.dashboard td, .dashboard th {
   border-bottom: 1px solid var(--border);
-  padding: var(--space-3);
+  padding: 12px;
 }
 .dashboard caption {
   text-align: left;
   color: var(--text-muted);
-  padding: var(--space-3);
+  padding: 12px;
 }
-@media (max-width: 900px) {
-  .dashboard-columns {
-    grid-template-columns: 1fr;
-    gap: 0;
+@media (hover: hover) {
+  .dashboard .session-list li a:hover {
+    background: var(--surface-raised);
   }
-  .weekly-grid,
-  .metric-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .continue-position:hover .study-caption {
+    color: var(--accent);
   }
 }
-@media (max-width: 550px) {
-  .weekly-grid,
-  .metric-grid {
-    grid-template-columns: 1fr;
+@media (max-width: 1100px) {
+  .dashboard .dashboard-columns {
+    grid-template-columns: minmax(0, 1fr) minmax(240px, 0.85fr);
+    gap: 24px;
   }
-  .dashboard-card {
-    padding: var(--space-4);
+}
+@media (max-width: 600px) {
+  .dashboard .today-plan {
+    padding-top: 8px;
+  }
+  .dashboard > .page-header {
+    padding-bottom: 16px;
+    margin-bottom: 20px;
+  }
+  .dashboard .dashboard-columns {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+    margin-bottom: 24px;
+  }
+  .dashboard .study-position {
+    padding: 20px;
+  }
+  .dashboard .study-board {
+    max-width: 320px;
+    align-self: center;
+  }
+  .dashboard .welcome {
+    grid-template-columns: minmax(0, 1fr);
+    padding: 16px;
+    margin-bottom: 20px;
+  }
+  .dashboard .section-title {
+    margin-bottom: 16px;
+  }
+  .weekly-grid, .metric-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+@media (pointer: coarse), (max-width: 900px) {
+  .dashboard .dashboard-disclosure > summary {
+    min-height: 44px;
   }
 }

@@ -38,6 +38,11 @@ Schema v5 adds `ruleState` to the review log, metadata, settings and secrets sto
 
 ## Board controls
 
+Settings opens with **Appearance mode** (System, Light or Dark) and **Color theme**
+(Graphite, Violet, Forest or Sand). Changes apply immediately and stay on this
+device. System follows the operating system; the other modes stay fixed.
+The theme includes board colors, and JSON backup/restore includes the preference.
+
 - Drag a piece, or click a piece and then its target. Legal targets are dots; captures are rings. Illegal moves return silently.
 - Right-drag draws arrows; right-click draws circles. Shift/Ctrl selects red, Alt selects blue, both select yellow. Left-click clears marks.
 - Choose queen, rook, bishop or knight when promoting. Cancel or Escape restores the original position without adding a move.

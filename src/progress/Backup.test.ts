@@ -5,6 +5,7 @@ import { validateBackup } from "./Backup";
 import { openProgress, schemaVersion } from "./Progress";
 import { Backup, maxBackupBytes } from "./Backup";
 import { openDB } from "idb";
+import type { Settings } from "../settings";
 import { rebuild } from "../scheduler/Scheduler";
 import type { Review } from "../scheduler/Scheduler";
 
@@ -47,9 +48,14 @@ async function fixture() {
 it("roundtrips reviews and settings, then rebuilds scheduling from the imported log", async () => {
   const source = await fixture();
   const target = await fixture();
+  const themedSettings: Settings = {
+    ...settings,
+    colorMode: "dark",
+    colorTheme: "forest",
+  };
   try {
     await source.store.record(review);
-    await source.store.saveSettings(settings);
+    await source.store.saveSettings(themedSettings);
     await source.backup.export();
     const json = source.download.mock.calls[0][0];
     expect(JSON.parse(json)).toMatchObject({
@@ -62,7 +68,7 @@ it("roundtrips reviews and settings, then rebuilds scheduling from the imported 
     expect(await target.store.reviews()).toEqual([]);
     await target.backup.import(json, "replace");
     expect(await target.store.reviews()).toEqual([review]);
-    expect(await target.store.settings()).toEqual(settings);
+    expect(await target.store.settings()).toEqual(themedSettings);
     expect(
       rebuild(await target.store.reviews()).get(review.cardId),
     ).toMatchObject({ reps: 1, intervalDays: 1 });

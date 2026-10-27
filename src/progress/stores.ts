@@ -8,6 +8,7 @@ import { importedGameSchema, mergeGames } from "../import/schema";
 import { mergeRuleStates } from "../rules/ruleState";
 import type { Data } from "./Progress";
 import { motifs } from "../puzzles/types";
+import { colorModes, colorThemes } from "../appearance";
 const text = z.string().min(1).max(4096);
 const timestamp = z.number().int().min(0).max(8_000_000_000_000_000);
 const reviewSchema = z.strictObject({
@@ -56,6 +57,8 @@ export const scanAttemptSchema = z
   })
   .refine((record) => record.found <= record.required);
 const settingsSchema = z.strictObject({
+  colorMode: z.enum(colorModes).optional(),
+  colorTheme: z.enum(colorThemes).optional(),
   welcomeComplete: z.boolean().optional(),
   startingOpening: z.enum(["italian", "london", "caro", "qgd"]).optional(),
   planStartedAt: timestamp.optional(),

@@ -14,7 +14,6 @@ import type { Settings } from "../settings";
 import { goldenRules } from "../rules/catalogue";
 import { loadDashboard, type DashboardData } from "./dashboardData";
 import { weeklyTemplate } from "./planner";
-import "./dashboard.css";
 
 const clock = Date.now;
 let firstScan: ReturnType<typeof repertoirePositions>[number] | undefined;
@@ -200,18 +199,18 @@ export function Dashboard({
       )}
       {data && (
         <>
-          <a
-            className={firstRun ? "session-start" : "primary session-start"}
-            href={data.session[0]?.href ?? "#openings"}
-          >
-            Start today's session <Icon name="chevron" />
-          </a>
           <div className="dashboard-columns">
-            <section className="dashboard-card" aria-label="Today">
+            <section className="dashboard-card today-plan" aria-label="Today">
               <div className="section-title">
                 <h2>Today</h2>
                 <WeekDots days={data.days} />
               </div>
+              <a
+                className={firstRun ? "session-start" : "primary session-start"}
+                href={data.session[0]?.href ?? "#openings"}
+              >
+                Start today's session <Icon name="chevron" />
+              </a>
               <ol className="session-list">
                 {data.session.map((step) => (
                   <li key={step.id}>
@@ -270,19 +269,30 @@ export function Dashboard({
                 </p>
               </details>
             </section>
-            <section className="dashboard-card" aria-label="Where you left off">
-              <h2>Continue</h2>
+            <section
+              className="dashboard-card study-position"
+              aria-label="Where you left off"
+            >
+              <div className="section-title">
+                <h2>Continue</h2>
+                {data.continueLine && (
+                  <span className="study-stage">{data.continueLine.stage}</span>
+                )}
+              </div>
               {data.continueLine && (
-                <p>
-                  <a
-                    className="continue-position"
-                    href={data.continueLine.href}
-                  >
+                <a
+                  className="continue-position"
+                  href={data.continueLine.href}
+                  aria-label={data.continueLine.title}
+                >
+                  <div className="study-board">
                     <MiniBoard {...data.continueLine.preview} />
-                    {data.continueLine.title}
-                  </a>
-                  <span className="pill">{data.continueLine.stage}</span>
-                </p>
+                  </div>
+                  <span className="study-caption">
+                    <span>{data.continueLine.title}</span>
+                    <Icon name="chevron" />
+                  </span>
+                </a>
               )}
               <details className="continue-details" open={expanded}>
                 <summary>More ways to continue</summary>

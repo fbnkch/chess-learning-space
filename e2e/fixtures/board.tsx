@@ -5,6 +5,7 @@ import { Game } from "../../src/game/Game";
 import type { Key } from "@lichess-org/chessground/types";
 import type { DrawShape } from "@lichess-org/chessground/draw";
 import "../../src/styles.css";
+import "../../src/appearance.css";
 
 export function Fixture() {
   const [notice, setNotice] = useState(false);

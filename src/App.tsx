@@ -29,6 +29,7 @@ import { ThreatScan } from "./threats/ThreatScan";
 import { Puzzles } from "./puzzles/Puzzles";
 import { Games } from "./import/Games";
 import { Dashboard } from "./plan/Dashboard";
+import { observeAppearance } from "./appearance";
 type Page =
   | "rule-quiz"
   | "home"
@@ -75,6 +76,13 @@ export function App() {
     to: Square;
   } | null>(null);
   const [settings, setSettings] = useState(readSettings);
+  useEffect(
+    () => observeAppearance({
+      colorMode: settings.colorMode,
+      colorTheme: settings.colorTheme,
+    }),
+    [settings.colorMode, settings.colorTheme],
+  );
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [saved, setSaved] = useState(storageAvailable);
   const applySettings = useCallback((settings: Settings) => {

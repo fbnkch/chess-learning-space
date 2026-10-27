@@ -33,7 +33,7 @@ cg-board square.move-dest {
     transparent 23%
   );
 }
-/* Opaque #182d44: contrast 11.01:1 on light and 3.29:1 on dark. */
+/* The palette's opaque board ink keeps capture rings visible on both squares. */
 cg-board square.oc.move-dest {
   background: radial-gradient(
     circle,
@@ -90,14 +90,12 @@ cg-board square.check {
   color: var(--board-ink);
 }
 
-/* The original light ink on a dark square is only 3.34:1. A small opaque
-   backing behind that label gives 13.57:1 without changing either square
-   colours or orientation-dependent coordinate colours. */
+/* Light labels have their own dark backing, independent of the UI's mode. */
 .orientation-white .ranks :nth-child(odd),
 .orientation-white .files :nth-child(odd),
 .orientation-black .ranks :nth-child(even),
 .orientation-black .files :nth-child(even) {
-  background-image: linear-gradient(var(--surface), var(--surface));
+  background-image: linear-gradient(var(--coordinate-backdrop, var(--surface)), var(--coordinate-backdrop, var(--surface)));
   background-size: 0.85em 1.2em;
   background-repeat: no-repeat;
   background-position: left top;
