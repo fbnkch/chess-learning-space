@@ -56,13 +56,19 @@ for (const theme of [
       await expect(page.locator("main")).toHaveCSS("background-color", theme[mode === "Light" ? "light" : "dark"]);
       const contrast = await page.evaluate(() => {
         const root = getComputedStyle(document.documentElement);
+        const canvas = document.createElement("canvas");
+        canvas.width = canvas.height = 1;
+        const context = canvas.getContext("2d")!;
         const color = (token: string) => {
           const probe = document.createElement("span");
           probe.style.color = root.getPropertyValue(token);
           document.body.append(probe);
           const result = getComputedStyle(probe).color;
           probe.remove();
-          return result.match(/[\d.]+/g)!.slice(0, 3).map(Number).map((v) => {
+          // Resolve color-mix()/color(srgb ...) as well as rgb(), in sRGB bytes.
+          context.fillStyle = result;
+          context.fillRect(0, 0, 1, 1);
+          return Array.from(context.getImageData(0, 0, 1, 1).data).slice(0, 3).map((v) => {
             const c = v / 255;
             return c <= 0.04045 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4;
           }).reduce((sum, c, i) => sum + c * [0.2126, 0.7152, 0.0722][i], 0);
@@ -72,7 +78,7 @@ for (const theme of [
           return (Math.max(x, y) + 0.05) / (Math.min(x, y) + 0.05);
         };
         return [
-          ...["--surface", "--surface-raised", "--canvas"].flatMap((bg) =>
+          ...["--surface", "--surface-raised", "--canvas", "--selected-surface", "--control"].flatMap((bg) =>
             ["--text", "--text-muted", "--text-subtle", "--accent", "--success", "--warning", "--danger"].map((fg) => ({ pair: fg + "/" + bg, ratio: ratio(fg, bg) })),
           ),
           { pair: "primary button", ratio: ratio("--on-accent", "--accent") },

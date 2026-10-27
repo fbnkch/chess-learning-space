@@ -112,7 +112,7 @@
   --surface-raised: #ffffff;
   --text: #253024;
   --text-muted: #485a44;
-  --text-subtle: #5c6e57;
+  --text-subtle: #55664f;
   --accent: #436a38;
 }
 :root[data-color-theme="forest"] {

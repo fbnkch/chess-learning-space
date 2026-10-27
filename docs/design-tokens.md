@@ -1,4 +1,12 @@
-# Design tokens
+# Design tokens: historical snapshot
+
+Superseded on 2026-10-27 by [the selectable appearance system](design-direction.md#appearance-and-palettes-2026-10-27).
+Current color tokens live in [src/appearance.css](../src/appearance.css):
+Graphite, Violet, Forest and Sand each support Light, Dark and System mode.
+The tables and contrast ratios below record the former fixed navy/brass design.
+For current validation, see the eight-palette matrix in `e2e/appearance.spec.ts`.
+
+## Former fixed palette
 
 Dark-only, browser-only Chess Learning Space. The board remains the visual anchor.
 Tokens live in `src/styles.css` in the existing `:root`. Legacy `--bg`, `--panel`
