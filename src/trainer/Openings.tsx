@@ -162,6 +162,7 @@ export function Openings({
       ? 0
       : selectedLine.cards(side).filter((card) => dueIds.includes(card.id))
           .length;
+  const groupReview = stage === "drill" && lineDueCount === 0 && dueCount > 0;
   const [learnPly, setLearnPly] = useState(0);
   const [session, setSession] = useState<OpeningSession | null>(null);
   const practicing = mode === "drill" && session?.context === "practice";
@@ -478,7 +479,20 @@ export function Openings({
             )}
           </p>
         </div>
-        <span className="pill">{dueCount} cards due</span>
+        <div className="opening-header-actions">
+          <span className="pill">{dueCount} cards due</span>
+          {mode !== "overview" && (
+            <button
+              disabled={cannotLeaveAttempt}
+              onClick={() => {
+                setMode("overview");
+                setSession(null);
+                setShapes([]);
+                setHint("");
+              }}
+            >Back to overview</button>
+          )}
+        </div>
       </header>
       <ol className="learning-stages" aria-label="Learning stages">
         {([
@@ -503,6 +517,8 @@ export function Openings({
                   ? "Recall the whole line without hints. A clean run unlocks Drill."
                   : lineDueCount
                     ? "Recall the moves due in this line. Your reviews are saved as you go."
+                    : groupReview
+                      ? "Another line in this opening is due. Review those moves first."
                     : "Nothing due in this line. Practice it again, or return Home."}
             </p>
           </div>
@@ -513,10 +529,12 @@ export function Openings({
               if (stage === "learn") {
                 setMode("learn");
                 setShapes([]);
+              } else if (groupReview) {
+                void startDrill();
               } else void startDrill(stage === "practice" || !lineDueCount, true);
             }}
           >
-            {stage === "learn" ? "Start lesson" : stage === "practice" || !lineDueCount ? "Start practice" : "Review due moves"}
+            {stage === "learn" ? "Start lesson" : groupReview ? "Review group due moves" : stage === "practice" || !lineDueCount ? "Start practice" : "Review due moves"}
           </button>
         </section>
       )}
@@ -657,7 +675,7 @@ export function Openings({
                 : "Drill"}
           </span>
         </p>
-        <div className="opening-tabs opening-action-buttons">
+        {mode === "overview" && <div className="opening-tabs opening-action-buttons">
           <button
             disabled={!store || locked || cannotLeaveAttempt}
             onClick={() => {
@@ -689,7 +707,7 @@ export function Openings({
           >
             Practice whole line
           </button>
-        </div>
+        </div>}
       </TrainingOptions>
       {error && (
         <p role="alert">

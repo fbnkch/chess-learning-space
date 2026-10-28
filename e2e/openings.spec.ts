@@ -1,11 +1,12 @@
 import { expect, test } from "@playwright/test";
 import { unlockDrill } from "./drill-setup";
-import { openingMove as move } from "./opening-move";
+import { openingMove as move, returnToOpeningOverview } from "./opening-move";
 
 test("learn all fifteen plies with ideas, then step back and restart", async ({
   page,
 }) => {
   await page.goto("/#openings");
+  await returnToOpeningOverview(page);
   await page.getByRole("button", { name: "Learn", exact: true }).click();
   await expect(
     page.getByText("White move 0 / 8 | Ply 0 / 15", { exact: true }),
@@ -48,6 +49,7 @@ test("drill with wrong move and retry, locked preludes, and durable progress aft
     page.getByText("Openings: 264 cards due", { exact: true }),
   ).toBeVisible();
   await page.getByRole("link", { name: /Openings 264/ }).click();
+  await returnToOpeningOverview(page);
   await page
     .getByRole("button", { name: "Drill this line", exact: true })
     .click();
@@ -112,6 +114,7 @@ test("drill with wrong move and retry, locked preludes, and durable progress aft
   }
   await expect(page.getByRole("status")).toHaveText("Session complete");
   await expect(page.getByText("16 cards due", { exact: true })).toBeVisible();
+  await returnToOpeningOverview(page);
   await expect(
     page.getByRole("button", { name: "Drill this line", exact: true }),
   ).toBeDisabled();
@@ -159,6 +162,7 @@ test("learn shows idea arrows, numbered moves, current side and keyboard navigat
   page,
 }, testInfo) => {
   await page.goto("/#openings");
+  await returnToOpeningOverview(page);
   await page.getByRole("button", { name: "Learn", exact: true }).click();
   await page.keyboard.press("ArrowRight");
   await expect(
@@ -192,6 +196,7 @@ test("whole-line practice preserve due scheduling across reload and settings rer
 }) => {
   const seeded = await unlockDrill(page);
   await page.goto("/#openings");
+  await returnToOpeningOverview(page);
   await page.getByRole("button", { name: "Practice whole line" }).click();
   const sound = page.waitForResponse("**/sounds/move.wav");
   await move(page, "e2e4");
@@ -271,11 +276,13 @@ test("White opening choice scopes London learn, drill and shared due counts", as
     "London \u00b7 White",
   );
   await expect(page.getByText("41 cards due", { exact: true })).toBeVisible();
+  await returnToOpeningOverview(page);
   await page.getByRole("button", { name: "Learn", exact: true }).click();
   await page.getByRole("button", { name: "Next opening move" }).click();
   await expect(
     page.getByRole("heading", { name: "1. d4", exact: true }),
   ).toBeVisible();
+  await returnToOpeningOverview(page);
   await page
     .getByRole("button", { name: "Drill due cards", exact: true })
     .click();
@@ -294,11 +301,13 @@ test("White opening choice scopes London learn, drill and shared due counts", as
   await expect(page.getByText("23 cards due", { exact: true })).toBeVisible();
   await page.getByLabel("Opening", { exact: true }).selectOption("sidelines");
   await page.getByLabel("Opening line").selectOption("petrov-trick");
+  await returnToOpeningOverview(page);
   await page.getByRole("button", { name: "Learn", exact: true }).click();
   await page.getByRole("button", { name: "4. Qe2", exact: true }).click();
   await expect(page.locator(".lesson-idea").last()).toContainText(
     "discovered check",
   );
+  await returnToOpeningOverview(page);
   await page
     .getByRole("button", { name: "Practice whole line", exact: true })
     .click();
@@ -326,6 +335,7 @@ test("opening choices and lessons fit a phone viewport", async ({
       await options.locator(":scope > summary").click();
     await page.getByLabel("Opening", { exact: true }).selectOption(group);
     await page.getByLabel("Opening line").selectOption(line);
+    await returnToOpeningOverview(page);
     await page.getByRole("button", { name: "Learn", exact: true }).click();
     expect(
       await page.evaluate(() => document.documentElement.scrollWidth),

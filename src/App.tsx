@@ -213,12 +213,12 @@ export function App() {
         <nav aria-label="Main navigation">
           {([
             { route: "home", label: "Home" },
+            { route: "free-play", label: "Free play" },
             { route: "openings", label: "Openings", section: "Practice", count: progress.dueCount },
             { route: "puzzles", label: "Puzzles" },
             { route: "threats", label: "Threat Scan" },
             { route: "rules", label: "Golden Rules", section: "Study", count: progress.learnedRules.length },
             { route: "games", label: "Games", section: "Review" },
-            { route: "free-play", label: "Free play" },
           ] as const).map((item) => (
             <Fragment key={item.route}>
               {"section" in item && <p className="nav-label">{item.section}</p>}

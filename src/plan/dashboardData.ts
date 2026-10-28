@@ -260,7 +260,7 @@ export async function loadDashboard(
   const nextStep = openingSteps[0]
     ? {
         title: "Review your openings",
-        instruction: "Recall due moves first. Your other openings stay ready.",
+        instruction: "Recall due moves first.",
         action: "Review due moves",
         href: openingSteps[0].href + "&start=1&scope=group",
       }

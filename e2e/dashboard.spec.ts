@@ -1,3 +1,4 @@
+import { returnToOpeningOverview } from "./opening-move";
 import { expect, test } from "@playwright/test";
 import { unlockDrill } from "./drill-setup";
 
@@ -76,6 +77,7 @@ test("existing progress skips welcome and prioritises due openings with working 
     "sidelines",
   );
   await expect(page.getByText("88 cards due", { exact: true })).toBeVisible();
+  await returnToOpeningOverview(page);
   await expect(
     page.getByRole("button", { name: "Drill due cards", exact: true }),
   ).toBeEnabled();

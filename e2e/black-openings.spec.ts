@@ -1,6 +1,6 @@
 import { expect, test } from "@playwright/test";
 import { unlockDrill } from "./drill-setup";
-import { openingMove as blackMove } from "./opening-move";
+import { openingMove as blackMove, returnToOpeningOverview } from "./opening-move";
 
 for (const group of ["caro", "qgd"])
   test(`Black ${group}: choose, learn, drill and retain progress`, async ({
@@ -25,11 +25,13 @@ for (const group of ["caro", "qgd"])
     await expect(
       page.getByLabel("Opening", { exact: true }).locator("option:checked"),
     ).toContainText(/\([1-9]\d* due\)/);
+    await returnToOpeningOverview(page);
     await page.getByRole("button", { name: "Learn", exact: true }).click();
     await expect(page.locator(".cg-wrap.orientation-black")).toBeVisible();
     await page.getByRole("button", { name: "Next opening move" }).click();
     await page.getByRole("button", { name: "Next opening move" }).click();
     await expect(page.getByText(/Black move 1 \/ 8/)).toBeVisible();
+    await returnToOpeningOverview(page);
     await page
       .getByRole("button", { name: "Drill this line", exact: true })
       .click();
@@ -46,6 +48,7 @@ for (const group of ["caro", "qgd"])
         .click();
     }
     await expect(page.getByRole("status")).toHaveText("Session complete");
+    await returnToOpeningOverview(page);
     await expect(
       page.getByRole("button", { name: "Drill this line", exact: true }),
     ).toBeDisabled();
@@ -68,6 +71,7 @@ for (const group of ["caro", "qgd"])
         exact: true,
       }),
     ).toBeVisible();
+    await returnToOpeningOverview(page);
     await expect(
       page.getByRole("button", { name: "Drill this line", exact: true }),
     ).toBeDisabled();

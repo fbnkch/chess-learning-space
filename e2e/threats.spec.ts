@@ -1,3 +1,4 @@
+import { returnToOpeningOverview } from "./opening-move";
 import { unlockDrill } from "./drill-setup";
 import { expect, test, type Page } from "@playwright/test";
 import { readFileSync, readdirSync, existsSync } from "node:fs";
@@ -216,6 +217,7 @@ test("Safety Check toggle pauses before grading, Take back cancels, and Practice
     .click();
   await page.getByRole("checkbox", { name: /Safety Check/ }).check();
   await page.getByRole("button", { name: "Close settings" }).click();
+  await returnToOpeningOverview(page);
   await page
     .getByRole("button", { name: "Drill this line", exact: true })
     .click();
@@ -238,6 +240,7 @@ test("Safety Check toggle pauses before grading, Take back cancels, and Practice
   ).toBeVisible();
   await page.getByRole("button", { name: "Next card", exact: true }).click();
   await expect(page.getByRole("status")).toContainText("Your move");
+  await returnToOpeningOverview(page);
   await page
     .getByRole("button", { name: "Practice whole line", exact: true })
     .click();
@@ -256,6 +259,7 @@ test("disabled Safety Check appears once after a failure, and never grades its o
 }) => {
   const seeded = await unlockDrill(page);
   await page.goto("/#openings");
+  await returnToOpeningOverview(page);
   await page
     .getByRole("button", { name: "Drill this line", exact: true })
     .click();

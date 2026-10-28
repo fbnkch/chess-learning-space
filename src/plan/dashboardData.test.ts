@@ -32,6 +32,9 @@ it("aggregates a fresh profile and resumes the last opening through public ports
         action: "Start lesson",
         href: "#openings?line=italian-pianissimo-main&start=1",
       },
+      continueLine: {
+        notation: "1. e4 e5 2. Nf3 Nc6 3. Bc4 Bc5",
+      },
     });
     const card = repertoire
       .selectLines("black", ["caro-classical"])

@@ -115,6 +115,9 @@ not auto-start. Group-review links retain the existing group scope. The visible
 Learn / Practice / Drill path explains what each stage does. The recommended
 stage action is outside configuration disclosures. Saving a lesson returns to
 an explicit Practice action; completed exercises offer a return to the plan.
+During a lesson or review, alternate mode buttons give way to one explicit
+Back to overview action. If the selected line has no due moves but another
+line in its opening does, the overview recommends the group review first.
 
 Lesson navigation stays above the board and remains sticky on larger screens.
 On phones it stays in normal flow so long comments cannot cover the board.

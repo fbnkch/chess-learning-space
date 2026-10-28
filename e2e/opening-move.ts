@@ -1,5 +1,10 @@
 import type { Page } from "@playwright/test";
 
+export async function returnToOpeningOverview(page: Page) {
+  const back = page.getByRole("button", { name: "Back to overview", exact: true });
+  if (await back.isVisible()) await back.click();
+}
+
 export async function openingMove(page: Page, uci: string) {
   const board = page.locator("cg-board");
   await board.scrollIntoViewIfNeeded();

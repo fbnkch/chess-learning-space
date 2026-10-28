@@ -229,6 +229,21 @@ button,
 .opening-action-buttons button {
   font-size: 0.8125rem;
 }
+.opening-header-actions {
+  display: grid;
+  justify-items: end;
+  gap: 8px;
+  max-width: 100%;
+}
+.page-header:has(.opening-header-actions) {
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.opening-header-actions button {
+  min-height: 44px;
+  padding: 8px 12px;
+  font-size: 0.75rem;
+}
 .lesson-toolbar {
   position: sticky;
   top: 0;
