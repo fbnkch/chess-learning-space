@@ -51,7 +51,7 @@ test("weekly external work survives a gap and resets only on request; offline is
   await page.getByRole("button", { name: "Start next flexible week" }).click();
   await expect(play).not.toBeChecked();
   await context.setOffline(true);
-  await expect(page.getByRole("status")).toContainText("You are offline");
+  await expect(page.getByRole("status")).toContainText("You're offline");
   await page.getByRole("link", { name: "Free play", exact: true }).click();
   await expect(page.locator("cg-board")).toBeVisible();
 });

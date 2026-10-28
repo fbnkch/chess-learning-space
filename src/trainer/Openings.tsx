@@ -1045,8 +1045,8 @@ export function Openings({
             Unlock next line
           </button>
           <p className="muted">
-            A stable cohort unlocks the next line automatically: every card at
-            least 3 days, with no lapse in the last 7 days.
+            The next line unlocks automatically once every card's review
+            interval reaches three days and none has lapsed in the past week.
           </p>
         </section>
         <section className="coverage-grid" aria-label="Opening coverage">

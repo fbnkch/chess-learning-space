@@ -4,5 +4,6 @@ dist/
 playwright-report/
 test-results/
 *.local
+*.tsbuildinfo
 .trace-temp/
 .cache/

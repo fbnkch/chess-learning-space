@@ -46,9 +46,9 @@ export function ExplorerSettings({
     <section className="wording-settings" aria-label="Lichess opening explorer">
       <h2>Lichess opening explorer</h2>
       <p>
-        Optional: refresh reply popularity for blitz and rapid at Lichess
-        ratings 1000, 1200 and 1400. Bundled estimates work offline. Requests
-        run only when you click Refresh.
+        You can refresh reply popularity using Lichess blitz and rapid games
+        from players rated 1000, 1200 and 1400. Built-in estimates work offline.
+        Nothing is sent to Lichess until you choose Refresh.
       </p>
       <label>
         Lichess personal API token
@@ -70,8 +70,8 @@ export function ExplorerSettings({
         >
           personal API token
         </a>{" "}
-        with no scopes. Stored only in this browser's secrets store; never
-        included in backups. An empty value removes the saved token.
+        with no scopes. It stays in this browser and is never added to a
+        backup. Clear this field and save to remove it.
       </p>
       <button
         disabled={!store || !loaded || busy}

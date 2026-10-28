@@ -49,10 +49,11 @@ const paths = {
     </>
   ),
   knight: (
-    <>
-      <path d="M5 21h15l-1-5-3-4 3-1-2-6-6-3v4L5 11l2 3 5-2-2 4-5 2Z" />
-      <path d="M14 7h.01" />
-    </>
+    <path
+      d="M4 21h17v-2h-3l-1-2.5 2-2.8-.5-3.7-2.3-1.1L14 5.3 11.2 4 9 5.4l1.5 2-2 2-1.4.8-.7 2-1.9 2.5 1.3 2L7.4 18 7 20Z"
+      fill="currentColor"
+      stroke="none"
+    />
   ),
   chevron: <path d="m9 5 7 7-7 7" />,
 } satisfies Record<string, ReactNode>;

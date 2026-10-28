@@ -342,9 +342,9 @@ export function Dashboard({
               <h2>Weekly plan</h2>
             </summary>
             <p>
-              A weekly structure, at your pace. Unfinished areas stay here
-              across gaps. Start the next week when you are ready; your learning
-              history is always kept.
+              Your weekly plan stays flexible. Miss a week? Unfinished work
+              will still be here. Start a new week when you're ready; your
+              training history stays intact.
             </p>
             <div className="weekly-grid">
               {weeklyTemplate.map((area) => {
@@ -458,8 +458,9 @@ export function Dashboard({
                 <h3>Repertoire in your games</h3>
                 <strong>{percent(data.gameCoverage)}</strong>
                 <p>
-                  Opponent replies covered through move six, until the first
-                  repertoire deviation, in imported games with a known color.
+                  Share of opponent replies covered through move six, before a
+                  game leaves your repertoire. Only imported games with a known
+                  color count.
                 </p>
               </article>
               {data.sides.map(({ side, coverage: c, cohort }) => (
@@ -478,9 +479,9 @@ export function Dashboard({
             </div>
             <h3>Game Review trends</h3>
             <p>
-              Accuracy: Lichess formula. Classifications approximate Chess.com.
-              Cached completed reviews only; clearing the cache removes these
-              derived trends.
+              Accuracy uses the Lichess formula. Move labels are close to
+              Chess.com. Trends use cached completed reviews; clearing that
+              cache removes them.
             </p>
             {data.analysis.length ? (
               <div className="trend-table">

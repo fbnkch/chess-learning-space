@@ -121,7 +121,7 @@ test("two browser contexts sync a quiz review through an encrypted, mocked endpo
   await pb.getByRole("dialog").getByText("Cloud sync", { exact: true }).click();
   await expect(panelB.getByRole("status")).toContainText("Paused");
   expect(methods.length).toBe(beforeReload);
-  await expect(panelB).toContainText("may bring back data you just removed");
+  await expect(panelB).toContainText("may restore deleted data");
   await panelB
     .getByRole("button", { name: "Resume and merge cloud data", exact: true })
     .click();

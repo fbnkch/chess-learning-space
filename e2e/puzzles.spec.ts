@@ -89,7 +89,7 @@ test("two-step Hint counts as a rated loss, resets after a move, and returns in 
     "1 rated attempts",
   );
   await page.getByRole("button", { name: "Due puzzles (0)" }).click();
-  await expect(page.getByText(/No due puzzles/)).toBeVisible();
+  await expect(page.getByText(/Nothing is due/)).toBeVisible();
   await page.clock.setFixedTime(new Date(2026, 9, 26, 4, 1));
   await page.reload();
   await page.getByRole("button", { name: "Due puzzles (1)" }).click();
@@ -138,7 +138,7 @@ test("failed rated puzzle is due tomorrow and a clean SRS review stays unrated",
     page.getByLabel("Puzzle rating", { exact: true }).locator("strong"),
   ).toHaveText(rating);
   await page.getByRole("button", { name: "Next puzzle" }).click();
-  await expect(page.getByText(/No due puzzles/)).toBeVisible();
+  await expect(page.getByText(/Nothing is due/)).toBeVisible();
 });
 
 test("fixed Woodpecker set completes cycles, persists and leaves rating and Due unchanged", async ({
@@ -341,11 +341,11 @@ test("Home links opening puzzles, with per-opening, motif, rating and empty filt
   await page.getByLabel("Puzzle opening").selectOption("london");
   await expect(page.getByText(/Puzzle Lond1/)).toBeVisible();
   await page.getByLabel("Puzzle motif").selectOption("fork");
-  await expect(page.getByText(/No puzzles match this opening/)).toBeVisible();
+  await expect(page.getByText(/No puzzles match these filters/)).toBeVisible();
   await page.getByLabel("Puzzle motif").selectOption("all");
   await expect(page.getByText(/Puzzle Lond1/)).toBeVisible();
   await page.getByLabel("Minimum puzzle rating").fill("1700");
-  await expect(page.getByText(/No puzzles match this opening/)).toBeVisible();
+  await expect(page.getByText(/No puzzles match these filters/)).toBeVisible();
   await page.getByLabel("Minimum puzzle rating").fill("600");
   for (const [opening, id] of [
     ["caro", "Caro1"],
@@ -423,7 +423,7 @@ test("opening puzzle failure shares first-encounter rating and Due with the orig
     page.getByLabel("Puzzle rating", { exact: true }).locator("strong"),
   ).toHaveText(rating);
   await page.getByRole("button", { name: "Next puzzle" }).click();
-  await expect(page.getByText(/No due puzzles/)).toBeVisible();
+  await expect(page.getByText(/Nothing is due/)).toBeVisible();
 });
 
 test("opening catalogue errors can be retried without loading every motif", async ({

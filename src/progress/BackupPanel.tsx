@@ -92,8 +92,8 @@ export function BackupPanel({
           : new Date(lastExportAt).toLocaleString()}
       </p>
       <p className="muted">
-        Keep a copy outside this browser. Backups include progress and settings;
-        API keys and tokens stay on this device.
+        Export a copy outside the browser. Backups contain training progress
+        and settings, but never API keys or tokens.
       </p>
       <div className="backup-actions">
         <button
@@ -156,13 +156,14 @@ export function BackupPanel({
             </p>
           )}
           <p className="muted">
-            Replace removes current progress, including learned rules, and
-            restores backup settings. Merge combines attempts and keeps current
-            settings. Missing content is kept as retired cards.
+            Replace clears current progress and loads the backup's settings.
+            Merge adds the backup's attempts and keeps your current settings.
+            Cards whose content was removed are kept as retired cards.
           </p>
           <p className="muted">
-            A safety copy is saved in this browser so you can Undo last import.
-            An extra snapshot file is optional.
+            Before importing, the app saves a restore point in this browser so
+            you can use Undo last import. Downloading an extra snapshot is
+            optional.
           </p>
           <div className="backup-actions">
             <button disabled={busy} onClick={() => setConfirmReplace(true)}>
@@ -186,10 +187,10 @@ export function BackupPanel({
         >
           <h3 id="replace-title">Replace current progress?</h3>
           <p>
-            This overwrites all current review attempts, scans, learned rules,
-            games, personal mistake cards and backup history with this file.
-            Settings are replaced when included. Undo last import will be
-            available in Data &amp; backup.
+            This file will replace your review history, Threat Scan results,
+            learned rules, games, personal mistake cards and backup history.
+            It will also replace settings if the file includes them. You can
+            undo the import from Data &amp; backup.
           </p>
           <button disabled={busy} onClick={() => void importData("replace")}>
             Confirm replace
