@@ -597,8 +597,8 @@ export function Puzzles({
         )}
         {mode === "rated" && (
           <InfoTip label="About puzzle ratings">
-            Only first encounters are rated; hints count as a loss and missed
-            puzzles return tomorrow at 04:00.
+            Only your first attempt at each new puzzle affects your rating. A
+            hint counts as a loss, and missed puzzles return tomorrow at 04:00.
           </InfoTip>
         )}
         {mode === "woodpecker" && (
@@ -607,8 +607,8 @@ export function Puzzles({
             aria-label="Woodpecker progress"
           >
             <p>
-              A fixed set, repeated in cycles. Aim to beat your previous time.
-              Unrated; spaced repetition stays unchanged.
+              Repeat this fixed set to improve your time. These puzzles are
+              unrated, so your review schedule stays the same.
             </p>
             {sets.length > 0 && (
               <label>
@@ -678,9 +678,9 @@ export function Puzzles({
       ) : !puzzle ? (
         <p role="status">
           {mode === "due"
-            ? "No due puzzles. Failed or hinted puzzles return tomorrow at 04:00. Unavailable content keeps its history."
+            ? "Nothing is due. Missed or hinted puzzles return tomorrow at 04:00. Unavailable puzzles keep their history."
             : opening !== "all" && mode === "rated"
-              ? "No puzzles match this opening, motif and rating range. Try another motif or widen the range."
+              ? "No puzzles match these filters. Try another motif or widen the rating range."
               : "No puzzles in this rating range. Try widening the range."}
         </p>
       ) : (

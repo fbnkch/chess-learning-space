@@ -26,10 +26,10 @@ export function WordingSettings({ store }: { store: Progress | null }) {
     <section className="wording-settings" aria-label="Explanation wording">
       <h2>Explanation wording</h2>
       <p>
-        Off by default. Only clicking Rephrase in Game Review sends the shown
-        engine facts and golden rules to your chosen provider. No full game or
-        player names are sent. Your provider may retain facts and charge for
-        requests.
+        Off by default. Only Rephrase in Game Review sends data to your chosen
+        provider. The request includes the displayed engine findings and
+        relevant Golden Rules, but not the full game or player names. The
+        provider may store the request and charge you.
       </p>
       <label>
         Wording provider
@@ -82,21 +82,21 @@ export function WordingSettings({ store }: { store: Progress | null }) {
             </label>
           )}
           <p>
-            Stored only in this browser's secrets store; never included in
-            backups. Browser scripts and extensions can access this key. Use
-            your own restricted key in this private app.
+            The key stays in this browser and is never added to backups.
+            Browser scripts and extensions can read it, so use a restricted
+            key for this app.
           </p>
           {config.provider === "anthropic" && (
             <p>
-              Anthropic calls enable anthropic-dangerous-direct-browser-access.
-              Your key is sent directly from this browser to the configured
-              endpoint. Verify the URL before saving.
+              Anthropic access from this browser is enabled by
+              anthropic-dangerous-direct-browser-access. Your key goes straight
+              to the endpoint shown here. Check the address before saving.
             </p>
           )}
           {config.provider === "ollama" && (
             <p>
-              Run Ollama locally and allow this app's origin using
-              OLLAMA_ORIGINS. CORS must be enabled by your provider.
+              When Ollama runs locally, allow this app's origin in
+              OLLAMA_ORIGINS.
             </p>
           )}
         </>

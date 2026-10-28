@@ -131,10 +131,9 @@ they do not carry text or the only indication of a selected control. Radius toke
 are 8/12/16px. Spacing tokens use a 4px grid; board coordinates keep their
 pixel geometry.
 
-Hanken Grotesk variable (100-900) is the primary face; titles use 600.
-JetBrains Mono variable (100-800) handles SAN, FEN, PV and rating values.
-Only normal Latin WOFF2 files ship (34.70/40.40kB), with swap and system fallbacks.
-The primary face is preloaded from the same origin. All text uses tabular numerals.
+Noto Sans Variable (100-900) is the primary face. SAN, FEN, PV and rating
+values use the system monospace stack. The Latin WOFF2 file is self-hosted,
+preloaded, and falls back to the system sans-serif. Text uses tabular numerals.
 
 The only added interface animation is a 600ms session-complete ring.
 System and in-app reduced-motion settings remove it. Existing chess-piece movement

@@ -3,9 +3,9 @@
 Base: `main` at `424b3ce`. Branch: `feat/premium-pass`.
 
 The visual direction and contrast table are in [design-direction.md](design-direction.md)
-and [design-tokens.md](design-tokens.md). Hanken Grotesk and JetBrains Mono are
-normal Latin variable WOFF2 fonts, served locally. The brass primary action has
-8.72:1 label contrast. Thumbnails use real positions and existing piece artwork.
+and [design-tokens.md](design-tokens.md). Noto Sans is served locally as a
+variable WOFF2 font. The primary action has 8.72:1 label contrast. Thumbnails
+use real positions and existing piece artwork.
 
 ## Copy measurement
 

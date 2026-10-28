@@ -63,9 +63,8 @@ test("hosting CSP permits the real Stockfish worker and blocks external script e
   await page.goto("/#free-play");
   await page.evaluate(async () => {
     await document.fonts.ready;
-    await document.fonts.load('400 16px "JetBrains Mono"');
   });
-  expect(fontRequests.length).toBeGreaterThanOrEqual(2);
+  expect(fontRequests.length).toBeGreaterThanOrEqual(1);
   expect(
     fontRequests.every(
       (url) => new URL(url).origin === new URL(baseURL!).origin,
@@ -73,9 +72,18 @@ test("hosting CSP permits the real Stockfish worker and blocks external script e
   ).toBe(true);
   expect(
     await page.evaluate(
-      () =>
-        document.fonts.check('600 16px "IBM Plex Sans"') &&
-        document.fonts.check('400 16px "JetBrains Mono"'),
+      () => {
+        const notoSansLoaded = Array.from(document.fonts).some(
+          (font) => font.family === "Noto Sans" && font.status === "loaded",
+        );
+        const heading = document.querySelector("h1");
+        const family = heading && getComputedStyle(heading).fontFamily;
+        return (
+          notoSansLoaded &&
+          family?.split(",")[0].trim().replace(/^['"]|['"]$/g, "") ===
+            "Noto Sans"
+        );
+      },
     ),
   ).toBe(true);
   expect(consoleErrors).toEqual([]);

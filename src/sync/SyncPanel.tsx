@@ -90,9 +90,9 @@ export function SyncPanel({
         Cross-device sync <span className="sync-optional">optional</span>
       </h3>
       <p>
-        Encrypted progress on your own Vercel deployment. Your app works offline
-        with sync off. Keep the same code on every device and save a JSON backup
-        separately.
+        Sync encrypts your progress before it leaves this browser and stores it
+        on your Vercel deployment. Training works without sync. Use the same
+        code on each device, and keep a separate JSON backup.
       </p>
       <p role="status" aria-live="polite">
         {label}
@@ -128,9 +128,9 @@ export function SyncPanel({
           {status.kind === "paused" && (
             <div className="sync-confirm">
               <p>
-                Sync paused after Replace or Undo. Choose how to continue.
-                Resume and merge cloud data may bring back data you just
-                removed.
+                Sync paused after you replaced or undid an import. You can
+                resume and merge the cloud copy, which may restore deleted
+                data, or replace the cloud copy with this device's data.
               </p>
               {!confirmDevice ? (
                 <button
@@ -142,9 +142,10 @@ export function SyncPanel({
               ) : (
                 <>
                   <p>
-                    Delete the cloud copy and replace it with this device? Turn
-                    off sync on your other devices first so they cannot bring
-                    old data back. Export JSON first.
+                    This deletes the cloud copy and uploads the data from this
+                    device. Turn off sync on your other devices first, or they
+                    may upload old data again. Export a JSON backup before
+                    continuing.
                   </p>
                   <button
                     disabled={disabled}
@@ -222,8 +223,8 @@ export function SyncPanel({
           <details>
             <summary>Hosting restriction hash</summary>
             <p>
-              Set SYNC_ALLOWED_HASH in Vercel to this value, then redeploy. This
-              hash is safe to copy; keep the sync code private.
+              Add this value as SYNC_ALLOWED_HASH in Vercel, then redeploy. The
+              hash is safe to share. Keep your sync code private.
             </p>
             <input aria-label="Allowed sync hash" readOnly value={hash} />
           </details>
@@ -238,9 +239,10 @@ export function SyncPanel({
           ) : (
             <div className="sync-confirm">
               <p>
-                Delete the encrypted cloud copy? Local progress stays. Turn off
-                sync on your other devices first so they cannot upload it again.
-                Export JSON before deleting.
+                This permanently deletes the encrypted cloud copy. Your local
+                progress stays. Turn off sync on other devices first so they
+                cannot upload the data again. Export a JSON backup before
+                deleting.
               </p>
               <button
                 disabled={disabled}
@@ -271,9 +273,9 @@ export function SyncPanel({
         </p>
       )}
       <p className="sync-optional">
-        Automatic uploads wait at least 120 minutes. At most 400 upload attempts
-        per UTC calendar month in this browser; manual sync also counts. Export
-        JSON if cloud access is blocked.
+        Automatic sync waits at least two hours between uploads. This browser
+        can try up to 400 times per UTC month; manual sync counts too. If sync
+        is blocked, export a JSON backup.
       </p>
     </section>
   );

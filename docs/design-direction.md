@@ -54,12 +54,12 @@ canvas color. PNGs are regenerated with `node scripts/generate-icons.mjs`.
 
 ## Type and positions
 
-**IBM Plex Sans Variable** carries controls and body text. **IBM Plex Serif**
-(normal 400) gives page titles and the recommended action a quieter chess-club
-voice. Display titles scale from 32 to 48px; body uses 16px. **JetBrains Mono Variable** makes
-SAN, PV, FEN and rating data easy to scan. All numerals are tabular. Only normal
-Latin WOFF2 files ship, self-hosted through npm packages, with `font-display:
-swap`, system fallbacks and a primary-font preload. The floor remains 12px; all font licenses ship in `public/fonts/`.
+Noto Sans Variable handles controls, body text and headings. Its open shapes
+stay legible at small sizes, while medium-weight headings keep the page calm
+without a decorative display face. Board coordinates and notation use the
+system monospace stack. The Latin WOFF2 file is self-hosted with a system
+fallback and preloaded. The smallest text remains 12px; the font licence ships
+in `public/fonts/`.
 
 `MiniBoard` is static SVG: 64 squares, existing piece SVGs, real FEN, optional
 last move or arrow, and the learner's color at the bottom. It replaces decorative

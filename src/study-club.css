@@ -1,18 +1,15 @@
-/* A chess club, with one clear invitation to the board. */
-:root {
-  --font-display: "IBM Plex Serif", Georgia, serif;
-}
+/* One readable type family keeps the study desk calm and familiar. */
 h1 {
-  font-family: var(--font-display);
+  font-family: "Noto Sans", "Segoe UI", system-ui, sans-serif;
   font-size: 2.5rem;
   line-height: 1.15;
-  font-weight: 400;
-  letter-spacing: -0.04em;
+  font-weight: 600;
+  letter-spacing: -0.025em;
 }
 .dashboard h1 {
   font-size: clamp(2rem, 3.4vw, 3rem);
   line-height: 1.15;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.025em;
 }
 button,
 .primary,
@@ -31,13 +28,13 @@ button,
   border-radius: 0;
 }
 .sidebar .brand > div {
-  font-family: var(--font-display);
+  font-family: "Noto Sans", "Segoe UI", system-ui, sans-serif;
   font-size: 1.875rem;
-  font-weight: 400;
-  letter-spacing: -0.04em;
+  font-weight: 650;
+  letter-spacing: -0.035em;
 }
 .sidebar .brand div span {
-  font-family: "IBM Plex Sans", system-ui, sans-serif;
+  font-family: "Noto Sans", "Segoe UI", system-ui, sans-serif;
   font-size: 0.75rem;
   letter-spacing: 0.02em;
   font-weight: 400;
@@ -82,9 +79,9 @@ button,
 }
 .dashboard .recommended-step h2,
 .opening-next h2 {
-  font-family: var(--font-display);
-  font-weight: 400;
-  letter-spacing: -0.035em;
+  font-family: "Noto Sans", "Segoe UI", system-ui, sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.02em;
 }
 .dashboard .recommended-step h2 {
   font-size: clamp(1.75rem, 3vw, 2.5rem);

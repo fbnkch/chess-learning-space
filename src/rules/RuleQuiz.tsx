@@ -29,9 +29,8 @@ export function RuleQuiz({
         <div>
           <h1>Golden Rules quiz</h1>
           <p>
-            Choose the principle illustrated by the position and its idea.
-            Correct answers count as learned; this quiz does not schedule
-            reviews.
+            For each position, choose the rule it shows. Correct answers mark
+            the rule as learned. The quiz does not schedule reviews.
           </p>
           <a href="#rules">Browse Golden Rules</a>
         </div>

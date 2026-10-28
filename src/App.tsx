@@ -294,8 +294,8 @@ export function App() {
         )}
         {!online && (
           <p role="status">
-            You are offline. Bundled training and saved progress remain
-            available. Chess.com imports and external links need a connection.
+            You're offline. Training and saved progress still work. Importing
+            Chess.com games and opening external links require internet.
           </p>
         )}
         {progress.nudge && (
@@ -565,8 +565,8 @@ export function App() {
                   <h3>Room to think</h3>
                   <p>Drag a piece or click a piece and its target.</p>
                   <p>
-                    Right-click to mark a square. Right-drag to draw an arrow.
-                    Hold Shift or Alt for more colors.
+                    Right-click a square to mark it. Drag with the right button
+                    to draw an arrow. Hold Shift or Alt to choose another color.
                   </p>
                   <p>Use left / right arrow keys to step through your moves.</p>
                 </div>

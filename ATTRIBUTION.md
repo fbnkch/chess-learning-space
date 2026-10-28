@@ -1,9 +1,10 @@
 # Asset attribution
 
-Verified from upstream sources on 2026-10-24. No Chess.com assets are used.
+Verified from upstream sources on 2026-10-28. No Chess.com assets are used.
 
 | Files | Author/source | Licence | Changes |
 | --- | --- | --- | --- |
+| `public/assets/icon-v2.svg` and `public/assets/icon-v2-{180,192,512}.png` | Original artwork for Chess Learning Space | No third-party asset | Hand-drawn vector knight profile; PNGs generated from the SVG |
 | `public/pieces/{w,b}{K,Q,R,B,N,P}.svg` (12 files) | Colin M. L. Burnett (cburnett), via Lichess lila | GPL-2.0-or-later | None |
 | `public/sounds/move.wav`, `capture.wav`, `check.wav` and `scripts/generate-sounds.py` | Original synthesized sounds created for Chess Learning Space | CC0-1.0 | Original work; no third-party samples |
 | Chessground JS and base CSS (npm `@lichess-org/chessground` 9.2.3) | Thibault Duplessis and Lichess contributors | GPL-3.0-or-later | Base CSS imported; independent blue theme layered on top |
@@ -17,7 +18,7 @@ Verified from upstream sources on 2026-10-24. No Chess.com assets are used.
 - Migration check: [upstream releases](https://github.com/lichess-org/chessground/releases) and the published 9.2.3 source/types retain the 9.2.1 API used here (including `events.select`, `eraseOnClick`, destinations, shapes and base CSS). Only the import namespace changes. Use the compatible 9.x successor rather than mixing in 10.x API changes. The npm website returned HTTP 403 during verification, so package metadata/source were obtained through the npm registry CLI.
 - The lila copying table does not clearly offer its standard sound set under a free licence, so those sounds were not copied. The three original WAV files can be reproduced with `python scripts/generate-sounds.py`. Their source and resulting sounds are dedicated to the public domain under CC0-1.0.
 - Licence texts are included in `public/licenses/`: GPL-2.0, GPL-3.0 and CC0-1.0. GPL-2.0 was obtained from gnu.org, GPL-3.0 and CC0 from the SPDX licence-list repository.
-- Fonts: IBM Plex Sans (npm `@fontsource-variable/ibm-plex-sans`), IBM Plex Serif (npm `@fontsource/ibm-plex-serif`) and JetBrains Mono (npm `@fontsource-variable/jetbrains-mono`), all SIL Open Font License 1.1, are bundled as self-hosted Latin woff2 files. Their licence texts are in `public/fonts/`. The system font stack remains the fallback. The board pattern and theme are CSS created for this app.
+- Noto Sans (npm `@fontsource-variable/noto-sans`) is bundled as a self-hosted Latin WOFF2 file under the SIL Open Font License 1.1. Its licence is in `public/fonts/`. The app falls back to the system sans-serif font.
 
 Chessground (GPL-3.0-or-later) and the Stockfish build (GPL-3.0) are distributed with the app, and the game accuracy port is derived from AGPL-3.0 code, so the source of any public deployment must be public (see `docs/hosting.md`).
 
