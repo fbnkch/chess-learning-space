@@ -3,7 +3,7 @@ import { fileURLToPath } from "node:url";
 import { chromium } from "@playwright/test";
 
 // One source for browser, iOS and installed-app artwork. No runtime dependency.
-const source = new URL("../public/assets/icon-v2.svg", import.meta.url);
+const source = new URL("../public/assets/icon-v3.svg", import.meta.url);
 const tokens = await readFile(
   new URL("../src/appearance.css", import.meta.url),
   "utf8",
@@ -27,7 +27,7 @@ try {
     );
     await page.screenshot({
       path: fileURLToPath(
-        new URL(`../public/assets/icon-v2-${size}.png`, import.meta.url),
+        new URL(`../public/assets/icon-v3-${size}.png`, import.meta.url),
       ),
     });
   }

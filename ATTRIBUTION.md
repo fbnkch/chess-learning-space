@@ -4,7 +4,7 @@ Verified from upstream sources on 2026-10-28. No Chess.com assets are used.
 
 | Files | Author/source | Licence | Changes |
 | --- | --- | --- | --- |
-| `public/assets/icon-v2.svg` and `public/assets/icon-v2-{180,192,512}.png` | Original artwork for Chess Learning Space | No third-party asset | Hand-drawn vector knight profile; PNGs generated from the SVG |
+| `public/assets/icon-v{2,3}.svg` and `public/assets/icon-v{2,3}-{180,192,512}.png` | Original artwork for Chess Learning Space | No third-party asset | Hand-drawn vector knight profile; PNGs generated from the SVG |
 | `public/pieces/{w,b}{K,Q,R,B,N,P}.svg` (12 files) | Colin M. L. Burnett (cburnett), via Lichess lila | GPL-2.0-or-later | None |
 | `public/sounds/move.wav`, `capture.wav`, `check.wav` and `scripts/generate-sounds.py` | Original synthesized sounds created for Chess Learning Space | CC0-1.0 | Original work; no third-party samples |
 | Chessground JS and base CSS (npm `@lichess-org/chessground` 9.2.3) | Thibault Duplessis and Lichess contributors | GPL-3.0-or-later | Base CSS imported; independent blue theme layered on top |
