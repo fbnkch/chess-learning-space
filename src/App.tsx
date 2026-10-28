@@ -5,7 +5,7 @@ import { ExplorerSettings } from "./explorer/ExplorerSettings";
 import { WordingSettings } from "./llm/WordingSettings";
 import { RuleQuiz } from "./rules/RuleQuiz";
 import { EngineBoard } from "./engine/EngineBoard";
-import { useCallback, useEffect, useReducer, useRef, useState } from "react";
+import { Fragment, useCallback, useEffect, useReducer, useRef, useState } from "react";
 import type { Square } from "./game/Game";
 import type { Key } from "@lichess-org/chessground/types";
 import type { DrawShape } from "@lichess-org/chessground/draw";
@@ -211,57 +211,27 @@ export function App() {
           </div>
         </a>
         <nav aria-label="Main navigation">
-          <a
-            href="#home"
-            className={page === "home" ? "nav-active" : undefined}
-            aria-current={page === "home" ? "page" : undefined}
-          >
-            <Icon name="home" /> Home
-          </a>
-          <a
-            href="#free-play"
-            className={page === "free-play" ? "nav-active" : undefined}
-            aria-current={page === "free-play" ? "page" : undefined}
-          >
-            <Icon name="board" /> Free play
-          </a>
-          <a
-            href="#openings"
-            className={page === "openings" ? "nav-active" : undefined}
-            aria-current={page === "openings" ? "page" : undefined}
-          >
-            <Icon name="openings" /> Openings{" "}
-            <span className="nav-count">{progress.dueCount}</span>
-          </a>
-          <a
-            href="#rules"
-            className={page === "rules" ? "nav-active" : undefined}
-            aria-current={page === "rules" ? "page" : undefined}
-          >
-            <Icon name="rules" /> Golden Rules{" "}
-            <span className="nav-count">{progress.learnedRules.length}</span>
-          </a>
-          <a
-            href="#threats"
-            className={page === "threats" ? "nav-active" : undefined}
-            aria-current={page === "threats" ? "page" : undefined}
-          >
-            <Icon name="threats" /> Threat Scan
-          </a>
-          <a
-            href="#puzzles"
-            className={page === "puzzles" ? "nav-active" : undefined}
-            aria-current={page === "puzzles" ? "page" : undefined}
-          >
-            <Icon name="puzzles" /> Puzzles
-          </a>
-          <a
-            href="#games"
-            className={page === "games" ? "nav-active" : undefined}
-            aria-current={page === "games" ? "page" : undefined}
-          >
-            <Icon name="games" /> Games
-          </a>
+          {([
+            { route: "home", label: "Home" },
+            { route: "free-play", label: "Free play" },
+            { route: "openings", label: "Openings", section: "Practice", count: progress.dueCount },
+            { route: "puzzles", label: "Puzzles" },
+            { route: "threats", label: "Threat Scan" },
+            { route: "rules", label: "Golden Rules", section: "Study", count: progress.learnedRules.length },
+            { route: "games", label: "Games", section: "Review" },
+          ] as const).map((item) => (
+            <Fragment key={item.route}>
+              {"section" in item && <p className="nav-label">{item.section}</p>}
+              <a
+                href={`#${item.route}`}
+                className={page === item.route ? "nav-active" : undefined}
+                aria-current={page === item.route ? "page" : undefined}
+              >
+                {item.label}
+                {"count" in item && <span className="nav-count">{item.count}</span>}
+              </a>
+            </Fragment>
+          ))}
         </nav>
         <div className="sidebar-bottom">
           <button

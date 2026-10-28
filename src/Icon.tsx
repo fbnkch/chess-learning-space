@@ -3,7 +3,7 @@
 const paths = {
   home: (
     <>
-      <path d="m3 11 9-8 9 8v10h-6v-7H9v7H3Z" />
+      <path d="m4 10 8-6 8 6v10h-6v-6h-4v6H4Z" />
     </>
   ),
   board: (
@@ -14,13 +14,13 @@ const paths = {
   ),
   openings: (
     <>
-      <path d="M12 5c-3-2-6-2-9-1v15c3-1 6-1 9 1 3-2 6-2 9-1V4c-3-1-6-1-9 1Zm0 0v15" />
+      <path d="M12 6c-3-2-5-2-8-1v14c3-1 5-1 8 1 3-2 5-2 8-1V5c-3-1-5-1-8 1Zm0 0v14" />
     </>
   ),
   rules: (
     <>
-      <path d="m12 3 8 3v6c0 4-4 7-8 9-4-2-8-5-8-9V6Z" />
-      <path d="m8 12 3 3 5-6" />
+      <path d="M6 4h12v16l-6-3-6 3Z" />
+      <path d="M9 8h6M9 11h4" />
     </>
   ),
   threats: (
@@ -32,7 +32,8 @@ const paths = {
   ),
   puzzles: (
     <>
-      <path d="M3 3h6a3 3 0 1 1 6 0h6v6a3 3 0 1 0 0 6v6h-6a3 3 0 1 0-6 0H3v-6a3 3 0 1 0 0-6Z" />
+      <path d="m12 3 9 9-9 9-9-9Z" />
+      <path d="m10 9 5 3-5 3Z" fill="currentColor" stroke="none" />
     </>
   ),
   games: (
@@ -65,7 +66,7 @@ export function Icon({ name }: { name: keyof typeof paths }) {
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      strokeWidth="1.75"
+      strokeWidth="1.5"
       strokeLinecap="round"
       strokeLinejoin="round"
       aria-hidden="true"

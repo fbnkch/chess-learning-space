@@ -184,7 +184,7 @@ export function Dashboard({
                 })
               }
             >
-              Build my plan
+              Choose this opening
             </button>
           </div>
           <details className="storage-info">
@@ -205,14 +205,25 @@ export function Dashboard({
                 <h2>Today</h2>
                 <WeekDots days={data.days} />
               </div>
-              <a
-                className={firstRun ? "session-start" : "primary session-start"}
-                href={data.session[0]?.href ?? "#openings"}
-              >
-                Start today's session <Icon name="chevron" />
-              </a>
+              {firstRun ? (
+                <p className="first-lesson-note">Choose an opening above to begin.</p>
+              ) : (
+                <section className="recommended-step" aria-label="Recommended next step">
+                  <span className="study-kicker">Start here</span>
+                  <h2>{data.nextStep.title}</h2>
+                  <p>{data.nextStep.instruction}</p>
+                  <a className="primary session-start" href={data.nextStep.href}>
+                    {data.nextStep.action} <Icon name="chevron" />
+                  </a>
+                </section>
+              )}
+              {!firstRun && <h3 className="other-practice-heading">Then, if you have time</h3>}
               <ol className="session-list">
-                {data.session.map((step) => (
+                {(firstRun ? [] : data.session.filter((step) =>
+                  !step.id.startsWith("openings") &&
+                  step.id !== "lesson" &&
+                  step.href !== data.nextStep.href,
+                )).map((step) => (
                   <li key={step.id}>
                     <a href={step.href} aria-label={step.title}>
                       {"preview" in step && step.preview ? (
@@ -274,7 +285,7 @@ export function Dashboard({
               aria-label="Where you left off"
             >
               <div className="section-title">
-                <h2>Continue</h2>
+                <h2>Your repertoire</h2>
                 {data.continueLine && (
                   <span className="study-stage">{data.continueLine.stage}</span>
                 )}
@@ -282,7 +293,7 @@ export function Dashboard({
               {data.continueLine && (
                 <a
                   className="continue-position"
-                  href={data.continueLine.href}
+                  href={data.continueLine.href + "&start=1"}
                   aria-label={data.continueLine.title}
                 >
                   <div className="study-board">
@@ -291,6 +302,9 @@ export function Dashboard({
                   <span className="study-caption">
                     <span>{data.continueLine.title}</span>
                     <Icon name="chevron" />
+                  </span>
+                  <span className="score-strip">
+                    Line starts: {data.continueLine.notation}
                   </span>
                 </a>
               )}

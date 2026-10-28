@@ -28,6 +28,13 @@ it("aggregates a fresh profile and resumes the last opening through public ports
       due: { openings: 0, puzzles: 0, mistakes: 0 },
       recall: null,
       rating: 1000,
+      nextStep: {
+        action: "Start lesson",
+        href: "#openings?line=italian-pianissimo-main&start=1",
+      },
+      continueLine: {
+        notation: "1. e4 e5 2. Nf3 Nc6 3. Bc4 Bc5",
+      },
     });
     const card = repertoire
       .selectLines("black", ["caro-classical"])
@@ -64,6 +71,10 @@ it("aggregates a fresh profile and resumes the last opening through public ports
       recall: 0.75,
       learnedRules: 1,
       weekly: { openings: 1, threats: 1 },
+      nextStep: {
+        action: "Start practice",
+        href: "#openings?line=caro-classical&start=1",
+      },
       continueLine: {
         stage: "practice",
         href: "#openings?line=caro-classical",
@@ -111,6 +122,37 @@ it("roundtrips optional plan settings without a schema migration and still accep
   } finally {
     source.close();
     target.close();
+  }
+});
+
+it("recommends another active lesson when the last line is in Drill and nothing is due", async () => {
+  const store = await openProgress({ name: crypto.randomUUID() });
+  const scheduler = new Scheduler((log) => drillCards(repertoire, log), store);
+  const cards = repertoire.selectLines("white", ["italian-pianissimo-main"]).cards("white");
+  try {
+    await scheduler.record(completionReview(cards[0], "practice", "complete", now - 1000, ulid()));
+    for (const card of cards) {
+      await scheduler.record({
+        cardId: card.id, lineId: "italian-pianissimo-main", context: "repertoire",
+        sessionId: "reviewed-line", attemptId: ulid(), at: now - 500,
+        grade: "good", hintsUsed: 0, durationMs: 100, schedulingEligible: true,
+      });
+    }
+    expect(await scheduler.due(now)).toEqual([]);
+    const data = await loadDashboard(store, scheduler, new PuzzleTraining(store), settings, () => now);
+    expect(data.continueLine?.stage).toBe("drill");
+    expect(data.nextStep.action).toBe("Start lesson");
+    expect(data.nextStep.href).not.toContain("italian-pianissimo-main");
+    const target = new URLSearchParams(data.nextStep.href.split("?")[1]).get("line");
+    expect(data.sides.flatMap((s) => s.cohort.active.map((entry) => entry.line.id))).toContain(target);
+    const preferred = await loadDashboard(
+      store, scheduler, new PuzzleTraining(store),
+      { ...settings, startingOpening: "caro" }, () => now,
+    );
+    expect(preferred.nextStep.action).toBe("Start lesson");
+    expect(preferred.nextStep.href).toContain("line=caro-");
+  } finally {
+    store.close();
   }
 });
 

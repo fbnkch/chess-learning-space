@@ -156,7 +156,7 @@ for (const viewport of sizes) {
       }
       if (route === "home") {
         await page
-          .getByRole("button", { name: "Build my plan", exact: true })
+          .getByRole("button", { name: "Choose this opening", exact: true })
           .click();
         await expect(
           page.getByRole("region", { name: "Welcome", exact: true }),
@@ -175,7 +175,7 @@ for (const viewport of sizes) {
       }
       if (route === "openings") {
         await page
-          .getByRole("button", { name: "Continue training", exact: true })
+          .getByRole("button", { name: /^(Start lesson|Start practice|Review due moves)$/, exact: true })
           .click();
         await expect(page.locator("cg-board").first()).toBeVisible();
         await assertDesign(page, minimum);

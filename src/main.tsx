@@ -4,6 +4,7 @@ import { createRoot } from "react-dom/client";
 import { App } from "./App";
 import "./styles.css";
 import "./plan/dashboard.css";
+import "./study-club.css";
 import "./appearance.css";
 import { applyAppearance } from "./appearance";
 import { readSettings } from "./settings";

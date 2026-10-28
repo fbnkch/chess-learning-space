@@ -59,7 +59,7 @@ test("cohort lock, manual unlock, setting and coverage persist after learning an
     "4 active white lines",
   );
   await expect(italian).toContainText("0/24 positions discovered");
-  await page.getByRole("button", { name: "Continue training" }).click();
+  await page.getByRole("button", { name: /^(Start lesson|Start practice|Review due moves)$/ }).click();
   await expect(italian).toContainText("1/24 positions discovered");
   for (let ply = 0; ply < 15; ply++)
     await page.getByRole("button", { name: "Next opening move" }).click();
@@ -67,7 +67,7 @@ test("cohort lock, manual unlock, setting and coverage persist after learning an
   await expect(italian).toContainText(
     "8/24 positions discovered · 0 practiced · 0 in Drill · 0 mastered",
   );
-  await page.getByRole("button", { name: "Continue training" }).click();
+  await page.getByRole("button", { name: /^(Start lesson|Start practice|Review due moves)$/ }).click();
   for (const move of [
     "e2e4",
     "g1f3",
@@ -123,10 +123,10 @@ test("completing a skipped lesson with a shared start only discovers viewed posi
   await page.goto("/#openings");
   await page.locator(".opening-progress > summary").click();
   const italian = page.getByLabel("Italian coverage", { exact: true });
-  await page.getByRole("button", { name: "Continue training" }).click();
+  await page.getByRole("button", { name: /^(Start lesson|Start practice|Review due moves)$/ }).click();
   await expect(italian).toContainText("1/24 positions discovered");
   await page.getByLabel("Opening line").selectOption("italian-be7");
-  await page.getByRole("button", { name: "Continue training" }).click();
+  await page.getByRole("button", { name: /^(Start lesson|Start practice|Review due moves)$/ }).click();
   await expect(
     page.getByRole("heading", { name: "Learn the line" }),
   ).toBeVisible();

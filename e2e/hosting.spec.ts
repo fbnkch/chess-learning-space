@@ -74,7 +74,7 @@ test("hosting CSP permits the real Stockfish worker and blocks external script e
   expect(
     await page.evaluate(
       () =>
-        document.fonts.check('600 16px "Hanken Grotesk"') &&
+        document.fonts.check('600 16px "IBM Plex Sans"') &&
         document.fonts.check('400 16px "JetBrains Mono"'),
     ),
   ).toBe(true);
