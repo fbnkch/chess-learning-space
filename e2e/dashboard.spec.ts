@@ -13,12 +13,12 @@ test("first run builds a persistent plan with the chosen opening and backup guid
   await welcome.getByText("Where is my data?", { exact: true }).click();
   await expect(welcome).toContainText("export a backup in Settings");
   await page.getByLabel("Starting opening").selectOption("caro");
-  await page.getByRole("button", { name: "Build my plan" }).click();
+  await page.getByRole("button", { name: "Choose this opening" }).click();
   await expect(welcome).toHaveCount(0);
   const resume = page.getByRole("region", { name: "Where you left off" });
   await expect(
     resume.getByRole("link", { name: "Classical: Nc3" }).first(),
-  ).toHaveAttribute("href", "#openings?line=caro-classical");
+  ).toHaveAttribute("href", "#openings?line=caro-classical&start=1");
   await page.reload();
   await expect(welcome).toHaveCount(0);
   await resume.getByRole("link", { name: "Classical: Nc3" }).first().click();
@@ -30,7 +30,7 @@ test("weekly external work survives a gap and resets only on request; offline is
   context,
 }) => {
   await page.goto("/");
-  await page.getByRole("button", { name: "Build my plan" }).click();
+  await page.getByRole("button", { name: "Choose this opening" }).click();
   await page
     .getByLabel("Weekly plan", { exact: true })
     .locator("summary")
@@ -64,11 +64,13 @@ test("existing progress skips welcome and prioritises due openings with working 
     page.getByRole("region", { name: "Welcome", exact: true }),
   ).toHaveCount(0);
   const today = page.getByRole("region", { name: "Today", exact: true });
-  await expect(today.getByRole("listitem").first()).toContainText(
-    "Recall due white openings: sidelines (88)",
+  const recommended = today.getByRole("region", { name: "Recommended next step" });
+  await expect(recommended).toContainText("Recall due moves first");
+  await expect(recommended.getByRole("link", { name: "Review due moves" })).toHaveAttribute(
+    "href", /^#openings\?line=[^&]+&start=1&scope=group$/,
   );
   await today
-    .getByRole("link", { name: "Recall due white openings: sidelines (88)" })
+    .getByRole("link", { name: "Review due moves" })
     .click();
   await expect(page.getByLabel("Opening", { exact: true })).toHaveValue(
     "sidelines",

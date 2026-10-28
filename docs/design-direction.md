@@ -54,12 +54,12 @@ canvas color. PNGs are regenerated with `node scripts/generate-icons.mjs`.
 
 ## Type and positions
 
-**Hanken Grotesk Variable** gives the interface an open, legible rhythm with
-more character than the previous system font. Titles use 32px, weight 600 and
-slight negative tracking; body uses 16px. **JetBrains Mono Variable** makes
+**IBM Plex Sans Variable** carries controls and body text. **IBM Plex Serif**
+(normal 400) gives page titles and the recommended action a quieter chess-club
+voice. Display titles scale from 32 to 48px; body uses 16px. **JetBrains Mono Variable** makes
 SAN, PV, FEN and rating data easy to scan. All numerals are tabular. Only normal
 Latin WOFF2 files ship, self-hosted through npm packages, with `font-display:
-swap`, system fallbacks and a primary-font preload. The floor remains 12px; both font licenses ship in `public/fonts/`.
+swap`, system fallbacks and a primary-font preload. The floor remains 12px; all font licenses ship in `public/fonts/`.
 
 `MiniBoard` is static SVG: 64 squares, existing piece SVGs, real FEN, optional
 last move or arrow, and the learner's color at the bottom. It replaces decorative
@@ -92,3 +92,33 @@ Authored SAN annotation marks remain intact.
 Only the session-complete ring adds motion (600ms); reduced-motion preferences
 remove it. Existing piece movement and drawing gestures retain their settings.
 Touch targets remain at least 44px, with the previous contrast and overflow checks.
+
+## Guided study refinement (2026-10-28)
+
+The learner chose a modern chess-club direction: quiet type, fewer symbols and a
+clear route into practice. Desktop navigation is grouped into Practice, Study
+and Review and uses text labels; compact navigation retains a consistent 1.5px
+SVG set. Existing light/dark modes and all four palettes stay available.
+
+Home recommends one next action from real progress: due opening reviews first,
+then the selected unfinished line's Learn or Practice stage, otherwise tactics.
+When the recent line is already in Drill, the next unfinished active line is
+recommended, preferring the selected opening. Direct starts on reviewed lines
+with nothing due open whole-line Practice instead of an empty drill.
+Optional further exercises remain visible underneath. The large repertoire
+position carries a score-strip of the line's actual starting moves. No new
+session-completion state, storage or rating behavior is introduced.
+
+Opening links with start=1 consume their intent once after the saved log loads;
+the actual persisted stage decides Learn versus Practice/Drill. Locked lines do
+not auto-start. Group-review links retain the existing group scope. The visible
+Learn / Practice / Drill path explains what each stage does. The recommended
+stage action is outside configuration disclosures. Saving a lesson returns to
+an explicit Practice action; completed exercises offer a return to the plan.
+
+Lesson navigation stays above the board and remains sticky on larger screens.
+On phones it stays in normal flow so long comments cannot cover the board.
+Next move advances the lesson; Complete lesson appears on the last
+move. Authored explanations remain visible next to these controls, with no
+additional hints in whole-line Practice. Essential puzzle/scan instructions are
+visible rather than hidden in help. All attempts and unlocks still use ADR-0002.

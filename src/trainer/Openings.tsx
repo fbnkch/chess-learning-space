@@ -2,7 +2,7 @@ import { MiniBoard } from "../MiniBoard";
 import { CoverageBar } from "../DataGraphic";
 import { InfoTip } from "../InfoTip";
 import { TrainingOptions } from "../TrainingOptions";
-import { useEffect, useMemo, useReducer, useRef, useState } from "react";
+import { useEffect, useEffectEvent, useMemo, useReducer, useRef, useState } from "react";
 import { monotonicFactory, ulid } from "ulid";
 import type { DrawShape } from "@lichess-org/chessground/draw";
 import { Board } from "../board/Board";
@@ -105,6 +105,8 @@ export function Openings({
   const selected = groupRepertoires.get(group)!;
   const selectedLine = lineRepertoires.get(line.id)!;
   const [log, setLog] = useState<Review[]>([]);
+  const [loaded, setLoaded] = useState(false);
+  const launchedFromHome = useRef(false);
   const coverageByScope = useMemo(() => {
     const count = coverageCounter(repertoire, side, log);
     return new Map(
@@ -140,6 +142,7 @@ export function Openings({
           if (active) {
             setLog(reviews);
             setDueIds(cards.map((card) => card.id));
+            setLoaded(true);
           }
         })
         .catch(() => {
@@ -257,6 +260,26 @@ export function Openings({
       setBusy(false);
     }
   }
+  // A navigation intent is consumed once, after the persisted stage has loaded.
+  const launchFromHome = useEffectEvent(() => {
+    if (!store || !loaded || launchedFromHome.current) return;
+    const intent = new URLSearchParams(location.hash.split("?")[1]);
+    if (intent.get("start") !== "1") return;
+    launchedFromHome.current = true;
+    if (locked) return;
+    if (stage === "learn") {
+      setMode("learn");
+      setShapes([]);
+    } else {
+      const groupScope = intent.get("scope") === "group";
+      void startDrill(stage === "practice" || (!groupScope && !lineDueCount), !groupScope);
+    }
+  });
+  useEffect(() => {
+    if (!loaded || !store) return;
+    const timer = window.setTimeout(() => launchFromHome(), 0);
+    return () => window.clearTimeout(timer);
+  }, [store, loaded]);
   async function saveAttempt(from: string, to: string) {
     if (!session || !store || busy) return;
     const result = session.attempt(from + to);
@@ -450,10 +473,53 @@ export function Openings({
           <p>
             {openingGroups.find((g) => g.id === group)?.name} &middot;{" "}
             {side === "white" ? "White" : "Black"}
+            {mode !== "overview" && (
+              <> &middot; {mode === "learn" ? "Learn" : practicing ? "Practice" : "Drill"}</>
+            )}
           </p>
         </div>
         <span className="pill">{dueCount} cards due</span>
       </header>
+      <ol className="learning-stages" aria-label="Learning stages">
+        {([
+          ["learn", "Learn", "See the moves"],
+          ["practice", "Practice", "Recall the line"],
+          ["drill", "Drill", "Review due moves"],
+        ] as const).map(([id, title, description], index) => (
+          <li key={id} aria-current={stage === id ? "step" : undefined}>
+            <span className="stage-number">{index + 1}</span>
+            <span>{title}<small>{description}</small></span>
+          </li>
+        ))}
+      </ol>
+      {(mode === "overview" || session?.phase === "complete") && (
+        <section className="opening-next" aria-label="Next learning step">
+          <div>
+            <h2>{stage === "learn" ? "Learn this opening" : stage === "practice" ? "Practice the whole line" : "Review the due moves"}</h2>
+            <p>
+              {stage === "learn"
+                ? "See each move and its purpose. Complete the lesson to unlock Practice."
+                : stage === "practice"
+                  ? "Recall the whole line without hints. A clean run unlocks Drill."
+                  : lineDueCount
+                    ? "Recall the moves due in this line. Your reviews are saved as you go."
+                    : "Nothing due in this line. Practice it again, or return Home."}
+            </p>
+          </div>
+          <button
+            className="primary"
+            disabled={!store || !loaded || locked || cannotLeaveAttempt}
+            onClick={() => {
+              if (stage === "learn") {
+                setMode("learn");
+                setShapes([]);
+              } else void startDrill(stage === "practice" || !lineDueCount, true);
+            }}
+          >
+            {stage === "learn" ? "Start lesson" : stage === "practice" || !lineDueCount ? "Start practice" : "Review due moves"}
+          </button>
+        </section>
+      )}
       <TrainingOptions
         title="Training options"
         compactOpen={mode === "overview"}
@@ -593,19 +659,6 @@ export function Openings({
         </p>
         <div className="opening-tabs opening-action-buttons">
           <button
-            className="primary"
-            disabled={!store || locked || cannotLeaveAttempt || Boolean(safety)}
-            aria-label="Continue training"
-            onClick={() => {
-              if (stage === "learn") {
-                setMode("learn");
-                setShapes([]);
-              } else void startDrill(stage === "practice", true);
-            }}
-          >
-            Continue
-          </button>
-          <button
             disabled={!store || locked || cannotLeaveAttempt}
             onClick={() => {
               setMode("learn");
@@ -647,6 +700,34 @@ export function Openings({
             </button>
           )}
         </p>
+      )}
+      {mode === "learn" && (
+        <div className="lesson-toolbar" role="group" aria-label="Lesson navigation">
+          <div className="lesson-toolbar-actions">
+            <span className="lesson-position">Move {learnPly} / {line.moves.length}</span>
+            <button
+              aria-label="Previous opening move"
+              disabled={!learnPly}
+              onClick={() => navigateLearn(learnPly - 1)}
+            >Previous</button>
+            <button
+              className={learnPly < line.moves.length ? "primary" : undefined}
+              aria-label="Next opening move"
+              disabled={learnPly === line.moves.length}
+              onClick={() => navigateLearn(learnPly + 1)}
+            >Next move</button>
+            {learnPly === line.moves.length && (
+              <button
+                className="primary"
+                disabled={!store || busy}
+                onClick={() => void completeLearn()}
+              >Complete lesson</button>
+            )}
+          </div>
+          <p className="current-lesson-idea" aria-live="polite" aria-atomic="true">
+            {learnEdge?.comment ?? "Use Next move to see the move and its purpose."}
+          </p>
+        </div>
       )}
       {mode === "overview" ? (
         <section className="opening-intro">
@@ -709,7 +790,7 @@ export function Openings({
             aria-label="Opening lesson"
           >
             <div className="panel-heading">
-              <h2>{mode === "learn" ? "Learn the line" : "Recall the move"}</h2>
+              <h2>{mode === "learn" ? "Learn the line" : practicing ? "Practice the line" : "Review due moves"}</h2>
               <span className="pill">{game.turn.toUpperCase()} TO MOVE</span>
             </div>
             {safety && (
@@ -759,37 +840,11 @@ export function Openings({
                     ? `${Math.ceil(learnPly / 2)}${learnPly % 2 ? "." : "..."} ${learnGame.notation.at(-1)?.san}`
                     : "Start with the center"}
                 </h3>
-                <p className="lesson-idea">
-                  {learnEdge?.comment ??
-                    "Step through the moves and learn the purpose of each one."}
-                </p>
                 {Boolean(learnEdge?.ruleIds.length) && (
                   <p className="rule-tags">
                     Principles: {learnEdge?.ruleIds.join(", ")}
                   </p>
                 )}
-                <div className="history-controls">
-                  <button
-                    aria-label="Previous opening move"
-                    disabled={!learnPly}
-                    onClick={() => navigateLearn(learnPly - 1)}
-                  >
-                    ‹
-                  </button>
-                  <button
-                    aria-label="Next opening move"
-                    disabled={learnPly === line.moves.length}
-                    onClick={() => navigateLearn(learnPly + 1)}
-                  >
-                    ›
-                  </button>
-                </div>
-                <button
-                  disabled={!store || busy || learnPly !== line.moves.length}
-                  onClick={() => void completeLearn()}
-                >
-                  Complete lesson
-                </button>
                 <button onClick={() => navigateLearn(0)}>Restart lesson</button>
                 <ol className="opening-moves">
                   {line.moves.map((uci, i) => {
@@ -919,9 +974,16 @@ export function Openings({
                   {session.phase === "complete" && (
                     <p className="lesson-idea">
                       {session.cards.length
-                        ? "Your attempts are saved. A clean Practice run unlocks Drill."
+                        ? practicing
+                          ? stage === "drill"
+                            ? "Practice complete. This line is ready for spaced reviews."
+                            : "Your attempts are saved. Try a clean run to unlock Drill."
+                          : "Reviews saved. Return Home for your next exercise."
                         : "Nothing due right now. You can still practice the whole line."}
                     </p>
+                  )}
+                  {session.phase === "complete" && (
+                    <p><a href="#home">Back to your plan</a></p>
                   )}
                   <button
                     disabled={cannotLeaveAttempt}

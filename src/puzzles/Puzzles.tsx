@@ -181,9 +181,9 @@ function Exercise({
         </div>
         <div className="puzzle-content">
           <p role="status">{message}</p>
-          <InfoTip label="How to solve">
+          <p className="exercise-instruction">
             Calculate the full line before moving.
-          </InfoTip>
+          </p>
           {phase === "setup" && (
             <MiniBoard
               fen={game.fen}
@@ -215,6 +215,7 @@ function Exercise({
             <small>Hint used: failure for rating and spaced repetition</small>
           )}
           {saved && <small role="status">Attempt saved</small>}
+          {saved && finished && <a className="training-return" href="#home">Back to your plan</a>}
           {saveError && (
             <p role="alert">
               {saveError}{" "}

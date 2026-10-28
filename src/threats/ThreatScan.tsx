@@ -183,10 +183,10 @@ function Exercise({
             ? "Mark the opponent's new checks and captures, and your pieces that became hanging."
             : "Find every legal check and capture for White and Black, plus every hanging piece."}
         </p>
-        <InfoTip label="How to mark threats">
+        <p className="exercise-instruction">
           Right-drag checks and captures, then click hanging pieces to mark
           their squares.
-        </InfoTip>
+        </p>
         <InfoTip label="What counts as hanging?">
           A hanging piece can be captured without a legal recapture or by a
           lower-valued piece.
@@ -259,6 +259,7 @@ function Exercise({
             <button className="primary" disabled={!saved} onClick={onNext}>
               Next
             </button>
+            {saved && <a className="training-return" href="#home">Back to your plan</a>}
           </section>
         )}
         {error && (

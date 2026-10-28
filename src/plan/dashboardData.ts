@@ -121,6 +121,17 @@ export async function loadDashboard(
         preview: preview(nextLine),
         stage: lineStage(repertoire, nextLine.side, nextLine.id, log),
         href: `#openings?line=${encodeURIComponent(nextLine.id)}`,
+        notation: (() => {
+          const game = new Game(nextLine.startFen);
+          return nextLine.moves.slice(0, 6).map((move, index) => {
+            const prefix = game.turn === "white"
+              ? game.fen.split(" ")[5] + ". "
+              : index === 0 ? game.fen.split(" ")[5] + "... " : "";
+            const san = game.toSan(move);
+            game.play(move);
+            return prefix + san;
+          }).join(" ");
+        })(),
       }
     : null;
   const setLog = [...log]
@@ -233,7 +244,51 @@ export async function loadDashboard(
     ];
   });
   const required = scans.reduce((sum, s) => sum + s.required, 0);
+  const unfinished = sides.flatMap(({ side, cohort }) =>
+    cohort.active
+      .map(({ line }) => ({ ...line, side }))
+      .filter((line) => lineStage(repertoire, side, line.id, log) !== "drill"),
+  );
+  const lessonLine = nextLine && lineStage(repertoire, nextLine.side, nextLine.id, log) !== "drill"
+    ? nextLine
+    : unfinished.find((line) => line.group === (settings.startingOpening ?? nextLine?.group))
+      ?? unfinished.find((line) => line.group === nextLine?.group)
+      ?? unfinished[0];
+  const lessonStage = lessonLine
+    ? lineStage(repertoire, lessonLine.side, lessonLine.id, log)
+    : undefined;
+  const nextStep = openingSteps[0]
+    ? {
+        title: "Review your openings",
+        instruction: "Recall due moves first. Your other openings stay ready.",
+        action: "Review due moves",
+        href: openingSteps[0].href + "&start=1&scope=group",
+      }
+    : lessonLine && lessonStage !== "drill"
+      ? {
+          title: `${lessonStage === "learn" ? "Learn" : "Practice"} ${({
+            italian: "the Italian",
+            london: "the London",
+            caro: "the Caro-Kann",
+            qgd: "the Queen's Gambit Declined",
+            sidelines: "an opening sideline",
+          } as Record<string, string>)[lessonLine.group] ?? "this line"}`,
+          instruction: lessonStage === "learn"
+            ? "Watch the moves and understand the idea. Then recall the line."
+            : "Recall the line without hints. A clean run unlocks Drill.",
+          action: lessonStage === "learn" ? "Start lesson" : "Start practice",
+          href: `#openings?line=${encodeURIComponent(lessonLine.id)}&start=1`,
+        }
+      : {
+          title: mistakeDue.length ? "Revisit a missed move" : "Find the best move",
+          instruction: mistakeDue.length
+            ? "Retry a position from your games."
+            : "Calculate a position before moving. Use Hint if you get stuck.",
+          action: mistakeDue.length ? "Review mistakes" : "Solve a puzzle",
+          href: session.find((step) => step.id === "tactics")?.href ?? "#puzzles",
+        };
   return {
+    nextStep,
     days: Array.from({ length: 7 }, (_, i) => {
       const date = new Date(dayStart(now));
       date.setDate(date.getDate() - 6 + i);

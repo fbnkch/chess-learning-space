@@ -1,0 +1,325 @@
+/* A chess club, with one clear invitation to the board. */
+:root {
+  --font-display: "IBM Plex Serif", Georgia, serif;
+}
+h1 {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  line-height: 1.15;
+  font-weight: 400;
+  letter-spacing: -0.04em;
+}
+.dashboard h1 {
+  font-size: clamp(2rem, 3.4vw, 3rem);
+  line-height: 1.15;
+  letter-spacing: -0.04em;
+}
+button,
+.primary,
+.sidebar nav a {
+  font-weight: 500;
+}
+.sidebar .brand {
+  padding-bottom: 24px;
+  gap: 12px;
+}
+.sidebar .brand > .icon {
+  width: 32px;
+  height: 38px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+}
+.sidebar .brand > div {
+  font-family: var(--font-display);
+  font-size: 1.875rem;
+  font-weight: 400;
+  letter-spacing: -0.04em;
+}
+.sidebar .brand div span {
+  font-family: "IBM Plex Sans", system-ui, sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.02em;
+  font-weight: 400;
+}
+.sidebar .nav-label {
+  margin: 20px 0 4px;
+  padding: 0 12px;
+  color: var(--text-subtle);
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+}
+.sidebar nav a {
+  padding: 10px 12px;
+  font-size: 0.9375rem;
+  font-weight: 500;
+}
+.sidebar nav a.nav-active {
+  background: var(--selected-surface);
+  border-color: transparent;
+}
+.compact-tabs .icon {
+  width: 21px;
+  height: 21px;
+}
+.compact-tabs a {
+  font-weight: 500;
+}
+.dashboard .dashboard-columns {
+  gap: 56px;
+}
+.dashboard .recommended-step {
+  margin: 0 0 28px;
+}
+.study-kicker {
+  display: block;
+  font-size: 0.75rem;
+  line-height: 1.5;
+  letter-spacing: 0.06em;
+  color: var(--text-subtle);
+  margin-bottom: 12px;
+}
+.dashboard .recommended-step h2,
+.opening-next h2 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: -0.035em;
+}
+.dashboard .recommended-step h2 {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  line-height: 1.15;
+  margin-bottom: 16px;
+  max-width: 18ch;
+}
+.recommended-step p {
+  max-width: 40ch;
+  margin-bottom: 24px;
+  font-size: 0.9375rem;
+  line-height: 1.65;
+}
+.dashboard a.session-start {
+  width: fit-content;
+  min-width: 180px;
+  gap: 24px;
+  padding: 12px 20px;
+}
+.dashboard .other-practice-heading {
+  font-size: 0.8125rem;
+  font-weight: 400;
+  color: var(--text-subtle);
+  margin: 24px 0 4px;
+}
+.dashboard .session-list li a {
+  padding: 14px 0;
+  min-height: 76px;
+}
+.dashboard .session-list li a::before {
+  content: none;
+}
+.dashboard .session-list .mini-board {
+  width: 40px;
+  height: 40px;
+  border-radius: 2px;
+}
+.dashboard .study-position {
+  border: 0;
+  border-left: 1px solid var(--border);
+  border-radius: 0;
+  background: transparent;
+  padding: 24px 0 0 32px;
+}
+.dashboard .study-board {
+  border: 0;
+  padding: 0;
+  background: transparent;
+}
+.dashboard .study-caption {
+  font-size: 1rem;
+  font-weight: 500;
+}
+.score-strip {
+  display: block;
+  width: 100%;
+  padding-top: 14px;
+  color: var(--text-subtle);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  line-height: 1.75;
+}
+.dashboard .welcome {
+  border: 0;
+  border-bottom: 1px solid var(--border);
+  border-radius: 0;
+  padding: 0 0 24px;
+  background: transparent;
+}
+.first-lesson-note {
+  margin-bottom: 24px;
+}
+.learning-stages {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  padding: 0 0 20px;
+  margin: 0 0 24px;
+  border-bottom: 1px solid var(--border);
+  max-width: 720px;
+}
+.learning-stages li {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  color: var(--text-subtle);
+  font-size: 0.875rem;
+}
+.learning-stages .stage-number {
+  display: grid;
+  place-items: center;
+  flex: 0 0 28px;
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+}
+.learning-stages [aria-current] {
+  color: var(--text);
+}
+.learning-stages [aria-current] .stage-number {
+  background: var(--accent);
+  color: var(--on-accent);
+  border-color: var(--accent);
+}
+.learning-stages small {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--text-subtle);
+  margin-top: 3px;
+}
+.opening-next {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  max-width: 960px;
+  margin-bottom: 28px;
+  padding: 0 0 24px;
+  border-bottom: 1px solid var(--border);
+}
+.opening-next h2 {
+  font-size: 1.75rem;
+  line-height: 1.25;
+  margin-bottom: 8px;
+}
+.opening-next p {
+  max-width: 50ch;
+  color: var(--text-muted);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+}
+.opening-next > button {
+  flex: 0 0 auto;
+  width: auto;
+  min-height: 44px;
+  padding: 10px 20px;
+}
+.opening-action-buttons button {
+  font-size: 0.8125rem;
+}
+.lesson-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  max-width: 1080px;
+  padding: 12px 0;
+  margin-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+}
+.lesson-toolbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.lesson-position {
+  margin-right: auto;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-subtle);
+}
+.lesson-toolbar button {
+  min-height: 44px;
+  width: auto;
+  font-size: 0.875rem;
+}
+.current-lesson-idea {
+  margin-top: 12px;
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: var(--text-muted);
+  max-width: 75ch;
+}
+.exercise-instruction {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+.training-return {
+  margin-block: 12px;
+}
+@media (max-width: 1100px) {
+  .dashboard .dashboard-columns {
+    gap: 28px;
+  }
+  .dashboard .study-position {
+    padding-left: 24px;
+  }
+}
+@media (max-width: 600px) {
+  .lesson-toolbar {
+    position: static;
+  }
+  h1 {
+    font-size: 2rem;
+  }
+  .dashboard .dashboard-columns {
+    gap: 16px;
+  }
+  .dashboard .study-position {
+    border-left: 0;
+    border-top: 1px solid var(--border);
+    padding: 24px 0 0;
+  }
+  .dashboard .recommended-step h2 {
+    font-size: 2rem;
+    max-width: 18ch;
+  }
+  .opening-next {
+    display: block;
+  }
+  .opening-next > button {
+    margin-top: 16px;
+    width: 100%;
+  }
+  .learning-stages {
+    gap: 8px;
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+  }
+  .learning-stages li {
+    gap: 6px;
+    font-size: 0.8125rem;
+  }
+  .learning-stages small {
+    display: none;
+  }
+  .learning-stages .stage-number {
+    width: 24px;
+    height: 24px;
+    flex-basis: 24px;
+  }
+}

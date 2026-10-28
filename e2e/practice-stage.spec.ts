@@ -26,14 +26,14 @@ test("Learn then mistaken Practice then clean Practice unlocks Drill, reload and
   await expect(
     page.getByRole("button", { name: "Practice whole line" }),
   ).toBeDisabled();
-  await page.getByRole("button", { name: "Continue training" }).click();
+  await page.getByRole("button", { name: /^(Start lesson|Start practice|Review due moves)$/ }).click();
   for (let ply = 0; ply < 15; ply++)
     await page.getByRole("button", { name: "Next opening move" }).click();
   await page.getByRole("button", { name: "Complete lesson" }).click();
   await expect(page.getByLabel("Line stage")).toContainText("Practice");
   await page.reload();
   await expect(page.getByLabel("Line stage")).toContainText("Practice");
-  await page.getByRole("button", { name: "Continue training" }).click();
+  await page.getByRole("button", { name: /^(Start lesson|Start practice|Review due moves)$/ }).click();
   await expect(
     page.getByRole("button", { name: "Hint 1 / 2", exact: true }),
   ).toHaveCount(0);
@@ -53,7 +53,7 @@ test("Learn then mistaken Practice then clean Practice unlocks Drill, reload and
   await expect(page.getByRole("status")).toHaveText("Session complete");
   await expect(page.getByLabel("Line stage")).toContainText("Practice");
   await expect(page.getByText("0 cards due", { exact: true })).toBeVisible();
-  await page.getByRole("button", { name: "Continue training" }).click();
+  await page.getByRole("button", { name: /^(Start lesson|Start practice|Review due moves)$/ }).click();
   for (const move of moves) {
     await expect(page.getByRole("status")).toHaveText("Your move - White");
     await openingMove(page, move);
@@ -108,7 +108,7 @@ test("Learn then mistaken Practice then clean Practice unlocks Drill, reload and
   await page.getByRole("button", { name: "Close settings" }).click();
   await expect(page.getByLabel("Line stage")).toContainText("Drill");
   await expect(page.getByText("8 cards due", { exact: true })).toBeVisible();
-  await page.getByRole("button", { name: "Continue training" }).click();
+  await page.getByRole("button", { name: /^(Start lesson|Start practice|Review due moves)$/ }).click();
   await expect(
     page.getByRole("button", { name: "Hint 1 / 2", exact: true }),
   ).toBeVisible();
